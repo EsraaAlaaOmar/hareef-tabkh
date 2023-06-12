@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-const Links = ['Dashboard', 'Projects', 'Team'];
+const Links = ['الرئيسية', 'فيديوهات المواهب', 'اخبار الفنانين', ' فيديوهات المواهب العالمية','فديوهاتي','اللغة'];
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
@@ -28,7 +28,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
     rounded={'md'}
     _hover={{
       textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
+      bg: '#ff7900',
     }}
     href={'#'}>
     {children}
@@ -52,13 +52,13 @@ export default function Simple() {
                       color={'#fff'}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+            <Box color={'#fff'}>لو موهوب</Box>
             <HStack
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink  key={link}>{link}</NavLink>
               ))}
             </HStack>
           </HStack>
@@ -70,7 +70,11 @@ export default function Simple() {
                 variant={'link'}
                 cursor={'pointer'}
                 minW={0}
-                              bgColor={'#000'}
+                bgColor={'#000'}
+                _hover={{
+           
+                  bg: '#ff7900'
+                }}
                               
                           >
                 <Image  size={'sm'}  width={'10'}  height={'10'}
@@ -85,10 +89,10 @@ export default function Simple() {
         </Flex>
 
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
+          <Box pb={4} display={{ md: 'none' }} >
+            <Stack as={'nav'} spacing={4} color={'#fff'}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink  key={link} >{link}</NavLink>
               ))}
             </Stack>
           </Box>
