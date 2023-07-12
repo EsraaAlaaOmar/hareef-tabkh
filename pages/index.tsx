@@ -5,6 +5,7 @@ import VidiohatElmoaheb from '../components/landingPage/VidiohatElmoaheb'
 import VidiohatMoreViews from '../components/landingPage/VidiohatMoreViews'
 import Ahdth from '../components/landingPage/Ahdth'
 import NewestNews from '../components/landingPage/NewestNews'
+import Footer from '../components/reusable/Footer'
 const index = () => {
   return (
       <>
@@ -14,8 +15,10 @@ const index = () => {
       <VidiohatElmoaheb />
       <NewestNews />
        <VidiohatMoreViews />
-       <Ahdth />
+        <Ahdth />
+      
       </div>
+      <Footer />
       
     
       </>
