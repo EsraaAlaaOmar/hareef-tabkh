@@ -1,4 +1,4 @@
-body{
+.container{
     max-width: 507px;
     margin: auto;
     direction: rtl;
@@ -10,3 +10,47 @@ body{
     text-decoration: none;
     padding :0 2px;
 }
+.upload{
+    width: 90%;
+    margin:5px auto;
+    text-align: center;
+    padding:15px;
+    background-color: #fe7701;
+    color: #fff;
+}
+.landing-news-container{
+ overflow: auto;
+ white-space: nowrap;
+ direction: rtl;
+ float: right;
+    .news-item{
+        display: inline-block;
+        width:calc( 100% / 3);
+        position: relative;
+        text-align: center;
+        position: relative;
+       
+      .overlayer{
+        background-color: #0000008c;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      text{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 100%;
+        height: auto;
+        padding:2px;
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+   
+}
+.landing-news-container::-webkit-scrollbar {
+    display: none;
+  }

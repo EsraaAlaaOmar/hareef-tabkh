@@ -4,13 +4,20 @@ import Video from '../components/reusable/Video'
 import VidiohatElmoaheb from '../components/landingPage/VidiohatElmoaheb'
 import VidiohatMoreViews from '../components/landingPage/VidiohatMoreViews'
 import Ahdth from '../components/landingPage/Ahdth'
+import NewestNews from '../components/landingPage/NewestNews'
 const index = () => {
   return (
       <>
+      
+      <div className='container'>
       <Navbar />
-       <VidiohatElmoaheb />
+      <VidiohatElmoaheb />
+      <NewestNews />
        <VidiohatMoreViews />
        <Ahdth />
+      </div>
+      
+    
       </>
   )
 }
