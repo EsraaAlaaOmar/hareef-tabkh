@@ -17,7 +17,7 @@ const VidiohatMoreViews = () => {
         <GridItem p="5px">  <Video /></GridItem>
         <GridItem  p="5px">  <Video /></GridItem>
     </Grid>
-    <Link href='/' >
+    <Link href='/upload' >
           <div className="upload">تحميل</div>
         </Link>
 </Box>
