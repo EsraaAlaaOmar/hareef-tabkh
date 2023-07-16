@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link'
 const Upload = () => {
     
 function video  (){
@@ -24,12 +24,13 @@ function video  (){
      <div>
            <div className="upload-video">
   
-        
-      <button className="link-button">
-        <a href="myvideos.html" className="video-link">
-          فديوهاتي         
-        </a>
-    </button>
+      <Link href="/myvideos">
+          <button className="link-button video-link">
+      
+              فديوهاتي         
+       
+          </button>
+      </Link> 
               <input id='video_input' type="file" accept="video/*" onChange={()=>video()} />
     <button id="choose-to-upload" className="video-upload-button" onClick={()=>buttonClick()}>اختر فديو لتشارك به</button> 
     <div id="uploaded-data">
@@ -43,7 +44,7 @@ function video  (){
        Your browser does not support the video tag.
     </video>
 <div className="actions">
-                      <button className="video-action-upload-button" onclick={()=>publish()}> نشر الفديو  </button> 
+                      <button className="video-action-upload-button" onClick={()=>publish()}> نشر الفديو  </button> 
     <button className="video-action-upload-button video-upload-delete"> حذف الفديو</button>
 </div>
 <div id="upload-msg">

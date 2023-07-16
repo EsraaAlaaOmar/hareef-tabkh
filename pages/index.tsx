@@ -9,9 +9,9 @@ import Footer from '../components/reusable/Footer'
 const index = () => {
   return (
       <>
-      
+        <Navbar />
       <div className='container'>
-      <Navbar />
+    
       <VidiohatElmoaheb />
       <NewestNews />
        <VidiohatMoreViews />

@@ -4,7 +4,7 @@ const Myvideos = () => {
   return (
       <div>
           <div className="upload-video">
-    <p className="upload-hadith">قال رسول الله صلي اله عليه وسلم : ( يقال لقارئ القرآن : اقرأ ورتل وارتق كما كنت ترتل في الدنيا فإن منزلتك عند آخر آية كنت تقرؤها ) </p>
+    <p className="upload-qoute">قال رسول الله صلي اله عليه وسلم : ( يقال لقارئ القرآن : اقرأ ورتل وارتق كما كنت ترتل في الدنيا فإن منزلتك عند آخر آية كنت تقرؤها ) </p>
         <button className="link-button">
             <a href="upload.html" className="video-link">
              إضافة فديو    
