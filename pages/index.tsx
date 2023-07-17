@@ -6,14 +6,15 @@ import VidiohatMoreViews from '../components/landingPage/VidiohatMoreViews'
 import Ahdth from '../components/landingPage/Ahdth'
 import NewestNews from '../components/landingPage/NewestNews'
 import Footer from '../components/reusable/Footer'
+import Carousel from '../components/reusable/carousel'
 const index = () => {
   return (
       <>
         <Navbar />
       <div className='container'>
-    
+      <Carousel />
       <VidiohatElmoaheb />
-      <NewestNews />
+      {/* <NewestNews /> */}
        <VidiohatMoreViews />
         <Ahdth />
       
