@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link'
+import { useRouter } from 'next/router';
 import {
   Box,
   IconButton,
@@ -44,23 +46,28 @@ export default function CaptionCarousel() {
       text:
         'حصدت النجمة هالة صدقى "افضل ممثلة في الوطن العربى" من مهرجان الأفضل الذى يقام في لبنان من كل عام، وأعربت هالة عن سعادتها بحصولها على الجائزة والاهتمام التي تحظى به من قبيل أغلب المهرجانات في العالم العربى',
       image:
-        'https://img.youm7.com/large/20230206120839839.jpg',
+        '',
     },
     {
       title: 'بيت الروبى يضيف مليونا و332 ألف ',
       text:
        'حافظ فيلم "بيت الروبى" للنجم كريم عبد العزيز على تصدره قائمة الإيرادات اليومية، حيث حصد أمس الخميس إيرادات بلغت مليونا و332 ألفا جنيها ، فى دور العرض السينمائية المختلفة، ليصل إجمالي ما حققه الفيلم خلال الفترة الماضية 97 مليونا .',
       image:
-        'https://img.youm7.com/large/20230628123402342.jpg',
+        '',
     },
     {
       title: 'محمد عبد الرحمن "توتا" يقدم شخصية سوكا أبو حديدة إمبراطور التزوير في البعبع',
       text:
         'مازال الفنان محمد عبد الرحمن توتا، يحصد النجاحات في دور العرض السينمائى، حيث يشارك في فيلمين أولهما فيلم "البعبع" مع النجم أمير كرارة، والذى يعرض في جميع السينمات المصرية والعربية، محققاً أكثر من 30 مليون جنيه منذ انطلاق عرضه في السينمات، وحصد توتا على إشادات واسعة من قبل الجمهور ورواد الفيلم والنقاد على دوره في العمل، الذى يقدم من خلاله شضخصية سوكا أبو حديدة "إمبراطور التزوير" في الفيلم.',
       image:
-        'https://img.youm7.com/large/202208080147204720.jpg',
+        '',
     },
   ];
+
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/SingleNews');
+  };
 
   return (
     <Box
@@ -91,7 +98,7 @@ export default function CaptionCarousel() {
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
-        <BiLeftArrowAlt size="40px" />
+        {/* <BiLeftArrowAlt size="40px" /> */}
       </IconButton>
       {/* Right Icon */}
       <IconButton
@@ -103,7 +110,7 @@ export default function CaptionCarousel() {
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickNext()}>
-        <BiRightArrowAlt size="40px" />
+        {/* <BiRightArrowAlt size="40px" /> */}
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
@@ -115,9 +122,10 @@ export default function CaptionCarousel() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="contain"
-            backgroundImage={`url(${card.image})`}>
+            backgroundImage={`url(${card.image})`} >
             {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="600px" position="relative">
+  
               <Stack
                 spacing={6}
               //  w={'full'} 
@@ -131,11 +139,13 @@ export default function CaptionCarousel() {
                 ml="-4%"
                 p="5px"
                 transform="translate(0, -50%)">
-                
-                <Heading fontSize={"22px"} color={"#ff7900"}>
+                          <Link href='/' className="section-title">
+   اخر الاخبار
+    </Link>
+                <Heading fontSize={"22px"} color={"#ff7900"} >
                   {card.title}
                 </Heading>
-                <Text fontSize={"16px"} color="#fff" >
+                <Text fontSize={"16px"} color="#fff"  onClick={handleClick}>
                   {card.text}
                 </Text>
               </Stack>

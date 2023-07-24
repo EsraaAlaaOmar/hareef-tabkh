@@ -10,10 +10,12 @@ import Carousel from '../components/reusable/carousel'
 const index = () => {
   return (
       <>
-        <Navbar />
+      <Navbar />
+      
       <div className='container'>
-      <Carousel />
       <VidiohatElmoaheb />
+      <Carousel />
+      
       {/* <NewestNews /> */}
        <VidiohatMoreViews />
         <Ahdth />
