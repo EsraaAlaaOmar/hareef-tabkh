@@ -56,9 +56,7 @@ const Competition = () => {
   return (
     <>
       <div>
-        <div>
-          <h3 className="competition-name"> مسابقة  لو موهوب</h3>
-        </div>
+      
 
         <div className="upload-video">
           <p className="upload-qoute">

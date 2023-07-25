@@ -92,7 +92,7 @@ const Myvideos = () => {
     <div >
     
 </div>
-<Link href="/AllVideos">
+<Link href="/compeition">
 <button className="link-button">
    
      المسابقة    
