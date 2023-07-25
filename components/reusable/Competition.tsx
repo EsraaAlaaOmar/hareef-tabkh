@@ -2,36 +2,56 @@ import React from "react";
 import Link from 'next/link'
 const Competition = () => {
   function addVote(id:string) {
-    document.getElementById("vote-" + id).style.display = "none";
-    document.getElementById("remove-vote-" + id).style.display = "inline-block";
+    const vote_ = document.getElementById("vote-" + id)
+   if(vote_){vote_.style.display = "none";}
+   const removevote_ = document.getElementById("remove-vote-" + id);
+   if(removevote_){removevote_.style.display = "inline-block";}
   }
 
   function removeVote(id:string) {
-    document.getElementById("vote-" + id).style.display = "inline-block";
-    document.getElementById("remove-vote-" + id).style.display = "none";
+    const vote_ = document.getElementById("vote-" + id)
+   if(vote_){vote_.style.display ="inline-block";}
+   const removevote_ = document.getElementById("remove-vote-" + id);
+   if(removevote_){removevote_.style.display = "none";}
+
   }
 
   function playVideo(videosrc:string, describtion:string, votes:number) {
-    document.getElementById("player-box").style.display = "block";
-    document.getElementById("videoplayer").src  = videosrc;
-    document.getElementById("videoplayer-description").innerHTML = describtion;
-    document.getElementById("player-vote-number").innerHTML =
-      " عدد الاصوات" + " " + votes;
-    document.getElementById("videoplayer").play();
-    console.log(videosrc, describtion, votes)
+    const playerbox= document.getElementById("player-box")
+   if(playerbox){playerbox.style.display = "block";}
+
+   const videoplayer = document.getElementById("videoplayer")as HTMLImageElement | any
+   if(videoplayer){videoplayer.src=videosrc}
+
+   const videoplayer_description =  document.getElementById("videoplayer-description")
+   if(videoplayer_description){videoplayer_description.innerHTML = describtion;}
+  const player_vote_number =  document.getElementById("player-vote-number")
+  if(player_vote_number){player_vote_number.innerHTML =" عدد الاصوات" + " " + votes;}
+  if(videoplayer){videoplayer.play()}
+    
+ 
   }
 
   function closePlayer() {
-    document.getElementById("player-box").style.display = "none";
-    document.getElementById("videoplayer").pause();
+    const playerbox= document.getElementById("player-box")
+    if(playerbox){playerbox.style.display = "none";}
+    const videoplayer = document.getElementById("videoplayer")as HTMLImageElement | any
+    if(videoplayer){videoplayer.puse()}
+    
   }
   function addVoteFromPlayer() {
-    document.getElementById("player-remove-vote").style.display = "block";
-    document.getElementById("player-vote").style.display = "none";
+    const player_remove_vote =  document.getElementById("player-remove-vote")
+    if(player_remove_vote){player_remove_vote.style.display = "block";}
+  const player_vote = document.getElementById("player-vote");
+  if(player_vote){player_vote.style.display = "none"}
+   
   }
   function removeVoteFromPlayer() {
-    document.getElementById("player-remove-vote").style.display = "none";
-    document.getElementById("player-vote").style.display = "block";
+    const player_remove_vote =  document.getElementById("player-remove-vote")
+    if(player_remove_vote){player_remove_vote.style.display = "none";}
+  const player_vote = document.getElementById("player-vote");
+  if(player_vote){player_vote.style.display = "block"}
+
   }
   return (
     <>
@@ -57,7 +77,7 @@ const Competition = () => {
                 className="competetion-video"
                 width="320"
                 height="240"
-                controls="false"
+                // controls="false"
                 muted
                 onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
               >
@@ -135,7 +155,7 @@ const Competition = () => {
                 className="competetion-video"
                 width="320"
                 height="240"
-                controls="false"
+                // controls="false"
                 muted
                 onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
               >
