@@ -1,10 +1,10 @@
 import React from 'react'
-
+import Image from 'next/image'
 const Subscribe = () => {
   return (
       <div className='subscribe'>
-          <img className='logo' src='/images/logo.png' />    
-          <img className='subscribe-image' src='/images/subscribe.png' />
+          <Image alt='logo' className='logo' src='/images/logo.png' />    
+          <Image alt='subscribe' className='subscribe-image' src='/images/subscribe.png' />
           <div className='text'>
               <div className='title'>لو موهوب</div>
               <br/>

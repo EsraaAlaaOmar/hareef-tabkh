@@ -1,13 +1,13 @@
 import React from 'react'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
-
+import Image from 'next/image'
 const SingleNews = () => {
   return (
     <>
           <Navbar />
           <div className='single-news'>
-          <img className='newsimage' src='images/news1.jpg' />
+          <Image alt='news' className='newsimage' src='images/news1.jpg' />
           <div className='news-title'>فيلم Mission: Impossible 7 يحقق 273 مليون دولار حول العالم</div>
           <p>حقق فيلم الأكشن والحركة Mission: Impossible 7 للنجم العالمي توم كروز، إيرادات وصلت إلى 273 مليون و832 ألف دولار منذ طرحه يوم 12 يوليو الجارى.
  
