@@ -121,7 +121,7 @@ const Competition = () => {
                 <source src="/videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="video-describtion">اية الكرسي</div>
+              <div className="video-describtion">قصيدة اول فرصة</div>
               <div className="actions">
                 <button
                   id="vote-2"
@@ -200,7 +200,7 @@ const Competition = () => {
                 <source src="/videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="video-describtion">اية الكرسي</div>
+              <div className="video-describtion">قصيدة اول فرصة</div>
               <div className="actions">
                 <button
                   id="vote-2"
