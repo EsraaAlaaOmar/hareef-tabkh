@@ -3,22 +3,30 @@ import Link from 'next/link'
 const Upload = () => {
     
 function video  (){
-      var fileInput = document.getElementById('video_input');
-     var fileUrl = URL.createObjectURL(fileInput.files[0]);
-       document.querySelector("video").src = fileUrl;
-       document.getElementById('uploaded-data').style.display='block'
-       document.getElementById('choose-to-upload').style.display='none'
+      var fileInput = document.getElementById('video_input') as any;
+     var fileUrl = URL.createObjectURL(fileInput?.files[0]);
+     const videoselector = document.querySelector("video")
+     if(videoselector){videoselector.src = fileUrl}
+      const uploaded_data = document.getElementById('uploaded-data')
+      if(uploaded_data){uploaded_data.style.display='block'}
+      const choose_to_upload =   document.getElementById('choose-to-upload')
+      if(choose_to_upload){choose_to_upload.style.display='none'}
+      
     
     }
 
 
     function buttonClick(){
-      console.log('click')
-      document.getElementById('video_input').click()
+   
+      const video_input =   document.getElementById('video_input')
+      if(video_input){video_input.click()}
+    
     }
 
     function publish(){
-      document.getElementById('upload-msg').style.display='block'
+      const upload_msg = document.getElementById('upload-msg')
+      if(upload_msg){upload_msg.style.display='block'}
+      
     }
   return (
      <div>
