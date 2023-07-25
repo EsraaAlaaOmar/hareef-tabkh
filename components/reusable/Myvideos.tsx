@@ -1,15 +1,19 @@
 import React from 'react'
-
+import Link from 'next/link'
 const Myvideos = () => {
   return (
       <div>
           <div className="upload-video">
-    <p className="upload-qoute">قال رسول الله صلي اله عليه وسلم : ( يقال لقارئ القرآن : اقرأ ورتل وارتق كما كنت ترتل في الدنيا فإن منزلتك عند آخر آية كنت تقرؤها ) </p>
+    <p className="upload-qoute">
+                 عندك موهبة ونفسك تشاركها مع الناس؟
+                  <br />
+                !فرصتك جت! يلا شاركنا بموهبتك  
+     </p>
+     <Link href="/upload">
         <button className="link-button">
-            <a href="upload.html" className="video-link">
              إضافة فديو    
-            </a>
         </button>
+     </Link>
     
         
         <div className="row">
@@ -20,7 +24,7 @@ const Myvideos = () => {
          </div>
        
          
-        <video width="320" height="240" autoplay controls>
+        <video width="320" height="240" autoPlay controls>
           <source id='source' src="movie.mp4" type="video/mp4" />
       
            Your browser does not support the video tag.
@@ -28,7 +32,7 @@ const Myvideos = () => {
            
         </video>
         <div className="video-describtion">
-          ما تيسر من سورة البقرة
+          قصيدة أول فرصة
          </div>
     <div className="actions">
        
@@ -42,7 +46,7 @@ const Myvideos = () => {
          </div>
        
          
-        <video width="320" height="240" autoplay controls>
+        <video width="320" height="240" autoPlay controls>
           <source id='source' src="movie.mp4" type="video/mp4" />
       
            Your browser does not support the video tag.
@@ -50,7 +54,7 @@ const Myvideos = () => {
            
         </video>
         <div className="video-describtion">
-          ما تيسر من سورة البقرة
+          قصيدة أول فرصة
          </div>
     <div className="actions">
        
@@ -65,7 +69,7 @@ const Myvideos = () => {
          </div>
        
          
-        <video width="320" height="240" autoplay controls>
+        <video width="320" height="240" autoPlay controls>
           <source id='source' src="movie.mp4" type="video/mp4" />
       
            Your browser does not support the video tag.
@@ -73,7 +77,7 @@ const Myvideos = () => {
            
         </video>
         <div className="video-describtion">
-          ما تيسر من سورة البقرة
+          قصيدة أول فرصة
          </div>
     <div className="actions">
        
@@ -88,12 +92,13 @@ const Myvideos = () => {
     <div >
     
 </div>
-
+<Link href="/AllVideos">
 <button className="link-button">
-    <a href="competition.html" className="video-link">
+   
      المسابقة    
-    </a>
+    
 </button>
+</Link>
    </div>
     </div>
   )

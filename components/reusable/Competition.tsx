@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from 'next/link'
 const Competition = () => {
   function addVote(id) {
     document.getElementById("vote-" + id).style.display = "none";
@@ -13,11 +13,12 @@ const Competition = () => {
 
   function playVideo(videosrc, describtion, votes) {
     document.getElementById("player-box").style.display = "block";
-    document.getElementById("videoplayer").src = setAttribute = videosrc;
+    document.getElementById("videoplayer").src  = videosrc;
     document.getElementById("videoplayer-description").innerHTML = describtion;
     document.getElementById("player-vote-number").innerHTML =
       " عدد الاصوات" + " " + votes;
     document.getElementById("videoplayer").play();
+    console.log(videosrc, describtion, votes)
   }
 
   function closePlayer() {
@@ -41,10 +42,15 @@ const Competition = () => {
 
         <div className="upload-video">
           <p className="upload-qoute">
-            قال رسول الله صلي اله عليه وسلم : ( يقال لقارئ القرآن : اقرأ ورتل
-            وارتق كما كنت ترتل في الدنيا فإن منزلتك عند آخر آية كنت تقرؤها ){" "}
+            عندك موهبة ونفسك تشاركها مع الناس؟
+                  <br />
+                !فرصتك جت! يلا شاركنا بموهبتك  
           </p>
-
+          <div className='categories'>
+              <span className='category active first'>الاحدث </span>
+              <span className='category'>الاكثر تصويتا </span>
+              <span className='category last'>الاكثر مشاهدة </span>
+      </div>
           <div className="row">
             <div className="col-md-4">
               <video
@@ -53,19 +59,19 @@ const Competition = () => {
                 height="240"
                 controls="false"
                 muted
-                onClick={() => playVideo("mp4s/1.mp4", " اية الدين ", "19 ")}
+                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
               >
-                <source src="mp4s/1.mp4" type="video/mp4" />
+                <source src="videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="video-describtion">اية الدين</div>
+              <div className="video-describtion"> قصيدة اول فرصة</div>
               <div className="actions">
                 <button
                   id="vote-1"
                   className="like-video"
                   onClick={() => addVote(1)}
                 >
-                  🤍
+                 ♡
                   <br /> اضغط للتصويت{" "}
                 </button>
                 <button
@@ -77,7 +83,7 @@ const Competition = () => {
                 </button>
                 <button
                   className="like-video"
-                  onClick={() => playVideo("mp4s/1.mp4", " اية الدين ", "19 ")}
+                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
                 >
                   {" "}
                   ▶ <br />
@@ -92,9 +98,9 @@ const Competition = () => {
                 height="240"
                 controls="false"
                 muted
-                onClick={() => playVideo("mp4s/2.mp4", " اية الكرسي ", "28 ")}
+                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
               >
-                <source src="mp4s/2.mp4" type="video/mp4" />
+                <source src="/videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="video-describtion">اية الكرسي</div>
@@ -104,7 +110,7 @@ const Competition = () => {
                   className="like-video"
                   onClick={() => addVote(2)}
                 >
-                  🤍
+                 ♡
                   <br /> اضغط للتصويت{" "}
                 </button>
                 <button
@@ -116,7 +122,7 @@ const Competition = () => {
                 </button>
                 <button
                   className="like-video"
-                  onClick={() => playVideo("mp4s/2.mp4", " اية الكرسي ", "28 ")}
+                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
                 >
                   {" "}
                   ▶<br />
@@ -131,70 +137,31 @@ const Competition = () => {
                 height="240"
                 controls="false"
                 muted
-                onClick={() => playVideo("mp4s/1.mp4", " اية الدين ", "19 ")}
+                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
               >
-                <source src="mp4s/1.mp4" type="video/mp4" />
+                <source src="videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="video-describtion">اية الدين</div>
+              <div className="video-describtion"> قصيدة اول فرصة</div>
               <div className="actions">
                 <button
-                  id="vote-3"
+                  id="vote-1"
                   className="like-video"
-                  onClick={() => addVote(3)}
+                  onClick={() => addVote(1)}
                 >
-                  🤍
+                 ♡
                   <br /> اضغط للتصويت{" "}
                 </button>
                 <button
-                  id="remove-vote-3"
+                  id="remove-vote-1"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(3)}
+                  onClick={() => removeVote(1)}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() => playVideo("mp4s/1.mp4", " اية الدين ", "19 ")}
-                >
-                  {" "}
-                  ▶ <br />
-                  مشاهدة
-                </button>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <video
-                className="competetion-video"
-                width="320"
-                height="240"
-                controls="false"
-                muted
-                onClick={() => playVideo("mp4s/2.mp4", " اية الكرسي ", "28 ")}
-              >
-                <source src="mp4s/2.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-describtion">اية الكرسي</div>
-              <div className="actions">
-                <button
-                  id="vote-4"
-                  className="like-video"
-                  onClick={() => addVote(4)}
-                >
-                  🤍
-                  <br /> اضغط للتصويت{" "}
-                </button>
-                <button
-                  id="remove-vote-4"
-                  className="like-video remove-vote"
-                  onClick={() => removeVote(4)}
-                >
-                  ❤️ <br /> إلغاء التصويت{" "}
-                </button>
-                <button
-                  className="like-video"
-                  onClick={() => playVideo("mp4s/2.mp4", " اية الكرسي ", "28 ")}
+                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
                 >
                   {" "}
                   ▶ <br />
@@ -210,34 +177,34 @@ const Competition = () => {
                 height="240"
                 controls="false"
                 muted
-                onClick={() => playVideo("mp4s/1.mp4", " اية الدين ", "19 ")}
+                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
               >
-                <source src="mp4s/1.mp4" type="video/mp4" />
+                <source src="/videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="video-describtion">اية الدين</div>
+              <div className="video-describtion">اية الكرسي</div>
               <div className="actions">
                 <button
-                  id="vote-5"
+                  id="vote-2"
                   className="like-video"
-                  onClick={() => addVote(5)}
+                  onClick={() => addVote(2)}
                 >
-                  🤍
+                 ♡
                   <br /> اضغط للتصويت{" "}
                 </button>
                 <button
-                  id="remove-vote-5"
+                  id="remove-vote-2"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(5)}
+                  onClick={() => removeVote(2)}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() => playVideo("mp4s/1.mp4", " اية الدين ", "19 ")}
+                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
                 >
                   {" "}
-                  ▶ <br />
+                  ▶<br />
                   مشاهدة
                 </button>
               </div>
@@ -249,31 +216,31 @@ const Competition = () => {
                 height="240"
                 controls="false"
                 muted
-                onClick={() => playVideo("mp4s/2.mp4", " اية الكرسي ", "28 ")}
+                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
               >
-                <source src="mp4s/2.mp4" type="video/mp4" />
+                <source src="videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="video-describtion">اية الكرسي</div>
+              <div className="video-describtion"> قصيدة اول فرصة</div>
               <div className="actions">
                 <button
-                  id="vote-6"
+                  id="vote-1"
                   className="like-video"
-                  onClick={() => addVote(6)}
+                  onClick={() => addVote(1)}
                 >
-                  🤍
+                 ♡
                   <br /> اضغط للتصويت{" "}
                 </button>
                 <button
-                  id="remove-vote-6"
+                  id="remove-vote-1"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(6)}
+                  onClick={() => removeVote(1)}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() => playVideo("mp4s/2.mp4", " اية الكرسي ", "28 ")}
+                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
                 >
                   {" "}
                   ▶ <br />
@@ -283,12 +250,13 @@ const Competition = () => {
             </div>
           </div>
           <div></div>
-
+          <Link href="/myvideos">
           <button className="link-button">
-            <a href="myvideos.html" className="video-link">
+           
               فديوهاتي
-            </a>
+          
           </button>
+          </Link>
         </div>
 
         <div id="player-box" className="videoplayer">
@@ -307,7 +275,7 @@ const Competition = () => {
               className="vote-onplayer"
               onClick={() => addVoteFromPlayer()}
             >
-              تصويت 🤍
+              تصويت♡
             </button>
             <button
               id="player-remove-vote"
