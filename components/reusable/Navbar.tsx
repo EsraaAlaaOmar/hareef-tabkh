@@ -74,8 +74,8 @@ export default function Simple() {
             <Box color={'#fff'}>لو موهوب</Box>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <span onClick={() => handleClick(link.link)}>
-                  <NavLink key={link.text} link={link.link}>
+                <span key={link.text} onClick={() => handleClick(link.link)}>
+                  <NavLink  link={link.link}>
                     {link.text}
                   </NavLink>
                 </span>
@@ -110,8 +110,8 @@ export default function Simple() {
           <Box pb={4} display={{ md: 'none' }} dir='rtl'>
             <Stack as={'nav'} spacing={4} color={'#fff'}>
               {Links.map((link) => (
-                <span onClick={() => handleClick(link.link)}>
-                  <NavLink key={link.text} link={link.link}>
+                <span key={link.text} onClick={() => handleClick(link.link)}>
+                  <NavLink  link={link.link}>
                     {link.text}
                   </NavLink>
                 </span>
