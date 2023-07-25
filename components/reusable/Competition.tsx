@@ -79,7 +79,7 @@ const Competition = () => {
                 height="240"
                 // controls="false"
                 muted
-                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
               >
                 <source src="videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -89,7 +89,7 @@ const Competition = () => {
                 <button
                   id="vote-1"
                   className="like-video"
-                  onClick={() => addVote(1)}
+                  onClick={() => addVote("1")}
                 >
                  ♡
                   <br /> اضغط للتصويت{" "}
@@ -97,13 +97,13 @@ const Competition = () => {
                 <button
                   id="remove-vote-1"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(1)}
+                  onClick={() => removeVote("1")}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
                 >
                   {" "}
                   ▶ <br />
@@ -116,9 +116,9 @@ const Competition = () => {
                 className="competetion-video"
                 width="320"
                 height="240"
-                controls="false"
+                // controls="false"
                 muted
-                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
               >
                 <source src="/videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -128,7 +128,7 @@ const Competition = () => {
                 <button
                   id="vote-2"
                   className="like-video"
-                  onClick={() => addVote(2)}
+                  onClick={() => addVote("2")}
                 >
                  ♡
                   <br /> اضغط للتصويت{" "}
@@ -136,13 +136,13 @@ const Competition = () => {
                 <button
                   id="remove-vote-2"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(2)}
+                  onClick={() => removeVote("2")}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
                 >
                   {" "}
                   ▶<br />
@@ -157,7 +157,7 @@ const Competition = () => {
                 height="240"
                 // controls="false"
                 muted
-                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
               >
                 <source src="videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -167,7 +167,7 @@ const Competition = () => {
                 <button
                   id="vote-1"
                   className="like-video"
-                  onClick={() => addVote(1)}
+                  onClick={() => addVote("1")}
                 >
                  ♡
                   <br /> اضغط للتصويت{" "}
@@ -175,13 +175,13 @@ const Competition = () => {
                 <button
                   id="remove-vote-1"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(1)}
+                  onClick={() => removeVote("1")}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
                 >
                   {" "}
                   ▶ <br />
@@ -195,9 +195,9 @@ const Competition = () => {
                 className="competetion-video"
                 width="320"
                 height="240"
-                controls="false"
+                // controls="false"
                 muted
-                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
               >
                 <source src="/videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -207,7 +207,7 @@ const Competition = () => {
                 <button
                   id="vote-2"
                   className="like-video"
-                  onClick={() => addVote(2)}
+                  onClick={() => addVote("2")}
                 >
                  ♡
                   <br /> اضغط للتصويت{" "}
@@ -215,13 +215,13 @@ const Competition = () => {
                 <button
                   id="remove-vote-2"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(2)}
+                  onClick={() => removeVote("2")}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
                 >
                   {" "}
                   ▶<br />
@@ -234,9 +234,9 @@ const Competition = () => {
                 className="competetion-video"
                 width="320"
                 height="240"
-                controls="false"
+                // controls="false"
                 muted
-                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
               >
                 <source src="videos/vid1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -246,7 +246,7 @@ const Competition = () => {
                 <button
                   id="vote-1"
                   className="like-video"
-                  onClick={() => addVote(1)}
+                  onClick={() => addVote("1")}
                 >
                  ♡
                   <br /> اضغط للتصويت{" "}
@@ -254,13 +254,13 @@ const Competition = () => {
                 <button
                   id="remove-vote-1"
                   className="like-video remove-vote"
-                  onClick={() => removeVote(1)}
+                  onClick={() => removeVote("1")}
                 >
                   ❤️ <br /> إلغاء التصويت{" "}
                 </button>
                 <button
                   className="like-video"
-                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", "28 ")}
+                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
                 >
                   {" "}
                   ▶ <br />
