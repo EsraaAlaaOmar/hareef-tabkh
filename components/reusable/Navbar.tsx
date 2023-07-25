@@ -95,7 +95,7 @@ export default function Simple() {
                 }}
               >
                 <Image
-                  size={'sm'}
+                
                   width={'10'}
                   height={'10'}
                   alt={'logo'}
