@@ -1,17 +1,17 @@
 import React from "react";
 import Link from 'next/link'
 const Competition = () => {
-  function addVote(id) {
+  function addVote(id:string) {
     document.getElementById("vote-" + id).style.display = "none";
     document.getElementById("remove-vote-" + id).style.display = "inline-block";
   }
 
-  function removeVote(id) {
+  function removeVote(id:string) {
     document.getElementById("vote-" + id).style.display = "inline-block";
     document.getElementById("remove-vote-" + id).style.display = "none";
   }
 
-  function playVideo(videosrc, describtion, votes) {
+  function playVideo(videosrc:string, describtion:string, votes:number) {
     document.getElementById("player-box").style.display = "block";
     document.getElementById("videoplayer").src  = videosrc;
     document.getElementById("videoplayer-description").innerHTML = describtion;
