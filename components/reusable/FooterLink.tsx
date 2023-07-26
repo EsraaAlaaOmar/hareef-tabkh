@@ -8,7 +8,7 @@ type FooterLinkProps = {
 
 const FooterLink: React.FC<FooterLinkProps> = ({ name, link }) => {
   return (
-    <Link href={`/${link}`}>
+    <Link href={`${link}`}>
        <div className='footer-link'>
           {name} <span className='left'> <FaLessThan /></span>
         </div>
