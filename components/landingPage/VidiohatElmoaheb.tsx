@@ -47,7 +47,7 @@ const VidiohatElmoaheb = () => {
   }, []);
  
   const renderedVideos = data?.map(video => {
-    <GridItem p="5px">  <Video videodetails={video} /></GridItem>
+    return<span key={video.VideoId}> <GridItem p="5px">  <Video videodetails={video} /></GridItem></span>
   })
   return (
     <>
