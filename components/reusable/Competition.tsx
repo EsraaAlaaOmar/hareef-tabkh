@@ -1,6 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from 'next/link'
+import VideoCompetition from "./VideoCompetition";
 const Competition = () => {
+
+  const [playvideo, setPlayVideo] = useState<boolean>(false);
+  const [videoDetails,setVideoDetails] = useState<[{}]>([{}])
+  const viewVideo=()=>{
+    setPlayVideo(true)
+  
+   }
+console.log(playvideo)
+  
   function addVote(id:string) {
     const vote_ = document.getElementById("vote-" + id)
    if(vote_){vote_.style.display = "none";}
@@ -69,7 +79,7 @@ const Competition = () => {
               <span className='category'>الاكثر تصويتا </span>
               <span className='category last'>الاكثر مشاهدة </span>
       </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col-md-4">
               <video
                 className="competetion-video"
@@ -266,7 +276,10 @@ const Competition = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
+          <div>
+            <VideoCompetition playVideoo={setPlayVideo} />            
+           </div>
           <div></div>
           <Link href="/myvideos">
           <button className="link-button">
@@ -277,8 +290,8 @@ const Competition = () => {
           </Link>
         </div>
 
-        <div id="player-box" className="videoplayer">
-          <div className="video-player-close" onClick={() => closePlayer()}>
+        {playvideo && <div id="player-box" className="videoplayer">
+          <div className="video-player-close" onClick={() => setPlayVideo(false)}>
             ⓧ
           </div>
           <video id="videoplayer" width="100%" height="240" controls>
@@ -307,7 +320,7 @@ const Competition = () => {
               عدد الاصوات 5
             </div>
           </div>
-        </div>
+        </div>}
       </div>
     </>
   );
