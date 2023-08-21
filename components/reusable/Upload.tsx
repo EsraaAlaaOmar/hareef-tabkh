@@ -1,27 +1,45 @@
 import React from 'react'
 import Link from 'next/link'
+const axios = require("axios");
 const Upload = () => {
+  
   const handleFileChange = async (event:any) => {
+    
+    console.log('submit')
     event.preventDefault(); 
     const selectedFile = document.getElementById('video_input')?.files[0];
   
     if (selectedFile) {
       const formData = new FormData();
-      formData.append("video", selectedFile);
+      formData.append("Title", "الام");
+      formData.append("Description", "Description");
+      formData.append("Msisdn", "Msisdn");
+      formData.append("formFile", selectedFile);
   
+      // try {
+      //   const response = await fetch("http://196.219.32.230:8088/LawMawhobApis/Talents/Addvideo", {
+      //     method: "POST",
+      //     body: formData,
+      //   });
+  
+      //   if (response.ok) {
+      //     // Handle successful upload
+      //   } else {
+      //     // Handle upload error
+      //   }
+      // } catch (error) {
+      //   // Handle network error
+      // }
       try {
-        const response = await fetch("http://196.219.32.230:8088/LawMawhobApis/Talents/Addvideo", {
-          method: "POST",
-          body: formData,
-        });
-  
-        if (response.ok) {
+        const response = await axios.post("http://196.219.32.230:8088/LawMawhobApis/Talents/Addvideo", formData);
+      
+        if (response.status === 200) {
           // Handle successful upload
         } else {
           // Handle upload error
         }
       } catch (error) {
-        // Handle network error
+        // Handle network error or any other error
       }
     }
     const upload_msg = document.getElementById('upload-msg')
