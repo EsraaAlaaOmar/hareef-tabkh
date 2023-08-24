@@ -1,5 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import Link from 'next/link'
+import { useQuery } from 'react-query';
 import MySingleVideo from './MySingleVideo';
 const axios = require("axios");
 
@@ -20,7 +21,7 @@ interface VideoData {
   Votes:[]
 }
 const Myvideos = () => {
-  const [data, setData] = useState<VideoData[] | null>(null);
+  // const [data, setData] = useState<VideoData[] | null>(null);
 
   const fetchData = async () => {
     
@@ -28,12 +29,16 @@ const Myvideos = () => {
   
     try {
         const Msisdn ="Msisdn"
-        const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${Msisdn}`);
+        const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${Msisdn}`,{},{ headers: {
+          "Api_Key": "elinxfthr62023",
+          'content-type': 'text/json'
+        }});
       
         if (response.status === 200) {
           // Handle successful upload
           console.log(response)
-          setData(response)
+          return response
+          // setData(response)
         } else {
           // Handle upload error
         }
@@ -42,12 +47,9 @@ const Myvideos = () => {
       }
 
   };
-  
-  useEffect(() => {
-    fetchData();
-
-    
-  }, []);
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery("videos", fetchData)
+  console.log(data?.data)
+  const renderedVideos =data.map(video: {})=><MySingleVideo videoDetails={video} />
   return (
       <div>
           <div className="upload-video">
@@ -64,7 +66,7 @@ const Myvideos = () => {
     
         
         <div className="row">
-          <MySingleVideo />
+        {renderedVideos}
       <div className="col-md-4">
         <div className="upload-msg text-warning">
           هذا الفديو قيد المراجعة
