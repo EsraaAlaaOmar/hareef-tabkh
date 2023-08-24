@@ -7,7 +7,8 @@ const Upload = () => {
       Title: '',
       Description: '',
       Msisdn: 'Msisdn',
-      formFile:''
+      formFile: '',
+      
     }
   )
   // important
@@ -22,7 +23,7 @@ const Upload = () => {
       // Set the formFile property to the selected file
       
       setFormData({ ...formData, formFile: e.target.files[0] });
-      console
+      console.log(e.target.files[0])
     } else {
       // For other input fields (e.g., Title, Description, Msisdn), update accordingly
       setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,11 +36,11 @@ const Upload = () => {
     event.preventDefault(); 
 
   
-      // const formData = new FormData();
-      // formData.append("Title", "الام");
-      // formData.append("Description", "Description");
-      // formData.append("Msisdn", "Msisdn");
-      // formData.append("formFile", selectedFile);
+      const reqdata = new FormData();
+      reqdata.append("Title", formData.Title);
+      reqdata.append("Description", formData.Description);
+      reqdata.append("Msisdn", formData.Msisdn);
+      reqdata.append("formFile", formData.formFile);
   
       // try {
       //   const response = await fetch("http://196.219.32.230:8088/LawMawhobApis/Talents/Addvideo", {
@@ -56,9 +57,9 @@ const Upload = () => {
       //   // Handle network error
       // }
      
-   
+  console.log(formData)
       try {
-        const response = await axios.post("http://196.219.32.230:8088/LawMawhobApis/Talents/Addvideo", formData);
+        const response = await axios.post("http://196.219.32.230:8088/LawMawhobApis/Talents/Addvideo", reqdata);
       
         if (response.status === 200) {
           // Handle successful upload
@@ -68,11 +69,11 @@ const Upload = () => {
       } catch (error) {
         // Handle network error or any other error
       }
-      console.log(formData)
+     
     }
  
   
-  function video(e) {
+  function video(e:any) {
     
       var fileInput = document.getElementById('video_input') as any;
      var fileUrl = URL.createObjectURL(fileInput?.files[0]);
