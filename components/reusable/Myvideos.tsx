@@ -47,7 +47,7 @@ const Myvideos = () => {
   console.log(data)
   
   const renderedVideos =
- ( data?.length == 0)?<>ليس لديك اي فديوهات </>
+ ( data?.length === 0)?<>ليس لديك اي فديوهات </>
    :
   data?.map((video:{})=><MySingleVideo videoDetails={video} />)
   return (
