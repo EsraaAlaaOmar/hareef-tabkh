@@ -3,7 +3,7 @@ interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
   // title: string;
-  // url: string;
+  // Url: string;
   // Add other properties as needed
   DateIn: Date;
   Deleted: Boolean;
@@ -25,15 +25,15 @@ const MySingleVideo: React.FC<MySingleVideoProps> = ({ videoDetails }) =>{
 console.log(videoDetails)
   return (
     <div className="col-md-4">
-        <div className="upload-msg text-warning">
-          هذا الفديو قيد المراجعة
+          <div className="upload-msg text-success">
+          تم نشر هذا الفديو 
          
          </div>
        
          
-        <video width="320" height="240" autoPlay controls>
-          <source id='source' src={videoDetails?.url} type="video/mp4" />
-      
+        <video width="320" height="240" src={videoDetails?.Url} autoPlay controls>
+          <source id='source' src={videoDetails?.Url} type="video/mp4" />
+      {videoDetails?.Url}
            Your browser does not support the video tag.
 
            

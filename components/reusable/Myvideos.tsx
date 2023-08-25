@@ -2,14 +2,10 @@ import React, {useEffect,useState} from 'react'
 import Link from 'next/link'
 import { useQuery } from 'react-query';
 import MySingleVideo from './MySingleVideo';
+import Loader from './Loader';
 const axios = require("axios");
 
 interface VideoData {
-  // Define the properties of the video data you are expecting
-  // id: number;
-  // title: string;
-  // url: string;
-  // Add other properties as needed
   DateIn: Date;
   Deleted: Boolean;
   Description: string;
@@ -37,7 +33,7 @@ const Myvideos = () => {
         if (response.status === 200) {
           // Handle successful upload
           console.log(response)
-          return response
+          return response.data
           // setData(response)
         } else {
           // Handle upload error
@@ -48,8 +44,12 @@ const Myvideos = () => {
 
   };
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery("videos", fetchData)
-  console.log(data?.data)
-  const renderedVideos =data.map(video: {})=><MySingleVideo videoDetails={video} />
+  console.log(data)
+  
+  const renderedVideos =
+ ( data?.length == 0)?<>ليس لديك اي فديوهات </>
+   :
+  data?.map((video:{})=><MySingleVideo videoDetails={video} />)
   return (
       <div>
           <div className="upload-video">
@@ -66,74 +66,8 @@ const Myvideos = () => {
     
         
         <div className="row">
-        {renderedVideos}
-      <div className="col-md-4">
-        <div className="upload-msg text-warning">
-          هذا الفديو قيد المراجعة
-         
-         </div>
-       
-         
-        <video width="320" height="240" autoPlay controls>
-          <source id='source' src="movie.mp4" type="video/mp4" />
-      
-           Your browser does not support the video tag.
-
-           
-        </video>
-        <div className="video-describtion">
-          قصيدة أول فرصة
-         </div>
-    <div className="actions">
-       
-        <button className="video-action-upload-button video-upload-delete"> حذف الفديو</button>
-    </div>
-      </div>
-      <div className="col-md-4">
-        <div className="upload-msg text-success">
-          تم نشر هذا الفديو 
-         
-         </div>
-       
-         
-        <video width="320" height="240" autoPlay controls>
-          <source id='source' src="movie.mp4" type="video/mp4" />
-      
-           Your browser does not support the video tag.
-
-           
-        </video>
-        <div className="video-describtion">
-          قصيدة أول فرصة
-         </div>
-    <div className="actions">
-       
-        <button className="video-action-upload-button video-upload-delete"> حذف الفديو</button>
-    </div>
-      </div>
-
-      <div className="col-md-4">
-        <div className="upload-msg text-danger">
-          تم رفض  هذا الفديو 
-         
-         </div>
-       
-         
-        <video width="320" height="240" autoPlay controls>
-          <source id='source' src="movie.mp4" type="video/mp4" />
-      
-           Your browser does not support the video tag.
-
-           
-        </video>
-        <div className="video-describtion">
-          قصيدة أول فرصة
-         </div>
-    <div className="actions">
-       
-        <button className="video-action-upload-button video-upload-delete"> حذف الفديو</button>
-    </div>
-      </div>
+      {isLoading? <Loader />  : renderedVideos}
+   
 
     </div>
        <div>

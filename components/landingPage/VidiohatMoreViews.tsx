@@ -24,7 +24,7 @@ const VidiohatMoreViews = () => {
     Votes:[]
   }
   // const [data, setData] = useState<VideoData[] | null>(null);
-  // const [isLoading, setIsLoading] = useState(true);
+  // const [, setIsLoading] = useState(true);
   // const [error, setError] = useState<Error | null>(null);
 
   const fetchData = async () => {
