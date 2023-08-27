@@ -1,6 +1,27 @@
 import React,{useState} from "react";
 import Link from 'next/link'
 import VideoCompetition from "./VideoCompetition";
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import { GridItem } from "@chakra-ui/react";
+
+interface VideoData {
+  // Define the properties of the video data you are expecting
+  // id: number;
+  // title: string;
+  // url: string;
+  // Add other properties as needed
+  DateIn: Date;
+  Deleted: Boolean;
+  Description: string;
+  NViews: number;
+  TalentId: number;
+  Title: string;
+  Url: string;
+  VideoId: number;
+  Votes:[]
+}
+
 const Competition = () => {
 
   const [playvideo, setPlayVideo] = useState<boolean>(false);
@@ -63,6 +84,32 @@ console.log(playvideo)
   if(player_vote){player_vote.style.display = "block"}
 
   }
+  //fetch data
+  
+  const fetchData = async () => {
+  
+    const response = await axios.get('http://196.219.32.230:8088/LawMawhobApis/Talents/GetAllVideos',{ headers: {
+      "Api_Key": "elinxfthr62023",
+      'content-type': 'text/json'
+    }});
+    return response.data;
+
+  
+};
+const { isLoading, data, isError, error, isFetching, refetch } = useQuery("videos", fetchData)
+
+
+
+// useEffect(() => {
+//   // fetchData();
+
+//   console.log(data)
+//   console.log('esraa')
+// }, []);
+
+const renderedVideos = data?.map((video:VideoData) => {
+  return<span key={video.VideoId}>   <VideoCompetition playVideoo={setPlayVideo} videodetails={video} />     </span>
+})
   return (
     <>
       <div>
@@ -278,7 +325,7 @@ console.log(playvideo)
             </div>
           </div> */}
           <div>
-            <VideoCompetition playVideoo={setPlayVideo} />            
+               {renderedVideos}  
            </div>
           <div></div>
           <Link href="/myvideos">
@@ -295,7 +342,7 @@ console.log(playvideo)
             ⓧ
           </div>
           <video id="videoplayer" width="100%" height="240" controls>
-            <source src="movie.mp4" type="video/mp4" />
+            <source src="" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="videoplayer-description">

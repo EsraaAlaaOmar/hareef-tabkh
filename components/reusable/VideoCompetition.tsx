@@ -1,9 +1,27 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+interface VideoData {
+  // Define the properties of the video data you are expecting
+  // id: number;
+  // title: string;
+  // url: string;
+  // Add other properties as needed
+  DateIn: Date;
+  Deleted: Boolean;
+  Description: string;
+  NViews: number;
+  TalentId: number;
+  Title: string;
+  Url: string;
+  VideoId: number;
+  Votes:[]
+}
+
   interface VideoCompetitionProps {
-        playVideoo: React.Dispatch<React.SetStateAction<boolean>>;
+    playVideoo: React.Dispatch<React.SetStateAction<boolean>>;
+    videodetails:VideoData
     
     }
-    const VideoCompetition: React.FC<VideoCompetitionProps> = ({ playVideoo }) => {
+    const VideoCompetition: React.FC<VideoCompetitionProps> = ({ playVideoo, videodetails }) => {
 
   
     
@@ -11,38 +29,18 @@ import React,{useState} from 'react'
 
     function addVote() {
         setVote(true)
-    //     const vote_ = document.getElementById("vote-" + id)
-    //    if(vote_){vote_.style.display = "none";}
-    //    const removevote_ = document.getElementById("remove-vote-" + id);
-    //    if(removevote_){removevote_.style.display = "inline-block";}
+ 
       }
     
       function removeVote(id:string) {
-    //     const vote_ = document.getElementById("vote-" + id)
-    //    if(vote_){vote_.style.display ="inline-block";}
-    //    const removevote_ = document.getElementById("remove-vote-" + id);
-    //    if(removevote_){removevote_.style.display = "none";}
     setVote(false)
-    
       }
     
       function playVideo(videosrc:string, describtion:string, votes:number) {
-    //     const playerbox= document.getElementById("player-box")
-    //    if(playerbox){playerbox.style.display = "block";}
-    
-    //    const videoplayer = document.getElementById("videoplayer")as HTMLImageElement | any
-    //    if(videoplayer){videoplayer.src=videosrc}
-    
-    //    const videoplayer_description =  document.getElementById("videoplayer-description")
-    //    if(videoplayer_description){videoplayer_description.innerHTML = describtion;}
-    //   const player_vote_number =  document.getElementById("player-vote-number")
-    //   if(player_vote_number){player_vote_number.innerHTML =" عدد الاصوات" + " " + votes;}
-    //   if(videoplayer){videoplayer.play()}
-        
           console.log('play video')
           playVideoo(true)
       }
-    
+    console.log(videodetails)
   return (
     <div className="col-md-4">
     <video
@@ -51,12 +49,12 @@ import React,{useState} from 'react'
       height="240"
       // controls="false"
       muted
-      onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
+      onClick={() => playVideo(videodetails?.Url, videodetails?.Title, 28 )}
     >
-      <source src="/videos/vid1.mp4" type="video/mp4" />
+      <source src={videodetails?.Url} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-    <div className="video-describtion">قصيدة اول فرصة</div>
+    <div className="video-describtion">{videodetails?.Title}  </div>
     <div className="actions">
               {vote ?
                     <button
@@ -80,7 +78,7 @@ import React,{useState} from 'react'
                  }
       <button
         className="like-video"
-        onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
+        onClick={() => playVideo(videodetails?.Url, videodetails?.Title, 28 )}
       >
         {" "}
         ▶<br />
