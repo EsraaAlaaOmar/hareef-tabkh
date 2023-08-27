@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import Link from 'next/link'
-import { useQuery } from 'react-query';
+import { useQuery, useMutation , useQueryClient } from 'react-query';
 import MySingleVideo from './MySingleVideo';
 import Loader from './Loader';
 const axios = require("axios");
@@ -43,13 +43,34 @@ const Myvideos = () => {
       }
 
   };
-  const { isLoading, data, isError, error, isFetching, refetch } = useQuery("videos", fetchData)
+
+  function useDeleteItem() {
+    const queryClient = useQueryClient();
+  
+    const deleteItem = async (vidId:string) => {
+      // Make your delete API request here
+      const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
+        "Api_Key": "elinxfthr62023",
+        'content-type': 'text/json'
+      }});
+  
+      // Invalidate the query to refetch the data
+      queryClient.invalidateQueries('myvideos');
+  
+      return response.data;
+    };
+  
+    return useMutation((vidId: string) => {
+      return  deleteItem(vidId)
+    })
+  }
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery("myvideos", fetchData)
   console.log(data)
   
   const renderedVideos =
  ( data?.length === 0)?<>ليس لديك اي فديوهات </>
    :
-  data?.map((video:{})=><MySingleVideo videoDetails={video} />)
+  data?.map((video:VideoData)=><MySingleVideo key={video.VideoId} videoDetails={video} useDeleteItem={useDeleteItem} />)
   return (
       <div>
           <div className="upload-video">

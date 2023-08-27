@@ -20,32 +20,36 @@ interface VideoData {
 
 
 interface MySingleVideoProps{
-  videoDetails:VideoData |any
+  videoDetails: VideoData | any
+  useDeleteItem: (vidId:string) => any;
 }
 
-const MySingleVideo: React.FC<MySingleVideoProps> = ({ videoDetails }) =>{
-const deleteVideo = async () => {
+const MySingleVideo: React.FC<MySingleVideoProps> = ({ videoDetails, useDeleteItem }) =>{
+  const vidId = videoDetails?.VideoId
+  const { mutate } = useDeleteItem(vidId);
+  const deleteVideo = async () => {
+  
     
 
-  
-  try {
-       const vidId = videoDetails?.VideoId
-      const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
-        "Api_Key": "elinxfthr62023",
-        'content-type': 'text/json'
-      }});
+  mutate(vidId)
+  // try {
+  //      const vidId = videoDetails?.VideoId
+  //     const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
+  //       "Api_Key": "elinxfthr62023",
+  //       'content-type': 'text/json'
+  //     }});
     
-      if (response.status === 200) {
-        // Handle successful upload
-        console.log(response)
-        return response.data
-        // setData(response)
-      } else {
-        // Handle upload error
-      }
-    } catch (error) {
-      // Handle network error or any other error
-    }
+  //     if (response.status === 200) {
+  //       // Handle successful upload
+  //       console.log(response)
+  //       return response.data
+  //       // setData(response)
+  //     } else {
+  //       // Handle upload error
+  //     }
+  //   } catch (error) {
+  //     // Handle network error or any other error
+  //   }
 
 };
 const { isLoading, data, isError, error, isFetching, refetch } = useQuery("videos")
