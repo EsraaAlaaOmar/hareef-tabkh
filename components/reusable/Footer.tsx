@@ -1,6 +1,8 @@
 import React from 'react'
 import {FaLessThan} from 'react-icons/fa'
 import FooterLink from './FooterLink';
+import Image from 'next/image';
+
 
 import {FaFacebookF, FaYoutube, FaTwitter, FaInstagram} from 'react-icons/fa'
 const Footer = () => {
@@ -8,7 +10,7 @@ const Footer = () => {
   return (
       <div className='footer'>
       <div className='long-line'></div>
-      <img className='logo' src='/images/logo.png' />
+      <Image alt='logo' className='logo' src='/images/logo.png' />
       <div>لو موهوب</div>
       <div className='short-line'></div>
       <FooterLink name="عن لو موهوب" link="/about" />
