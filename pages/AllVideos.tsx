@@ -13,14 +13,14 @@ const AllVideos = () => {
               <span className='category'>الاكثر تصويتا </span>
               <span className='category last'>الاكثر مشاهدة </span>
       </div>
-      
+{/*       
       <Grid templateColumns='repeat(2, 1fr)' gap={6} >
 
 <GridItem p="5px">  <Video /></GridItem>
 <GridItem  p="5px">  <Video /></GridItem>
 <GridItem p="5px">  <Video /></GridItem>
 <GridItem  p="5px">  <Video /></GridItem>
-        </Grid>
+        </Grid> */}
         </div>
           <Footer />
           
