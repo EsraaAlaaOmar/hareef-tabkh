@@ -1,7 +1,11 @@
 import React,{useState} from 'react'
 import Link from 'next/link'
+import { useMutation  } from 'react-query';
+import Loader from './Loader';
+import { useRouter } from 'next/router';
 const axios = require("axios");
 const Upload = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState(
     {
       Title: '',
@@ -30,7 +34,7 @@ const Upload = () => {
     }
   };
   
-  const handleFileChange = async (event:any) => {
+  const addVideo = async (event:any) => {
     
     console.log('submit')
     event.preventDefault(); 
@@ -65,7 +69,9 @@ const Upload = () => {
         }});
       
         if (response.status === 200) {
-          // Handle successful upload
+       
+            router.push('/myvideos');
+       
         } else {
           // Handle upload error
         }
@@ -75,7 +81,8 @@ const Upload = () => {
      
     }
  
-  
+  const mutation = useMutation(addVideo)
+  console.log(mutation)
   function video(e:any) {
     
       var fileInput = document.getElementById('video_input') as any;
@@ -119,8 +126,8 @@ const Upload = () => {
       
               <input id='video_input' type="file" accept="video/*" onChange={(e)=>video(e)} name='formFile'  />
     <button id="choose-to-upload" className="video-upload-button" onClick={()=>buttonClick()}>اختر فديو لتشارك به</button> 
-        <div id="uploaded-data">
-            <form onSubmit={(e)=>handleFileChange(e)}>
+        {mutation.isLoading? <Loader />: <div id="uploaded-data">
+            <form onSubmit={(e)=>addVideo(e)}>
         <div className="upload-video-input">
           <label className="upload-video-label" >عنوان الفديو </label>
               <input className="upload-video-textarea" style={{ height: "40px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
@@ -145,7 +152,7 @@ const Upload = () => {
  
             </div>
             </form>
-</div>
+        </div>}
 
    
    </div>

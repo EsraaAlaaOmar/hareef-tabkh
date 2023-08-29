@@ -4,6 +4,7 @@ import VideoCompetition from "./VideoCompetition";
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { GridItem } from "@chakra-ui/react";
+import Loader from "./Loader";
 
 interface VideoData {
   // Define the properties of the video data you are expecting
@@ -25,65 +26,65 @@ interface VideoData {
 const Competition = () => {
 
   const [playvideo, setPlayVideo] = useState<boolean>(false);
-  const [videoDetails,setVideoDetails] = useState<[{}]>([{}])
-  const viewVideo=()=>{
-    setPlayVideo(true)
-  
-   }
-console.log(playvideo)
-  
-  function addVote(id:string) {
-    const vote_ = document.getElementById("vote-" + id)
-   if(vote_){vote_.style.display = "none";}
-   const removevote_ = document.getElementById("remove-vote-" + id);
-   if(removevote_){removevote_.style.display = "inline-block";}
-  }
-
-  function removeVote(id:string) {
-    const vote_ = document.getElementById("vote-" + id)
-   if(vote_){vote_.style.display ="inline-block";}
-   const removevote_ = document.getElementById("remove-vote-" + id);
-   if(removevote_){removevote_.style.display = "none";}
-
-  }
-
-  function playVideo(videosrc:string, describtion:string, votes:number) {
-    const playerbox= document.getElementById("player-box")
-   if(playerbox){playerbox.style.display = "block";}
-
-   const videoplayer = document.getElementById("videoplayer")as HTMLImageElement | any
-   if(videoplayer){videoplayer.src=videosrc}
-
-   const videoplayer_description =  document.getElementById("videoplayer-description")
-   if(videoplayer_description){videoplayer_description.innerHTML = describtion;}
-  const player_vote_number =  document.getElementById("player-vote-number")
-  if(player_vote_number){player_vote_number.innerHTML =" عدد الاصوات" + " " + votes;}
-  if(videoplayer){videoplayer.play()}
+  const [vote, setVote] = useState<boolean>(false);
+  const [playerData, setPlayerData] = useState({
+    videoId: 0,
+    videosrc: '',
+    describtion: '',
+    votes: 0
     
+  })
  
-  }
-
-  function closePlayer() {
-    const playerbox= document.getElementById("player-box")
-    if(playerbox){playerbox.style.display = "none";}
-    const videoplayer = document.getElementById("videoplayer")as HTMLImageElement | any
-    if(videoplayer){videoplayer.puse()}
-    
-  }
-  function addVoteFromPlayer() {
-    const player_remove_vote =  document.getElementById("player-remove-vote")
-    if(player_remove_vote){player_remove_vote.style.display = "block";}
-  const player_vote = document.getElementById("player-vote");
-  if(player_vote){player_vote.style.display = "none"}
+  
+  const addVote = async (VideoId:number,MSISDN:string ) => {
+    setVote(true)
    
+    try {
+      const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
+        headers: {
+          "Api_Key": "elinxfthr62023",
+          'content-type': 'text/json'
+        }
+      });
+    
+      if (response.status === 200) {
+        return response
+        // Handle successful upload
+      } else {
+        // Handle upload error
+      }
+    } catch (error) {
+      // Handle network error or any other error
+    }
   }
-  function removeVoteFromPlayer() {
-    const player_remove_vote =  document.getElementById("player-remove-vote")
-    if(player_remove_vote){player_remove_vote.style.display = "none";}
-  const player_vote = document.getElementById("player-vote");
-  if(player_vote){player_vote.style.display = "block"}
 
+const removeVote = async (id:number) => {
+  setVote(false)
+  try {
+    const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
+      headers: {
+        "Api_Key": "elinxfthr62023",
+        'content-type': 'text/json'
+      }
+    });
+  
+    if (response.status === 200) {
+      return response
+      // Handle successful upload
+    } else {
+      // Handle upload error
+    }
+  } catch (error) {
+    // Handle network error or any other error
   }
+  }
+
+  function playVideo(videosrc: string, describtion: string, votes: number, videoId:number) {
+    setPlayVideo(true)
+    setPlayerData({ videosrc:videosrc,describtion:describtion , votes:votes ,videoId:videoId})
+  }
+
+
   //fetch data
   
   const fetchData = async () => {
@@ -108,8 +109,10 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery("video
 // }, []);
 
 const renderedVideos = data?.map((video:VideoData) => {
-  return<span key={video.VideoId}>   <VideoCompetition playVideoo={setPlayVideo} videodetails={video} />     </span>
+  return<span key={video.VideoId}>   <VideoCompetition playVideoo={playVideo} videodetails={video} addVote={addVote} />     </span>
 })
+  
+  
   return (
     <>
       <div>
@@ -126,206 +129,9 @@ const renderedVideos = data?.map((video:VideoData) => {
               <span className='category'>الاكثر تصويتا </span>
               <span className='category last'>الاكثر مشاهدة </span>
       </div>
-          {/* <div className="row">
-            <div className="col-md-4">
-              <video
-                className="competetion-video"
-                width="320"
-                height="240"
-                // controls="false"
-                muted
-                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-              >
-                <source src="videos/vid1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-describtion"> قصيدة اول فرصة</div>
-              <div className="actions">
-                <button
-                  id="vote-1"
-                  className="like-video"
-                  onClick={() => addVote("1")}
-                >
-                 ♡
-                  <br /> اضغط للتصويت{" "}
-                </button>
-                <button
-                  id="remove-vote-1"
-                  className="like-video remove-vote"
-                  onClick={() => removeVote("1")}
-                >
-                  ❤️ <br /> إلغاء التصويت{" "}
-                </button>
-                <button
-                  className="like-video"
-                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-                >
-                  {" "}
-                  ▶ <br />
-                  مشاهدة
-                </button>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <video
-                className="competetion-video"
-                width="320"
-                height="240"
-                // controls="false"
-                muted
-                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-              >
-                <source src="/videos/vid1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-describtion">قصيدة اول فرصة</div>
-              <div className="actions">
-                <button
-                  id="vote-2"
-                  className="like-video"
-                  onClick={() => addVote("2")}
-                >
-                 ♡
-                  <br /> اضغط للتصويت{" "}
-                </button>
-                <button
-                  id="remove-vote-2"
-                  className="like-video remove-vote"
-                  onClick={() => removeVote("2")}
-                >
-                  ❤️ <br /> إلغاء التصويت{" "}
-                </button>
-                <button
-                  className="like-video"
-                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-                >
-                  {" "}
-                  ▶<br />
-                  مشاهدة
-                </button>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <video
-                className="competetion-video"
-                width="320"
-                height="240"
-                // controls="false"
-                muted
-                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-              >
-                <source src="videos/vid1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-describtion"> قصيدة اول فرصة</div>
-              <div className="actions">
-                <button
-                  id="vote-1"
-                  className="like-video"
-                  onClick={() => addVote("1")}
-                >
-                 ♡
-                  <br /> اضغط للتصويت{" "}
-                </button>
-                <button
-                  id="remove-vote-1"
-                  className="like-video remove-vote"
-                  onClick={() => removeVote("1")}
-                >
-                  ❤️ <br /> إلغاء التصويت{" "}
-                </button>
-                <button
-                  className="like-video"
-                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-                >
-                  {" "}
-                  ▶ <br />
-                  مشاهدة
-                </button>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <video
-                className="competetion-video"
-                width="320"
-                height="240"
-                // controls="false"
-                muted
-                onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-              >
-                <source src="/videos/vid1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-describtion">قصيدة اول فرصة</div>
-              <div className="actions">
-                <button
-                  id="vote-2"
-                  className="like-video"
-                  onClick={() => addVote("2")}
-                >
-                 ♡
-                  <br /> اضغط للتصويت{" "}
-                </button>
-                <button
-                  id="remove-vote-2"
-                  className="like-video remove-vote"
-                  onClick={() => removeVote("2")}
-                >
-                  ❤️ <br /> إلغاء التصويت{" "}
-                </button>
-                <button
-                  className="like-video"
-                  onClick={() => playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-                >
-                  {" "}
-                  ▶<br />
-                  مشاهدة
-                </button>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <video
-                className="competetion-video"
-                width="320"
-                height="240"
-                // controls="false"
-                muted
-                onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-              >
-                <source src="videos/vid1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-describtion"> قصيدة اول فرصة</div>
-              <div className="actions">
-                <button
-                  id="vote-1"
-                  className="like-video"
-                  onClick={() => addVote("1")}
-                >
-                 ♡
-                  <br /> اضغط للتصويت{" "}
-                </button>
-                <button
-                  id="remove-vote-1"
-                  className="like-video remove-vote"
-                  onClick={() => removeVote("1")}
-                >
-                  ❤️ <br /> إلغاء التصويت{" "}
-                </button>
-                <button
-                  className="like-video"
-                  onClick={() =>  playVideo("videos/vid1.mp4", "قصيدة اول فرصة", 28 )}
-                >
-                  {" "}
-                  ▶ <br />
-                  مشاهدة
-                </button>
-              </div>
-            </div>
-          </div> */}
+      
           <div>
-               {renderedVideos}  
+               {isLoading? <Loader /> : renderedVideos}  
            </div>
           <div></div>
           <Link href="/myvideos">
@@ -342,29 +148,30 @@ const renderedVideos = data?.map((video:VideoData) => {
             ⓧ
           </div>
           <video id="videoplayer" width="100%" height="240" controls>
-            <source src="" type="video/mp4" />
+            <source src={playerData?.videosrc} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="videoplayer-description">
-            <span id="videoplayer-description"> ما تيسر من سورة البقرة </span>
+            <span id="videoplayer-description"> {playerData?.describtion}</span>
 
-            <button
+           {!vote? <button
               id="player-vote"
               className="vote-onplayer"
-              onClick={() => addVoteFromPlayer()}
+              onClick={() => addVote(playerData?.videoId, 'MSISDN')}
             >
               تصويت♡
             </button>
+              :
             <button
               id="player-remove-vote"
               className="vote-onplayer player-remove-vote"
-              onClick={() => removeVoteFromPlayer()}
+              onClick={() => removeVote(15) }
             >
               الغاء التصويت ❤️
-            </button>
+            </button>}
 
             <div id="player-vote-number" className="vote-number">
-              عدد الاصوات 5
+              عدد الاصوات {playerData?.votes}
             </div>
           </div>
         </div>}

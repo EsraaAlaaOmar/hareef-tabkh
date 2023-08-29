@@ -50,7 +50,7 @@ const VidiohatElmoaheb = () => {
   //   console.log('esraa')
   // }, []);
  
-  const renderedVideos = data?.map((video:VideoData) => {
+  const renderedVideos = data?.slice(0, 4)?.map((video:VideoData) => {
     return<span key={video.VideoId}> <GridItem p="5px">  <Video videodetails={video} /></GridItem></span>
   })
   return (

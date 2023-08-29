@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 interface VideoData {
   // Define the properties of the video data you are expecting
@@ -17,29 +18,66 @@ interface VideoData {
 }
 
   interface VideoCompetitionProps {
-    playVideoo: React.Dispatch<React.SetStateAction<boolean>>;
+    // playVideoo: React.Dispatch<React.SetStateAction<boolean>>;
+    playVideoo: (videosrc:string, describtion:string, votes:number, videoId:number)=>any;
     videodetails:VideoData
-    
+    addVote:(VideoId:number,MSISDN:string)=>{}
     }
     const VideoCompetition: React.FC<VideoCompetitionProps> = ({ playVideoo, videodetails }) => {
 
   
     
     const [vote, setVote] = useState<boolean>(false);
-
-    function addVote() {
+    
+      const MSISDN = "MSISDN";
+      const VideoId= videodetails.VideoId;
+      const addVote = async () => {
         setVote(true)
- 
+       
+        try {
+          const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
+            headers: {
+              "Api_Key": "elinxfthr62023",
+              'content-type': 'text/json'
+            }
+          });
+        
+          if (response.status === 200) {
+            return response
+            // Handle successful upload
+          } else {
+            // Handle upload error
+          }
+        } catch (error) {
+          // Handle network error or any other error
+        }
       }
     
-      function removeVote(id:string) {
-    setVote(false)
+    const removeVote = async (id:number) => {
+      setVote(false)
+      try {
+        const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
+          headers: {
+            "Api_Key": "elinxfthr62023",
+            'content-type': 'text/json'
+          }
+        });
+      
+        if (response.status === 200) {
+          return response
+          // Handle successful upload
+        } else {
+          // Handle upload error
+        }
+      } catch (error) {
+        // Handle network error or any other error
+      }
       }
     
-      function playVideo(videosrc:string, describtion:string, votes:number) {
-          console.log('play video')
-          playVideoo(true)
-      }
+      // function playVideo(videosrc:string, describtion:string, votes:number) {
+      //     console.log('play video')
+      //     playVideoo(true)
+      // }
     console.log(videodetails)
   return (
     <div className="col-md-4">
@@ -49,7 +87,7 @@ interface VideoData {
       height="240"
       // controls="false"
       muted
-      onClick={() => playVideo(videodetails?.Url, videodetails?.Title, 28 )}
+      onClick={() => playVideoo(videodetails?.Url, videodetails?.Title, videodetails?.Votes?.length, videodetails?.VideoId )}
     >
       <source src={videodetails?.Url} type="video/mp4" />
       Your browser does not support the video tag.
@@ -60,7 +98,7 @@ interface VideoData {
                     <button
                     
                     className="like-video remove-vote"
-                    onClick={() => removeVote("2")}
+                    onClick={() => removeVote(8)}
                 >
                     ❤️ <br /> إلغاء التصويت{" "}
                 </button>
@@ -69,7 +107,7 @@ interface VideoData {
                   <button
                   
                   className="like-video"
-                  onClick={() => addVote()}
+                  onClick={ addVote}
               >
                   ♡
                   <br /> اضغط للتصويت{" "}
@@ -78,7 +116,7 @@ interface VideoData {
                  }
       <button
         className="like-video"
-        onClick={() => playVideo(videodetails?.Url, videodetails?.Title, 28 )}
+        onClick={() => playVideoo(videodetails?.Url, videodetails?.Title, videodetails?.Votes?.length , videodetails?.VideoId)}
       >
         {" "}
         ▶<br />
