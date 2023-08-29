@@ -35,7 +35,7 @@ interface VideoData {
         setVote(true)
        
         try {
-          const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
+          const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
             headers: {
               "Api_Key": "elinxfthr62023",
               'content-type': 'text/json'
@@ -56,7 +56,7 @@ interface VideoData {
     const removeVote = async (id:number) => {
       setVote(false)
       try {
-        const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
+        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
           headers: {
             "Api_Key": "elinxfthr62023",
             'content-type': 'text/json'

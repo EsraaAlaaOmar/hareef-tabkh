@@ -40,7 +40,7 @@ const Competition = () => {
     setVote(true)
    
     try {
-      const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
+      const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
         headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
@@ -61,7 +61,7 @@ const Competition = () => {
 const removeVote = async (id:number) => {
   setVote(false)
   try {
-    const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
+    const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
       headers: {
         "Api_Key": "elinxfthr62023",
         'content-type': 'text/json'
@@ -89,7 +89,7 @@ const removeVote = async (id:number) => {
   
   const fetchData = async () => {
   
-    const response = await axios.get('http://196.219.32.230:8088/LawMawhobApis/Talents/GetAllVideos',{ headers: {
+    const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos',{ headers: {
       "Api_Key": "elinxfthr62023",
       'content-type': 'text/json'
     }});

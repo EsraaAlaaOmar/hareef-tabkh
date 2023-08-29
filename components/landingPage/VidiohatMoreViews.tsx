@@ -29,7 +29,7 @@ const VidiohatMoreViews = () => {
 
   const fetchData = async () => {
    
-      const response = await axios.get('http://196.219.32.230:8088/LawMawhobApis/Talents/GetVideosMostSeen');
+      const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetVideosMostSeen');
       // setData(response.data as VideoData[]); // Using a type assertion here
       // setIsLoading(false);
       return response.data

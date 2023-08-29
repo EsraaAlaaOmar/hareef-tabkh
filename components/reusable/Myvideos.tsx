@@ -25,7 +25,7 @@ const Myvideos = () => {
   
     try {
         const Msisdn ="Msisdn"
-        const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${Msisdn}`,{},{ headers: {
+        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${Msisdn}`,{},{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
@@ -49,7 +49,7 @@ const Myvideos = () => {
   
     const deleteItem = async (vidId:string) => {
       // Make your delete API request here
-      const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
+      const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
         "Api_Key": "elinxfthr62023",
         'content-type': 'text/json'
       }});

@@ -29,7 +29,7 @@ const Ahdth = () => {
 
   const fetchData = async () => {
  
-    const response = await axios.get('http://196.219.32.230:8088/LawMawhobApis/Talents/GetLastVideos');
+    const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetLastVideos');
     // setData(response.data as VideoData[]); // Using a type assertion here
     // setIsLoading(false);
     return (response.data)
