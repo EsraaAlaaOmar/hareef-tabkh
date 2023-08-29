@@ -10,7 +10,7 @@ const Footer = () => {
   return (
       <div className='footer'>
       <div className='long-line'></div>
-      <Image alt='logo' className='logo' src='/images/logo.png' />
+      <Image alt='logo' width={'100'} height={'100'} className='logo' src='/images/logo.png' />
       <div>لو موهوب</div>
       <div className='short-line'></div>
       <FooterLink name="عن لو موهوب" link="/about" />
