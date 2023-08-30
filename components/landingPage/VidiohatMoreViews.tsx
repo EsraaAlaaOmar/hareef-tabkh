@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Video from '../reusable/Video'
-import { Grid, GridItem ,Box} from '@chakra-ui/react'
+import { SimpleGrid,Box} from '@chakra-ui/react'
 import Link from 'next/link'
 import Loader from '../reusable/Loader';
 
@@ -41,7 +41,7 @@ const VidiohatMoreViews = () => {
 
  
   const renderedVideos = data?.slice(0, 4)?.map((video:VideoData) => {
-    return<span key={video.VideoId}> <GridItem p="5px">  <Video videodetails={video} /></GridItem></span>
+    return<span key={video.VideoId}> <Box p="5px">  <Video videodetails={video} /></Box></span>
   })
   return (
     <>
@@ -49,10 +49,10 @@ const VidiohatMoreViews = () => {
 <Link href='/' className="section-title">
 فيديوهات المواهب ( الأكثر مشاهدة )
     </Link>
-    <Grid templateColumns='repeat(2, 1fr)' gap={6} >
-
-       {renderedVideos}
-    </Grid>
+    <SimpleGrid  minChildWidth='250px'  spacing='40px' >
+              {renderedVideos}
+            
+    </SimpleGrid >
     <Link href='/upload' >
           <div className="upload">تحميل</div>
         </Link>

@@ -4,7 +4,8 @@ body{
   color: #fff !important;
 }
 .container{
-    max-width: 507px;
+    // max-width: 507px;
+    padding: 0 20px;
     margin: auto;
     direction: rtl;
     background-color: #000 !important;
@@ -28,6 +29,7 @@ body{
  white-space: nowrap;
  direction: rtl;
  float: right;
+
     .news-item{
         display: inline-block;
         width:calc( 100% / 3);

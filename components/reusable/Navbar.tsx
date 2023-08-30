@@ -65,14 +65,14 @@ export default function Simple() {
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={'Open Menu'}
-            display={{ md: 'none' }}
+            // display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
             bgColor={'#000'}
             color={'#fff'}
           />
-          <HStack spacing={8} alignItems={'center'}>
+         <HStack spacing={8} alignItems={'center'}>
             <Box color={'#fff'}>لو موهوب</Box>
-            <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+             {/* <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}> 
               {Links.map((link) => (
                 <span key={link.text} onClick={() => handleClick(link.link)}>
                   <NavLink  link={link.link}>
@@ -80,7 +80,7 @@ export default function Simple() {
                   </NavLink>
                 </span>
               ))}
-            </HStack>
+            </HStack> */}
           </HStack>
           <Flex alignItems={'center'}>
             <Menu>
@@ -104,10 +104,10 @@ export default function Simple() {
               </MenuButton>
             </Menu>
           </Flex>
-        </Flex>
+        </Flex> 
 
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }} dir='rtl'>
+          <Box pb={4} dir='rtl'>
             <Stack as={'nav'} spacing={4} color={'#fff'}>
               {Links.map((link) => (
                 <span key={link.text} onClick={() => handleClick(link.link)}>
