@@ -59,7 +59,7 @@ const VidiohatElmoaheb = () => {
       <Link href='/' className="section-title">
           فديوهات المواهب
           </Link>
-          <SimpleGrid  minChildWidth='250px'  spacing='40px' >
+          <SimpleGrid  minChildWidth='120px'  spacing='20px' >
               {renderedVideos}
             
         </SimpleGrid >

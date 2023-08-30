@@ -52,7 +52,7 @@ const Ahdth = () => {
     <Link href='/' className="section-title">
     فيديوهات المواهب ( الأحدث )
         </Link>
-        <SimpleGrid  minChildWidth='250px'  spacing='40px' >
+        <SimpleGrid  minChildWidth='120px'   spacing='20px' >
               {renderedVideos}
             
         </SimpleGrid >
