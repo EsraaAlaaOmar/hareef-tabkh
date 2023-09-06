@@ -11,6 +11,7 @@ import Ahdth from '../components/landingPage/Ahdth'
 import NewestNews from '../components/landingPage/NewestNews'
 import Footer from '../components/reusable/Footer'
 import Carousel from '../components/reusable/carousel'
+import SwiperCom from '../components/reusable/SwiperCom';
 
 
 
@@ -21,7 +22,7 @@ const Index = () => {
   return (
       <>
       <Navbar />
-      
+      <SwiperCom />
       <div className='container'>
       <VidiohatElmoaheb />
       <Carousel />
