@@ -42,23 +42,25 @@ const Ahdth = () => {
   //   console.log(data)
   // }, []);
  
-  const renderedVideos = data?.slice(0, 4)?.map((video:VideoData) => {
-    return<span key={video.VideoId}> <Box p="5px">  <Video videodetails={video} /></Box></span>
+  const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
+    return<span key={video.VideoId}>   <Video videodetails={video} /></span>
   })
   return (
     <>
-      {isLoading ? <Loader /> : <Box padding=" 10px 0 ">
-     
+      {isLoading ? <Loader /> : <Box padding=" 20px  " mt="40px">
+    
     <Link href='/' className="section-title">
     فيديوهات المواهب ( الأحدث )
         </Link>
-        <SimpleGrid  minChildWidth='120px'   spacing='20px' >
+        <Link href='/' className="section-page">
+            عرض الكل 
+          </Link>
+          <br style={{clear: "both"}}/>
+        <div className='videos-grid'>
               {renderedVideos}
             
-        </SimpleGrid >
-        <Link href='/upload' >
-          <div className="upload">تحميل</div>
-        </Link>
+        </div >
+       
       </Box>}
       </>
   )

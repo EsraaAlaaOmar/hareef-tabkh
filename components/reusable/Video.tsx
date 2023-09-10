@@ -31,29 +31,29 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
       </Box>
       <Text color="#fff">{videodetails?.Title}</Text> */}
       <div className='video-box'>
-      <video
-      className="competetion-video"
-      width="320"
-      height="240"
-      // controls="false"
-      muted
-     >
+        <video
+        className="competetion-video"
+        width="320"
+        height="240"
+        // controls="false"
+        muted
+        >
     
-      <source src={videodetails?.Url} type="video/mp4" />
-      Your bro
-        </video>
-        <div className='video-info'>
-        <span><AiOutlineHeart /></span>100
-          
-          <span><TbShare3 /> </span>3k
-          <span><IoIosPeople /> </span>10k
+        <source src={videodetails?.Url} type="video/mp4" />
+        Your bro
+      </video>
+      <div className='video-info'>
+      <span><AiOutlineHeart /></span>100
         
-        </div>
-        <div className='userName'>فاطمة احمد علي </div>
+        <span><TbShare3 /> </span>3k
+        <span><IoIosPeople /> </span>10k
       
-        <div className='videoname'>{ videodetails.Title}</div>
-        <div className='like-vid'><AiFillHeart /></div>
-        <div className='share-vid'><TbShare3 /></div>
+      </div>
+      <div className='userName'>فاطمة احمد علي </div>
+      <div className='videoname'>{ videodetails.Title}</div>
+      <div className='like-vid'><AiFillHeart /></div>
+      <div className='share-vid'><TbShare3 /></div>
+      <div className='vote'>تصويت</div>
       </div>
     </>
    

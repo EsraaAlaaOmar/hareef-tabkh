@@ -1,4 +1,5 @@
 @import 'scssfiles/Nav';
+@import 'scssfiles/home';
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
 
 body{
@@ -8,7 +9,7 @@ body{
 }
 .container{
     // max-width: 507px;
-    padding: 0 20px;
+    // padding: 0 20px;
     margin: auto;
     direction: rtl;
     background-color: #fff !important;
@@ -16,8 +17,10 @@ body{
 .section-title{
   font-size: 32px;
   color: #000;
-    text-decoration: none;
-    padding :0 2px;
+  text-decoration: none;
+   padding :0 2px;
+   display: inline-block;
+   margin-bottom: 5px;
 }
 .upload{
     width: 90%;
@@ -28,10 +31,14 @@ body{
     color: #fff;
 }
 .landing-news-container{
+  display: block;
  overflow: auto;
  white-space: nowrap;
  direction: rtl;
  float: right;
+ width: 100%;
+ background-color: #fff;
+ padding: 20px;
 
     .news-item{
         display: inline-block;
@@ -95,59 +102,102 @@ body{
       font-size: 26px;
     }
   }
-  .footer{
-    font-size: 14px;
-    max-width: 500px;
-    font-size: 14px;
-    margin: 12px auto;
-    color: #fff;
-    text-align: center;
+  // .footer{
+  //   font-size: 14px;
+  //   max-width: 500px;
+  //   font-size: 14px;
+  //  margin: 0;
+  //  padding: 0;
+  //   color: #fff;
+  //   text-align: center;
+  //   background-color: #000;
 
 
-    .logo{
-      width: 80px;
-      height: 80px;
-      display: block;
-      margin: 10px auto;
-    }
+  //   .logo{
+  //     width: 80px;
+  //     height: 80px;
+  //     display: block;
+  //     margin: 10px auto;
+  //   }
 
-    .long-line{
-      height: .2px;
-      width: 100%;
-      background-color: #fff;
-    }
-    .short-line{
-      height: .2px;
-      width: 70%;
-      margin: 10px auto;
-      margin-bottom: 30px;
-      background-color: #fff;
-    }
-    .footer-link{
-      text-align: right;
-      border-bottom: solid 1px #fff;
-      padding: 10px 5px ;
-      margin: 0 10px;
-      .left{
-        float: left;
-      }
-    }
-    footer{
-      margin-top: 30px;
-    }
-    .social{
-      display: inline-block;
-      background-color: #f37008;
-      color: #fff;
-      border-radius: 50%;
-      padding: 5px;
-      font-size: 22px;
-      margin: 3px;
-      margin-top: 20px;
+  //   .long-line{
+  //     height: .2px;
+  //     width: 100%;
+  //     background-color: #fff;
+  //   }
+  //   .short-line{
+  //     height: .2px;
+  //     width: 70%;
+  //     margin: 10px auto;
+  //     margin-bottom: 30px;
+  //     background-color: #fff;
+  //   }
+  //   .footer-link{
+  //     text-align: right;
+  //     border-bottom: solid 1px #fff;
+  //     padding: 10px 5px ;
+  //     margin: 0 10px;
+  //     .left{
+  //       float: left;
+  //     }
+  //   }
+  //   footer{
+  //     margin-top: 30px;
+  //   }
+  //   .social{
+  //     display: inline-block;
+  //     background-color: #f37008;
+  //     color: #fff;
+  //     border-radius: 50%;
+  //     padding: 5px;
+  //     font-size: 22px;
+  //     margin: 3px;
+  //     margin-top: 20px;
 
-    }
+  //   }
    
 
+  // }
+  .footer{
+    background-color: #000;
+    padding: 40px;
+    padding-bottom: 60px;
+    img{
+      margin-top: 30px;
+      vertical-align: top;
+      display: inline-block;
+    }
+    .site-name{
+      font-size: 18px;
+      display: inline-block;
+      margin-top: 40px;
+    }
+    .links{
+      width: 100%;
+      margin: 30px 0;
+      border-bottom: solid 1px #4E4949;
+      padding-bottom: 30px;
+      color: #CCBEBE;
+      .link{
+        display: inline-block;
+        text-align: center;
+        width: 25%; 
+        cursor: pointer;
+      }
+    }
+    .lastline{
+      .left{
+        float: left;
+        font-size: 12px;
+      }
+      .social{
+        display: inline-block;
+        color: #FF7A01;
+        margin: 0 10px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    }
   }
   .static-pages{
     color: #fff;
@@ -158,61 +208,7 @@ body{
     }
   }
 
-.video-box{
-  color: #000;
-  width: 347px;
-height: 333px;
-position: relative;
-.video-info{
-  display: inline-block;
-  float: left;
-  direction: ltr;
-  font-size: 16px;
-  margin-left: 15px;
-  margin-top: 5px;
-  color: #000000ce;
-  span{
-    display: inline-block;
-    margin: 0 0 0 10px;
-    font-size: 20px;
-    vertical-align: middle;
-  }
 
-
-}
-.userName{
-  color: #000;
-  font-size: 20px;
-  font-weight: 700;
-}
-.videoname{
-  color: #838282;
-  font-size: 16px;
- 
-  font-weight: 600;
-  
-}
-.like-vid{
-  position: absolute;
-  top: 5px;
-  right: 7px;
-  z-index: 9999999999999999999;
-  color: red;
-  font-size: 22px;
-
-}
-.share-vid{
-  position: absolute;
-  top: 5px;
-  left: 30px;
-  z-index: 9999999999999999999;
-  color: orange;
-  font-size: 22px;
-
-
-}
-}
-  
 /* upload videos */
 .upload-video{
   color: #fff;

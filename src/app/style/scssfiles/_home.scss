@@ -1,0 +1,242 @@
+.videos-grid{
+    display: grid;
+    grid-template-columns: auto auto  auto;
+    justify-content: space-between;
+    @media screen and (max-width: 700px){
+        grid-template-columns: auto   auto;
+    
+    }
+    @media screen and (max-width: 585px){
+       display: block;
+    
+    }
+    .video-box{
+
+    }
+}
+.video-box{
+    color: #000;
+    // width: 347px;
+    max-width: calc(90vw / 3 );
+ margin: auto;
+  position: relative;
+  @media screen and (max-width: 700px){
+    grid-template-columns: auto   auto;
+    max-width: calc(90vw / 2 );
+
+}
+  video{
+    width: 347px;
+    height: 180px;
+  }
+  .video-info{
+    display: inline-block;
+    float: left;
+    direction: ltr;
+    font-size: 16px;
+    margin-left: -7px;
+    margin-top: 5px;
+    color: #000000ce;
+    span{
+      display: inline-block;
+      margin: 0 0 0 10px;
+      font-size: 20px;
+      vertical-align: middle;
+    }
+  
+  
+  }
+  .userName{
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .videoname{
+    color: #838282;
+    font-size: 16px;
+   
+    font-weight: 600;
+    
+  }
+  .like-vid{
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    z-index: 9999999999999999999;
+    color: red;
+    font-size: 22px;
+  
+  }
+  .share-vid{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    z-index: 9999999999999999999;
+    color: orange;
+    font-size: 22px;
+  
+  
+  }
+  .vote{
+    color: #fff;
+    background-color: #fe7701;
+    width: 100%;
+    text-align: center;
+    padding: var(--number-border-1, 8px);
+    justify-content: center;
+    height: 45px;
+    border-radius: 7px;
+    margin: 4px 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  }
+  .section-page{
+    float: left;
+    color: #FF7A01; 
+    direction: ltr;
+    display: inline-block;
+    padding :0 2px;
+font-size: 15px;
+width: 108px;
+height: 40px;
+padding: 5px;
+text-align: center;
+font-weight: 700;
+border-radius: 10px;
+border: 1px solid #FF7A01;
+margin-bottom: 10px;
+&:hover{
+  background-color: #FF7A01;
+  color: #fff;
+ }
+cursor: pointer;
+
+  }
+    
+  .news-row{
+    display: block;
+    z-index: 999999;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100vw;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    img{
+        width: 217px;
+        height: 207px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .news-info{
+        display: inline-block;
+        color: #000;
+        max-width: calc( 100vw - 217px);
+        margin: 10px;
+        margin-top: -10px;
+        @media screen and (max-width: 600px){
+           display: block;
+           width: none;
+           max-width:98vw;
+           margin: 0px;
+         
+         }
+        .title{
+            color: #000;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 5px 0;
+         
+
+        }
+        p{
+           width:90%;
+            padding: 10px;
+           text-wrap: wrap;
+        }
+    }
+  }
+  .legend{
+    direction: rtl;
+    left:50vw!important;
+
+    top: 100px;
+    width: 50vw !important;
+    height: 202px !important;
+
+    opacity: 1 !important;
+    background-color: inherit  !important;
+    // float: left;
+    font-size: 1.7rem !important;
+    text-align: right !important;
+    @media screen and (max-width: 948px){
+      font-size: 1.5rem !important;
+    
+    }
+    @media screen and (max-width: 700px){
+      font-size: 1rem !important;
+      top: 20px;
+    }
+    @media screen and (max-width: 500px){
+      font-size: .7rem !important;
+      top: 20px;
+    }
+     .add-vid{
+      width: 170px;
+     display: inline-block;
+     background-color: #FF7A01;
+     color: #fff;
+     margin:50px 20px;
+     padding:10px;
+     font-size: 22px;
+     border-radius: 16px;
+     @media screen and (max-width: 700px){
+      
+      font-size: 1rem;
+        margin:10px;
+        width: auto;
+        padding:5px;
+     
+    }
+    @media screen and (max-width: 500px){
+      
+      font-size: 12px;
+      padding: 2px;
+       
+     
+    }
+     }
+     .competition{
+       background-color: inherit;
+       color: #fe7701;
+       margin:50px 20px;
+       padding: 10px;
+       font-size: 22px;
+       border: solid 1px #FF7A01;
+       border-radius: 16px;
+       width: 170px;
+       &:hover{
+        background-color: #FF7A01;
+        color: #fff;
+       }
+       @media screen and (max-width: 700px){
+      
+       
+        font-size: 1rem;
+        margin:10px;
+        width: auto;
+        padding:5px;
+    }
+    @media screen and (max-width: 500px){
+      
+    
+      font-size: 12px;
+      padding: 2px;
+       
+     
+    }
+     }
+     .dot{
+      background-color: #FF7A01 !important;
+     }
+  }

@@ -25,14 +25,16 @@ const Index = () => {
       <SwiperCom />
       <div className='container'>
       <VidiohatElmoaheb />
-      <Carousel />
+      {/* <Carousel /> */}
       
-      {/* <NewestNews /> */}
+    
        <VidiohatMoreViews />
         <Ahdth />
-      
+        <NewestNews />
+        <Footer />
       </div>
-      <Footer />
+  
+      
       
     
       </>

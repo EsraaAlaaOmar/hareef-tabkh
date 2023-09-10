@@ -5,26 +5,30 @@ import Image from 'next/image';
 
 
 import {FaFacebookF, FaYoutube, FaTwitter, FaInstagram} from 'react-icons/fa'
+import Link from 'next/link';
 const Footer = () => {
     let curentYear = new Date().getFullYear();
   return (
       <div className='footer'>
-      <div className='long-line'></div>
-      <Image alt='logo' width={'100'} height={'100'} className='logo' src='/images/logo.png' />
-      <div>لو موهوب</div>
-      <div className='short-line'></div>
-      <FooterLink name="عن لو موهوب" link="/about" />
-      <FooterLink name="شروط المسابقة" link="/competetionTerms" />
-      <FooterLink name="الشروط و الاحكام" link="/terms" />
-      <FooterLink name="سياسة الخصوصية" link="/privacy" />
-      
-      <span className='social'><FaYoutube /></span>
-      <span className='social'><FaInstagram /></span>
-      <span className='social'><FaTwitter /></span>
-      <span className='social'><FaFacebookF /></span>
-      
-      <footer >Copyright &copy; Orange Egypt {curentYear}. All rights reserved </footer>
-  
+        <Image width={48} height={48} alt="logo" src='/images/logo.png' />
+      <span className='site-name'>لو موهوب</span>
+      {/* <footer >Copyright &copy; Orange Egypt {curentYear}. All rights reserved </footer> */}
+      <div className='links'>
+     <Link  href='/'><span className='link'>عن لو موهوب</span></Link> 
+     <Link  href='/'><span className='link'>شروط المسابقة</span></Link> 
+     <Link  href='/'><span className='link'>الشروط والأحكام</span></Link> 
+     <Link  href='/'><span className='link'>سياسة الخصوصية</span></Link> 
+      </div>
+      <div className='lastline'>
+        <span>
+        تابعنا على :
+        <span className='social'><FaFacebookF /></span>
+        <span className='social'><FaInstagram /></span>
+        <span className='social'><FaTwitter /></span>
+        <span className='social'><FaYoutube /></span>
+        </span>
+        <div className='left'>Copyright &copy; Orange Egypt {curentYear}. All rights reserved</div>
+      </div>
          
     </div>
   )

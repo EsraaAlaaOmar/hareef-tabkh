@@ -139,9 +139,7 @@ export default function CaptionCarousel() {
                 ml="-4%"
                 p="5px"
                 transform="translate(0, -50%)">
-                          <Link href='/' className="section-title">
-   اخر الاخبار
-    </Link>
+       
                 <Heading fontSize={"22px"} color={"#ff7900"} >
                   {card.title}
                 </Heading>
