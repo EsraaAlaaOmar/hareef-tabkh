@@ -515,12 +515,17 @@ padding: 7px;
   text-align: center;
 }
 .videos-page{
+  direction: rtl;
   grid-template-columns: auto auto  !important;
+  grid-column-gap: 50px;
+  padding: 5vh;
+  
   .video-box{
     color: #000;
     // width: 347px;
-    width: calc(90vw / 2 );
+    width: 45vw;
  margin: auto;
+ text-align: right;
   position: relative;
   @media screen and (max-width: 700px){
    
@@ -528,8 +533,10 @@ padding: 7px;
 
 }
 video{
-  width: 347px;
-  height: 180px;}
+  width:100%;
+  max-width:100%;
+  width: 45vw;
+  height: 280px;}
   }
 
 }
