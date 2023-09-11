@@ -10,9 +10,7 @@
        display: block;
     
     }
-    .video-box{
-
-    }
+  
 }
 .video-box{
     color: #000;
@@ -25,9 +23,17 @@
     max-width: calc(90vw / 2 );
 
 }
+@media screen and (max-width: 500px){
+  max-width: 100vw;
+
+}
   video{
     width: 347px;
     height: 180px;
+    @media screen and (max-width: 500px){
+      width: 100%;
+    
+    }
   }
   .video-info{
     display: inline-block;
@@ -160,26 +166,26 @@ cursor: pointer;
     direction: rtl;
     left:50vw!important;
 
-    top: 100px;
+    top: 30%;
     width: 50vw !important;
     height: 202px !important;
 
     opacity: 1 !important;
     background-color: inherit  !important;
     // float: left;
-    font-size: 1.7rem !important;
+    font-size: 2.5rem !important;
     text-align: right !important;
-    @media screen and (max-width: 948px){
-      font-size: 1.5rem !important;
+    @media screen and (max-width: 1125px){
+      font-size: 1.7rem !important;
     
     }
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 770px){
       font-size: 1rem !important;
-      top: 20px;
+      // top: 20px;
     }
     @media screen and (max-width: 500px){
       font-size: .7rem !important;
-      top: 20px;
+      // top: 20px;
     }
      .add-vid{
       width: 170px;
@@ -190,18 +196,21 @@ cursor: pointer;
      padding:10px;
      font-size: 22px;
      border-radius: 16px;
-     @media screen and (max-width: 700px){
+     @media screen and (max-width: 880px){
       
       font-size: 1rem;
         margin:10px;
         width: auto;
-        padding:5px;
+        padding:5px 10px;
+      
      
     }
     @media screen and (max-width: 500px){
       
       font-size: 12px;
-      padding: 2px;
+      padding: 5px 10px;
+      border-radius: 10px;
+
        
      
     }
@@ -219,20 +228,21 @@ cursor: pointer;
         background-color: #FF7A01;
         color: #fff;
        }
-       @media screen and (max-width: 700px){
+       @media screen and (max-width: 880px){
       
        
         font-size: 1rem;
         margin:10px;
         width: auto;
-        padding:5px;
+        padding:5px 10px;
+       
     }
     @media screen and (max-width: 500px){
       
     
       font-size: 12px;
-      padding: 2px;
-       
+      padding:5px 10px;
+      border-radius: 10px;
      
     }
      }

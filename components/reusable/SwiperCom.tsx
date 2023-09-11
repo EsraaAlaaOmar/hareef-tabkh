@@ -8,7 +8,9 @@ const SwiperCom = () => {
     <div>
        <img src="/images/slider1.png" />
        <p className="legend" >
-        عندك موهبة ونفسك تشاركها مع الناس؟فرصتك جت يلا شاركنا مستنى ايه!
+          عندك موهبة ونفسك تشاركها مع الناس؟
+          <br/>
+          فرصتك جت يلا شاركنا مستنى ايه!
 
         <br/> 
         <button className='add-vid'>اضافة فيديو </button>
@@ -19,7 +21,9 @@ const SwiperCom = () => {
     <div>
         <img src="/images/slider1.png" />
         <p className="legend" >
-        عندك موهبة ونفسك تشاركها مع الناس؟فرصتك جت يلا شاركنا مستنى ايه!
+          عندك موهبة ونفسك تشاركها مع الناس؟
+          <br/>
+          فرصتك جت يلا شاركنا مستنى ايه!
 
         <br/> 
         <button className='add-vid'>اضافة فيديو </button>
@@ -29,7 +33,9 @@ const SwiperCom = () => {
     <div>
         <img src="/images/slider1.png" />
         <p className="legend" >
-        عندك موهبة ونفسك تشاركها مع الناس؟فرصتك جت يلا شاركنا مستنى ايه!
+          عندك موهبة ونفسك تشاركها مع الناس؟
+          <br/>
+          فرصتك جت يلا شاركنا مستنى ايه!
 
         <br/> 
         <button className='add-vid'>اضافة فيديو </button>
