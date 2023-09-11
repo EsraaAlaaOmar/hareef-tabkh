@@ -5,6 +5,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { GridItem } from "@chakra-ui/react";
 import Loader from "./Loader";
+import Video from "./Video";
 
 interface VideoData {
   // Define the properties of the video data you are expecting
@@ -109,7 +110,7 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery("video
 // }, []);
 
 const renderedVideos = data?.map((video:VideoData) => {
-  return<span key={video.VideoId}>   <VideoCompetition playVideoo={playVideo} videodetails={video} addVote={addVote} />     </span>
+  return<span key={video.VideoId}>   <Video videodetails={video}/>     </span>
 })
   
   
@@ -130,7 +131,7 @@ const renderedVideos = data?.map((video:VideoData) => {
               <span className='category last'>الاكثر مشاهدة </span>
       </div>
       
-          <div>
+          <div className="videos-grid videos-page">
                {isLoading? <Loader /> : renderedVideos}  
            </div>
           <div></div>

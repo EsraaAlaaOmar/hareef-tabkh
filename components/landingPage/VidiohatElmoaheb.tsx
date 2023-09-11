@@ -31,7 +31,10 @@ const VidiohatElmoaheb = () => {
 
   const fetchData = async () => {
   
-      const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos',{ headers: {
+    const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos', {
+      headers: {
+        "Header" :" Access-Control-Allow-Headers",
+        "value":"api_key",
         "Api_Key": "elinxfthr62023",
         'content-type': 'text/json'
       }});
