@@ -3,6 +3,7 @@ import { BsFillPlayFill } from 'react-icons/bs';
 import { Box, Text } from "@chakra-ui/react"
 import Image from 'next/image';
 import { IoIosPeople } from 'react-icons/io'
+import {BsPlay } from 'react-icons/bs'
 import { TbShare3 } from 'react-icons/tb'
 import{AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
 interface VideoData {
@@ -31,7 +32,9 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
       </Box>
       <Text color="#fff">{videodetails?.Title}</Text> */}
       <div className='video-box'>
-        <video
+        <div className='rel'>
+          <span className='play-icon'><BsPlay /></span>
+          <video
         className="competetion-video"
         width="320"
         height="240"
@@ -42,6 +45,7 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
         <source src={videodetails?.Url} type="video/mp4" />
         Your bro
       </video>
+      </div>
       <div className='video-info'>
       <span><AiOutlineHeart /></span>100
         
