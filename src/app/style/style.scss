@@ -200,7 +200,8 @@ body{
     }
   }
   .static-pages{
-    color: #fff;
+  color: #000;
+  direction: rtl;
     p{
       padding: 30px 10px ;
       text-align: right;
@@ -539,4 +540,19 @@ video{
   height: 280px;}
   }
 
+}
+.page-hierarchy{
+  color: #4B4A4A;
+  font-size: 20px;
+  .parent{
+   
+    
+  }
+  .arow-icon{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .child{
+    color: #FF7A01;
+  }
 }
