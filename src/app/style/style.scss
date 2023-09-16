@@ -1,6 +1,8 @@
 @import 'scssfiles/Nav';
 @import 'scssfiles/home';
+@import 'scssfiles/slect.scss';
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
+
 
 body{
   background-color: #fff !important;
@@ -162,6 +164,7 @@ body{
     background-color: #000;
     padding: 40px;
     padding-bottom: 60px;
+    direction: rtl;
     img{
       margin-top: 30px;
       vertical-align: top;
@@ -202,6 +205,12 @@ body{
   .static-pages{
   color: #000;
   direction: rtl;
+   padding:0 30px  50px 30px;
+  .title{
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 30px;
+   }
     p{
       padding: 30px 10px ;
       text-align: right;
@@ -212,11 +221,15 @@ body{
 
 /* upload videos */
 .upload-video{
-  color: #fff;
-  margin:10px auto;
-  text-align: center;
+  color: #000;
+ 
   margin-bottom: 100px;
-
+text-align: right;
+.title{
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 30px;
+ }
   video{
     margin: auto;
   }
@@ -524,6 +537,7 @@ padding: 7px;
   justify-content: center;
   .video-box{
     color: #000;
+    
     // width: 347px;
   
  margin: auto;
@@ -537,6 +551,7 @@ padding: 7px;
 video{
   width:100%;
   max-width:100%;
+  background: #FFEBD9;
 
  }
   }
@@ -545,6 +560,7 @@ video{
 .page-hierarchy{
   color: #4B4A4A;
   font-size: 20px;
+  text-align: right;
   .parent{
    
     

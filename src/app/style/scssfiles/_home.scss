@@ -51,6 +51,7 @@
     width: 347px;
     height: 180px;
     border-radius: 8px;
+    background: #FFEBD9;
     @media screen and (max-width: 500px){
       width: 100%;
     
@@ -88,8 +89,8 @@
   .like-vid{
     position: absolute;
     top: 5px;
-    right: 7px;
-    z-index: 9999999999999999999;
+    left: 10px;
+    z-index:  19;
     color: red;
     font-size: 22px;
   
@@ -98,8 +99,9 @@
     position: absolute;
     top: 5px;
     left: 10px;
-    z-index: 9999999999999999999;
-    color: orange;
+    right: 7px;
+    z-index: 19;
+    color: #fff;
     font-size: 22px;
   
   

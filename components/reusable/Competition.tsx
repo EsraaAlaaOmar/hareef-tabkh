@@ -6,7 +6,8 @@ import axios from 'axios';
 import { GridItem } from "@chakra-ui/react";
 import Loader from "./Loader";
 import Video from "./Video";
-
+import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
+import SelectComponent from "./SelectComponent";
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -120,28 +121,23 @@ const renderedVideos = data?.map((video:VideoData) => {
       
 
         <div className="upload-video">
-          <p className="upload-qoute">
-            عندك موهبة ونفسك تشاركها مع الناس؟
-                  <br />
-                !فرصتك جت! يلا شاركنا بموهبتك  
-          </p>
-          <div className='categories'>
-              <span className='category active first'>الاحدث </span>
-              <span className='category'>الاكثر تصويتا </span>
-              <span className='category last'>الاكثر مشاهدة </span>
-      </div>
+        <div className='page-hierarchy'>
+           <span className='parent'>
+           الرئيسية 
+           <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
+           </span>
+           <span className='child'>فيديوهات المواهب العالمية</span>
+
+         </div>
+         <div className='title'>فيديوهات المواهب العالمية</div>
+           <SelectComponent />
+        
       
           <div className="videos-grid videos-page">
                {isLoading? <Loader /> : renderedVideos}  
            </div>
           <div></div>
-          <Link href="/myvideos">
-          <button className="link-button">
-           
-              فديوهاتي
-          
-          </button>
-          </Link>
+        
         </div>
 
         {playvideo && <div id="player-box" className="videoplayer">
@@ -176,6 +172,7 @@ const renderedVideos = data?.map((video:VideoData) => {
             </div>
           </div>
         </div>}
+        
       </div>
     </>
   );
