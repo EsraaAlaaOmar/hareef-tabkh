@@ -7,7 +7,7 @@
 body{
   background-color: #fff !important;
   // font-family: Arial, Helvetica, sans-serif !important;
-  color: #fff !important;
+  color: #000 !important;
 }
 .container{
     // max-width: 507px;
@@ -31,6 +31,7 @@ body{
     padding:15px;
     background-color: #fe7701;
     color: #fff;
+
 }
 .landing-news-container{
   display: block;
@@ -571,5 +572,36 @@ video{
   }
   .child{
     color: #FF7A01;
+  }
+}
+.page-title{
+  direction: rtl;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+.page{
+padding:0 30px  50px 30px;;
+direction: rtl;
+.page-title {
+ margin-top: 10px;
+ font-size: 24px;
+ font-weight: bold;
+}
+.section-title{
+  font-size: 22px;
+
+  margin-top: 40px;
+
+}
+}
+.add-vid{
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid #FF7A01;
+  float: left;
+  &:hover{
+    background-color: #FF7A01;
+    color: #fff;
   }
 }

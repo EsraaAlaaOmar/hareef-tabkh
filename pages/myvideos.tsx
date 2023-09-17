@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import Navbar from '../components/reusable/Navbar'
 import Myvideos from '../components/reusable/Myvideos'
+import Footer from '../components/reusable/Footer';
 const axios = require("axios");
 
 interface VideoData {
@@ -27,6 +28,7 @@ const Myvideoos = () => {
       <>
         <Navbar />
        <Myvideos />
+       <Footer />
            
       </>
          

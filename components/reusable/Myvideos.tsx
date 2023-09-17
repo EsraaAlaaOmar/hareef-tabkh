@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { useQuery, useMutation , useQueryClient } from 'react-query';
 import MySingleVideo from './MySingleVideo';
 import Loader from './Loader';
+import Myvideo from './Myvideo';
+import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
 const axios = require("axios");
 
 interface VideoData {
@@ -72,23 +74,30 @@ const Myvideos = () => {
   const renderedVideos =
  ( data?.length === 0)?<>ليس لديك اي فديوهات </>
    :
-  data?.map((video:VideoData)=><MySingleVideo key={video.VideoId} videoDetails={video} useDeleteItem={useDeleteItem} />)
+  data?.map((video:VideoData)=><Myvideo key={video.VideoId} videodetails={video}  />)
   return (
-      <div>
-          <div className="upload-video">
-    <p className="upload-qoute">
-                 عندك موهبة ونفسك تشاركها مع الناس؟
-                  <br />
-                !فرصتك جت! يلا شاركنا بموهبتك  
-     </p>
-     <Link href="/upload">
-        <button className="link-button">
-             إضافة فديو    
+      <div className='page'>
+        <div className='page-hierarchy'>
+           <span className='parent'>
+           الرئيسية 
+           <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
+           </span>
+           <span className='child'>فديوهاتي</span>
+
+         </div>
+         <button className="add-vid">
+        اضافة فيديو
         </button>
-     </Link>
-    
+         <div className='page-title'>فديوهاتي</div>
+  
+     
         
-        <div className="row">
+  
+    
+     <div className='section-title'>
+     قيد المراجعة
+      </div> 
+     <div className='videos-grid'>
       {isLoading? <Loader />  : renderedVideos}
    
 
@@ -106,7 +115,7 @@ const Myvideos = () => {
     
 </button>
 </Link>
-   </div>
+   
     </div>
   )
 }
