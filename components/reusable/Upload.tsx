@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import Link from 'next/link'
 import { useMutation  } from 'react-query';
 import Loader from './Loader';
 import { useRouter } from 'next/router';
+import { useOnClickOutside } from 'usehooks-ts'
 const axios = require("axios");
 const Upload = () => {
   const router = useRouter();
@@ -15,6 +16,7 @@ const Upload = () => {
       
     }
   )
+  const [showvideo, setShowVideo] = useState(false)
   // important
   // const upload_msg = document.getElementById('upload-msg')
   // if(upload_msg){upload_msg.style.display='block'}
@@ -39,13 +41,13 @@ const Upload = () => {
     console.log('submit')
     event.preventDefault(); 
 
-  
+      
       const reqdata = new FormData();
       reqdata.append("Title", formData.Title);
       reqdata.append("Description", formData.Description);
       reqdata.append("Msisdn", formData.Msisdn);
       reqdata.append("formFile", formData.formFile);
-  
+      
       // try {
       //   const response = await fetch("https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo", {
       //     method: "POST",
@@ -84,7 +86,7 @@ const Upload = () => {
   const mutation = useMutation(addVideo)
   console.log(mutation)
   function video(e:any) {
-    
+    setShowVideo(true)
       var fileInput = document.getElementById('video_input') as any;
      var fileUrl = URL.createObjectURL(fileInput?.files[0]);
      const videoselector = document.querySelector("video")
@@ -111,51 +113,68 @@ const Upload = () => {
       const upload_msg = document.getElementById('upload-msg')
       if(upload_msg){upload_msg.style.display='block'}
       
-    }
-  return (
-     <div>
-           <div className="upload-video">
+  }
   
-      <Link href="/myvideos">
-          <button className="link-button video-link">
-      
-              فديوهاتي         
-       
-          </button>
-        </Link> 
-      
-              <input id='video_input' type="file" accept="video/*" onChange={(e)=>video(e)} name='formFile'  />
-    <button id="choose-to-upload" className="video-upload-button" onClick={()=>buttonClick()}>اختر فديو لتشارك به</button> 
-        {mutation.isLoading? <Loader />: <div id="uploaded-data">
-            <form onSubmit={(e)=>addVideo(e)}>
-        <div className="upload-video-input">
+  const ref = useRef(null)
+
+  const handleClickOutside = () => {
+    // Your custom logic here
+    console.log('clicked outside')
+  }
+
+  const handleClickInside = () => {
+    // Your custom logic here
+    console.log('clicked inside')
+  }
+
+  useOnClickOutside(ref, handleClickOutside)
+  return (
+     <div  ref={ref}
+     onClick={handleClickInside}>
+           <div className="white-background">
+           <form onSubmit={(e)=>addVideo(e)}>
+        <div className='left-section'>
+       { showvideo && <video width="320" height="240" autoPlay controls>
+              <source id='source' src="movie.mp4" type="video/mp4" />
+          
+              Your browser does not support the video tag.
+            </video>}
+          <input id='video_input' type="file" accept="video/*" onChange={(e)=>video(e)} name='formFile'  />
+          {!showvideo&&  <button id="choose-to-upload" className="video-upload-button" onClick={() => buttonClick()}>اضافة فيديو + </button> }
+            <div className="actions">
+         <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
+         <button className="video-action-upload-button video-upload-delete" onClick={()=>setShowVideo(false)}> حذف الفديو</button>
+    
+            </div>
+          </div>
+          <div className='right-section'>
+            <div className='page-title'>اضافة فيديو
+               <div className="upload-video-input">
           <label className="upload-video-label" >عنوان الفديو </label>
-              <input className="upload-video-textarea" style={{ height: "40px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
+              <input className="upload-video-textarea" style={{ height: "70px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
       </div>
       <div className="upload-video-input">
           <label className="upload-video-label">وصف الفديو </label>
           <textarea  className="upload-video-textarea" placeholder="أدخل وصف الفديو " name='Description' value={Description} onChange={e=>onChange(e)} ></textarea>
       </div>
-    <video width="320" height="240" autoPlay controls>
-      <source id='source' src="movie.mp4" type="video/mp4" />
-  
-       Your browser does not support the video tag.
-    </video>
-<div className="actions">
-                      <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
-    <button className="video-action-upload-button video-upload-delete"> حذف الفديو</button>
-    
             </div>
+          {mutation.isLoading ? <Loader /> : <div id="uploaded-data">
+            
+          
+       
+ 
+
            
 <div id="upload-msg">
   شكرا لك .. سيتم مراجعة الفديو قبل النشر 
  
             </div>
-            </form>
+            
         </div>}
-
-   
-   </div>
+        </div>
+        </form>
+      </div>
+     
     </div>
   )
 }

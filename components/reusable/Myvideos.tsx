@@ -5,6 +5,7 @@ import MySingleVideo from './MySingleVideo';
 import Loader from './Loader';
 import Myvideo from './Myvideo';
 import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
+import Upload from './Upload';
 const axios = require("axios");
 
 interface VideoData {
@@ -85,7 +86,7 @@ const Myvideos = () => {
            <span className='child'>فديوهاتي</span>
 
          </div>
-         <button className="add-vid">
+         <button className="add-vid-button">
         اضافة فيديو
         </button>
          <div className='page-title'>فديوهاتي</div>
@@ -107,14 +108,10 @@ const Myvideos = () => {
   </div>
     <div >
     
-</div>
-<Link href="/compeition">
-<button className="link-button">
-   
-     المسابقة    
-    
-</button>
-</Link>
+      </div>
+      <div className='overlay'>
+         <Upload />
+      </div>
    
     </div>
   )

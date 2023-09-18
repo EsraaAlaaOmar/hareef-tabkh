@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { IoIosPeople } from 'react-icons/io'
 import {BsPlay } from 'react-icons/bs'
 import { TbShare3 } from 'react-icons/tb'
-import { IoIosTimer } from 'react-icons/tb'
+import { IoIosTimer } from 'react-icons/io'
 import{AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
 interface VideoData {
   // Define the properties of the video data you are expecting
@@ -43,7 +43,7 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
         muted
         >
     
-        <source src={videodetails?.Url} type="video/mp4" />
+        <source  type="video/mp4" />
         Your bro
       </video>
       </div>
@@ -54,11 +54,11 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
         <span><IoIosPeople /> </span>10k
       
       </div>
-      <div className='userName'>{ videodetails.Title}</div>
-      <div className='videoname'>{ videodetails.Description}</div>
-      <div className='like-vid'><AiFillHeart /></div>
+      <div className='userName'>عنوان الفديو</div>
+      <div className='videoname'>وصف الفديو</div>
+      <div className='like-vid'><AiOutlineHeart /></div>
       <div className='share-vid'><TbShare3 /></div>
-      <div className='video-info'>منذ يومين</div>
+      <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
       <div className='vote'>تصويت</div>
       </div>
     </>

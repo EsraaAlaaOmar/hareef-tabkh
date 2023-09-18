@@ -24,7 +24,7 @@ class SelectComponent extends React.Component {
         value={selectedOption}
         onChange={this.handleChange}
         options={options}
-        className={"testttt"}
+        className={"select-category"}
       />
     );
   }

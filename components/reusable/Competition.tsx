@@ -117,7 +117,7 @@ const renderedVideos = data?.map((video:VideoData) => {
   
   return (
     <>
-      <div>
+      <div className="page">
       
 
         <div className="upload-video">
@@ -126,10 +126,10 @@ const renderedVideos = data?.map((video:VideoData) => {
            الرئيسية 
            <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
            </span>
-           <span className='child'>فيديوهات المواهب العالمية</span>
+           <span className='child'>فيديوهات المواهب </span>
 
          </div>
-         <div className='title'>فيديوهات المواهب العالمية</div>
+         <div className='title'>فيديوهات المواهب </div>
            <SelectComponent />
         
       
