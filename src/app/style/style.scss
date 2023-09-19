@@ -166,6 +166,7 @@ body{
     padding: 40px;
     padding-bottom: 60px;
     direction: rtl;
+    color: #fff;
     img{
       margin-top: 30px;
       vertical-align: top;
@@ -300,6 +301,11 @@ font-size: 16px;
 font-weight: 700;
   padding:8px;
   border-radius: 8px;
+
+  @media screen and (max-width: 700px){
+    width: 75%;
+
+  }
 }
 .upload-video-textarea::placeholder{
 color: #817E7E;
@@ -546,6 +552,7 @@ video{
 
 
  }
+
   }
 
 }
@@ -581,6 +588,7 @@ direction: rtl;
 }
 .section-title{
   font-size: 22px;
+  font-weight: bold;
 
   margin-top: 40px;
 
@@ -590,6 +598,7 @@ direction: rtl;
   padding: 8px 20px;
   border-radius: 8px;
   border: 1px solid #FF7A01;
+  font-weight: 700;
   float: left;
   &:hover{
     background-color: #FF7A01;
@@ -603,7 +612,22 @@ direction: rtl;
   top: 0%;
   left: 0%;
   background-color: #00000086;
+  z-index: 99;
+  text-align: center;
+  .overlay-text{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    
+  }
+
 .white-background{
+  text-align: none;
   background-color: #fff;
   width: 50%;
 
@@ -611,11 +635,24 @@ direction: rtl;
   top: 20%;
   left: 25%;
   border-radius: 8px;
+  @media screen and (max-width: 1600px){
+    width: 70%;
+    top: 20%;
+    left: 10%;
+  }
   .left-section{
     display: inline-block;
-    
+    padding: 10px;
     float: left;
     direction: ltr;
+    @media screen and (max-width: 1070px){
+   
+    display: block;
+ 
+    float: right;
+  
+  }
+  
     .video-upload-button{
       height: 288px;
       margin: 10px;
@@ -627,13 +664,19 @@ direction: rtl;
       border: 1px dashed #FF7A01;
       font-size: 24px;
       font-weight: 700;
+      max-width: 100%;
+      @media screen and (max-width: 630px){
+   
+        padding: 0px 50px;
+    
+    }
 
     }
     // 344.44*288
     .actions{
       margin: 10px auto;
       text-align: center;
-    
+  
       .video-action-upload-button{
         background: #17A952;
         color: #fff;
@@ -651,7 +694,16 @@ direction: rtl;
     }
   }
   .right-section{
+    display: inline-block;
     padding: 20px;
+      @media screen and (max-width: 1070px){
+   
+    display: block;
+    width: 100%;
+  
+   
+  
+  }
   }
 }
 }

@@ -2,11 +2,10 @@ import React , {useState,useRef} from 'react'
 import { BsFillPlayFill } from 'react-icons/bs';
 import { Box, Text } from "@chakra-ui/react"
 import Image from 'next/image';
-import { IoIosPeople, IoIosTimer } from 'react-icons/io'
 import {BsPlay } from 'react-icons/bs'
 import { BiShare , BiBasket} from 'react-icons/bi'
 import { FiEdit } from 'react-icons/fi'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { AiOutlineHeart, AiOutlineCloseCircle } from 'react-icons/ai'
 import { FiMoreVertical } from 'react-icons/fi'
 import { useOnClickOutside } from 'usehooks-ts'
 interface VideoData {
@@ -54,7 +53,10 @@ const handleClickInside = () => {
           <Text  as="span" position='absolute' top='calc( 50% - 15px )' left =' calc(50% - 15px )' p="3px 4px" bgColor="#fe7701" color="#fff" fontSize="30px" borderRadius="50%" >     <BsFillPlayFill /></Text>
       </Box>
       <Text color="#fff">{videodetails?.Title}</Text> */}
-      <div className='video-box'>
+          <div className='video-box'>
+              <div className='refuse-msg'>
+                  <span><AiOutlineCloseCircle /></span>تم رفض الفيديو بسبب عدم مراعاة الشروط والأحكام
+              </div>
         <div className='rel'>
           <span className='play-icon'><BsPlay /></span>
           <video
@@ -69,24 +71,14 @@ const handleClickInside = () => {
         Your bro
       </video>
       </div>
-      <div className='video-info'>
-      <span><AiOutlineHeart /></span>100
-        
-        <span><BiShare /> </span>3k
-        <span><IoIosPeople /> </span>10k
-      
-      </div>
+   
       <div className='userName'>عنوان الفديو</div>
       <div className='videoname'>وصف الفديو</div>
       <div className='like-vid'><AiOutlineHeart /></div>
   
         <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
-        <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
-       {showList && <div className='list'  ref={ref}  onClick={handleClickInside}>
-          <div><span><BiShare /></span>مشاركة </div>
-          <div><span><FiEdit /> </span>تعديل </div>
-          <div><span><BiBasket /></span>مسح</div>
-        </div>}
+    
+      
      
       </div>
     </>

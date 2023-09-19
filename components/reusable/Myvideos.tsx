@@ -1,9 +1,10 @@
 import React, {useEffect,useState} from 'react'
 import Link from 'next/link'
 import { useQuery, useMutation , useQueryClient } from 'react-query';
-import MySingleVideo from './MySingleVideo';
+import Pending from './Pending';
 import Loader from './Loader';
 import Myvideo from './Myvideo';
+import Refused from './Refused';
 import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
 import Upload from './Upload';
 const axios = require("axios");
@@ -21,7 +22,7 @@ interface VideoData {
 }
 const Myvideos = () => {
   // const [data, setData] = useState<VideoData[] | null>(null);
-
+   const [upload,setUpload] = useState(false)
   const fetchData = async () => {
     
 
@@ -86,7 +87,7 @@ const Myvideos = () => {
            <span className='child'>فديوهاتي</span>
 
          </div>
-         <button className="add-vid-button">
+         <button className="add-vid-button" onClick={()=>setUpload(true)}>
         اضافة فيديو
         </button>
          <div className='page-title'>فديوهاتي</div>
@@ -98,20 +99,36 @@ const Myvideos = () => {
      <div className='section-title'>
      قيد المراجعة
       </div> 
-     <div className='videos-grid'>
+      <div className='videos-grid'>
+        <Pending  />
+    
+   
+
+    </div>
+    <div className='section-title'>
+    الفيديوهات المقبولة
+      </div> 
+      <div className='videos-grid'>
       {isLoading? <Loader />  : renderedVideos}
    
 
     </div>
-       <div>
-  
-  </div>
+    
+
+      <div className='section-title'>
+      الفيديوهات المرفوضة
+      </div> 
+      <div className='videos-grid'>
+       <Refused />
+   
+
+    </div>
     <div >
     
       </div>
-      <div className='overlay'>
-         <Upload />
-      </div>
+      {upload && <div className='overlay'>
+        <Upload hideUpload={ setUpload} />
+      </div>}
    
     </div>
   )

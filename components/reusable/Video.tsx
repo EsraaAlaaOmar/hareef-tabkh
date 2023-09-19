@@ -4,7 +4,7 @@ import { Box, Text } from "@chakra-ui/react"
 import Image from 'next/image';
 import { IoIosPeople } from 'react-icons/io'
 import {BsPlay } from 'react-icons/bs'
-import { TbShare3 } from 'react-icons/tb'
+import { BiShare } from 'react-icons/bi'
 import { IoIosTimer } from 'react-icons/io'
 import{AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
 interface VideoData {
@@ -50,14 +50,14 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
       <div className='video-info'>
       <span><AiOutlineHeart /></span>100
         
-        <span><TbShare3 /> </span>3k
+        <span><BiShare /> </span>3k
         <span><IoIosPeople /> </span>10k
       
       </div>
       <div className='userName'>عنوان الفديو</div>
       <div className='videoname'>وصف الفديو</div>
       <div className='like-vid'><AiOutlineHeart /></div>
-      <div className='share-vid'><TbShare3 /></div>
+      <div className='share-vid'><BiShare /></div>
       <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
       <div className='vote'>تصويت</div>
       </div>

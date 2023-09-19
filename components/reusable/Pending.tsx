@@ -54,9 +54,13 @@ const handleClickInside = () => {
           <Text  as="span" position='absolute' top='calc( 50% - 15px )' left =' calc(50% - 15px )' p="3px 4px" bgColor="#fe7701" color="#fff" fontSize="30px" borderRadius="50%" >     <BsFillPlayFill /></Text>
       </Box>
       <Text color="#fff">{videodetails?.Title}</Text> */}
-      <div className='video-box'>
-        <div className='rel'>
-          <span className='play-icon'><BsPlay /></span>
+          <div className='video-box'>
+             
+         <div className='rel'>
+            <div className='overlay'>
+             <div className='overlay-text'> قيد المراجعة..  </div>      
+             </div>
+        
           <video
         className="competetion-video"
         width="320"
@@ -65,23 +69,17 @@ const handleClickInside = () => {
         muted
         >
     
-        <source src='' type="video/mp4" />
+        <source src={videodetails?.Url} type="video/mp4" />
         Your bro
       </video>
       </div>
-      <div className='video-info'>
-      <span><AiOutlineHeart /></span>100
-        
-        <span><BiShare /> </span>3k
-        <span><IoIosPeople /> </span>10k
-      
-      </div>
+   
       <div className='userName'>عنوان الفديو</div>
       <div className='videoname'>وصف الفديو</div>
       <div className='like-vid'><AiOutlineHeart /></div>
   
         <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
-        <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
+ 
        {showList && <div className='list'  ref={ref}  onClick={handleClickInside}>
           <div><span><BiShare /></span>مشاركة </div>
           <div><span><FiEdit /> </span>تعديل </div>

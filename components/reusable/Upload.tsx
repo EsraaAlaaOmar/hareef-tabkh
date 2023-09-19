@@ -5,7 +5,17 @@ import Loader from './Loader';
 import { useRouter } from 'next/router';
 import { useOnClickOutside } from 'usehooks-ts'
 const axios = require("axios");
-const Upload = () => {
+
+interface UploadProps {
+  // playVideoo: React.Dispatch<React.SetStateAction<boolean>>;
+  hideUpload: (arg0: boolean)=>any;
+
+  }
+  const Upload: React.FC<UploadProps> = ({hideUpload }) => {
+
+
+
+
   const router = useRouter();
   const [formData, setFormData] = useState(
     {
@@ -120,6 +130,7 @@ const Upload = () => {
   const handleClickOutside = () => {
     // Your custom logic here
     console.log('clicked outside')
+    hideUpload(false)
   }
 
   const handleClickInside = () => {
@@ -132,22 +143,8 @@ const Upload = () => {
      <div  ref={ref}
      onClick={handleClickInside}>
            <div className="white-background">
-           <form onSubmit={(e)=>addVideo(e)}>
-        <div className='left-section'>
-       { showvideo && <video width="320" height="240" autoPlay controls>
-              <source id='source' src="movie.mp4" type="video/mp4" />
-          
-              Your browser does not support the video tag.
-            </video>}
-          <input id='video_input' type="file" accept="video/*" onChange={(e)=>video(e)} name='formFile'  />
-          {!showvideo&&  <button id="choose-to-upload" className="video-upload-button" onClick={() => buttonClick()}>اضافة فيديو + </button> }
-            <div className="actions">
-         <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
-         <button className="video-action-upload-button video-upload-delete" onClick={()=>setShowVideo(false)}> حذف الفديو</button>
-    
-            </div>
-          </div>
-          <div className='right-section'>
+        <form onSubmit={(e) => addVideo(e)}>
+        <div className='right-section'>
             <div className='page-title'>اضافة فيديو
                <div className="upload-video-input">
           <label className="upload-video-label" >عنوان الفديو </label>
@@ -172,6 +169,21 @@ const Upload = () => {
             
         </div>}
         </div>
+        <div className='left-section'>
+       { showvideo && <video width="320" height="240" style={{margin:'auto'}} autoPlay controls>
+              <source id='source' src="movie.mp4" type="video/mp4" />
+          
+              Your browser does not support the video tag.
+            </video>}
+          <input id='video_input' type="file" accept="video/*" onChange={(e)=>video(e)} name='formFile'  />
+          {!showvideo&&  <button id="choose-to-upload" className="video-upload-button" onClick={() => buttonClick()}>اضافة فيديو + </button> }
+       { showvideo&&    <div className="actions">
+         <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
+         <button className="video-action-upload-button video-upload-delete" onClick={()=>setShowVideo(false)}> حذف الفديو</button>
+    
+            </div>}
+          </div>
+       
         </form>
       </div>
      

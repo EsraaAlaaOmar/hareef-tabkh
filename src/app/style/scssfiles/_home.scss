@@ -110,6 +110,30 @@
     cursor: pointer;
   
   }
+  .list{
+    position: absolute;
+    top: 27px;
+    right: 15px;
+    z-index:  19;
+    background-color: #fff;
+    color: #0000009d;
+    font-size: 16px;
+    padding: 15px 17px ;
+    border-radius: 8px;
+  
+    div{
+      cursor: pointer;
+      &:hover{
+        color: #000;
+      }
+      span{
+      display: inline-block;
+      vertical-align: middle;
+      margin: 5px 3px;
+    }
+  }
+  
+  }
   .share-vid{
     position: absolute;
     top: 8px;
@@ -139,6 +163,16 @@
       background-color: #fe7701;
     }
   }
+  .refuse-msg{
+    font-size: 16px;
+    font-weight: 700;
+    span{
+       color: red;
+       display: inline-block;
+       vertical-align: middle;
+       margin-left: 2px;
+    }
+   }
   }
   .section-page{
     float: left;
