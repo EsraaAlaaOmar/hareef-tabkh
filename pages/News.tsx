@@ -22,7 +22,7 @@ const News = () => {
           <div className='landing-news-container'>
         <SingleNews />
         <SingleNews />
-        <SingleNews />
+        <SingleNews />   
         <SingleNews />
         <SingleNews />
                 
