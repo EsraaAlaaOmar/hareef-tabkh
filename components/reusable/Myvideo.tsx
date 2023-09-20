@@ -31,7 +31,20 @@ interface VideoData {
 const Myvideo = ({ videodetails }: { videodetails: VideoData }) => {
   const [showList, setShowList] = useState(false)
   
+  const [play, setPlay] = useState(false)
+
   
+  const ref2 = useRef(null)
+
+  const handleClickOutside2 = () => {
+    // Your custom logic here
+    setPlay(false)
+    
+  }
+
+
+  useOnClickOutside(ref2, handleClickOutside2)
+
 const ref = useRef(null)
 
 const handleClickOutside = () => {
@@ -54,7 +67,25 @@ const handleClickInside = () => {
           <Text  as="span" position='absolute' top='calc( 50% - 15px )' left =' calc(50% - 15px )' p="3px 4px" bgColor="#fe7701" color="#fff" fontSize="30px" borderRadius="50%" >     <BsFillPlayFill /></Text>
       </Box>
       <Text color="#fff">{videodetails?.Title}</Text> */}
-      <div className='video-box'>
+        {play && <div className='video-overlayer'>
+           
+           <div className='details'>
+          
+           عنوان الفديو
+           </div>
+             <video
+              ref={ref2}
+              onClick={handleClickOutside2}
+             
+                controls
+             
+             >
+         
+             <source  type="video/mp4" />
+             Your bro
+           </video>
+             </div>}
+      <div className='video-box myvedio-box'>
         <div className='rel'>
           <span className='play-icon'><BsPlay /></span>
           <video

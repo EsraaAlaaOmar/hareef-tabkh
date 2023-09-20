@@ -51,7 +51,8 @@ const VidiohatMoreViews = () => {
   })
   return (
     <>
-{isLoading? <Loader /> :<Box padding=" 20px " >
+      {/* {isLoading ? <Loader /> : */}
+        <Box padding=" 20px " >
 <Link href='/' className="section-title">
 فيديوهات المواهب ( الأكثر مشاهدة )
     </Link>
@@ -60,13 +61,16 @@ const VidiohatMoreViews = () => {
           </Link>
           <br style={{clear: "both"}}/>
     <div className='videos-grid'>
-              {renderedVideos}
+          {/* {renderedVideos} */}
+          <Video  />
+          <Video  />
+          <Video  />
             
     </div >
     
 </Box>
 
-        }
+        {/* } */}
     </>
   )
 }

@@ -131,50 +131,21 @@ const renderedVideos = data?.map((video:VideoData) => {
            </span>
            <span className='child'>فيديوهات المواهب </span>
 
-         </div>
+          </div>
+          <SelectComponent />
          <div className='title'>فيديوهات المواهب </div>
-           <SelectComponent />
+         
         
       
           <div className="videos-grid videos-page">
-               {isLoading? <Loader /> : renderedVideos}  
+            {/* {isLoading? <Loader /> : renderedVideos}   */}
+            <Video />
            </div>
           <div></div>
         
         </div>
 
-        {playvideo && <div id="player-box" className="videoplayer">
-          <div className="video-player-close" onClick={() => setPlayVideo(false)}>
-            ⓧ
-          </div>
-          <video id="videoplayer" width="100%" height="240" controls>
-            <source src={playerData?.videosrc} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className="videoplayer-description">
-            <span id="videoplayer-description"> {playerData?.describtion}</span>
-
-           {!vote? <button
-              id="player-vote"
-              className="vote-onplayer"
-              onClick={() => addVote(playerData?.videoId, 'MSISDN')}
-            >
-              تصويت♡
-            </button>
-              :
-            <button
-              id="player-remove-vote"
-              className="vote-onplayer player-remove-vote"
-              onClick={() => removeVote(15) }
-            >
-              الغاء التصويت ❤️
-            </button>}
-
-            <div id="player-vote-number" className="vote-number">
-              عدد الاصوات {playerData?.votes}
-            </div>
-          </div>
-        </div>}
+      
         
       </div>
       <Footer />

@@ -99,7 +99,7 @@ const Myvideos = () => {
      <div className='section-title'>
      قيد المراجعة
       </div> 
-      <div className='videos-grid'>
+      <div className='videos-grid videos-page'>
         <Pending  />
     
    
@@ -108,7 +108,7 @@ const Myvideos = () => {
     <div className='section-title'>
     الفيديوهات المقبولة
       </div> 
-      <div className='videos-grid'>
+      <div className='videos-grid videos-page'>
       {isLoading? <Loader />  : renderedVideos}
    
 
@@ -118,7 +118,7 @@ const Myvideos = () => {
       <div className='section-title'>
       الفيديوهات المرفوضة
       </div> 
-      <div className='videos-grid'>
+      <div className='videos-grid videos-page'>
        <Refused />
    
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef} from 'react'
 import { BsFillPlayFill } from 'react-icons/bs';
 import { Box, Text } from "@chakra-ui/react"
 import Image from 'next/image';
@@ -6,7 +6,8 @@ import { IoIosPeople } from 'react-icons/io'
 import {BsPlay } from 'react-icons/bs'
 import { BiShare } from 'react-icons/bi'
 import { IoIosTimer } from 'react-icons/io'
-import{AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { useOnClickOutside } from 'usehooks-ts'
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -25,6 +26,24 @@ interface VideoData {
 }
 
 const Video = ({ videodetails }: { videodetails: VideoData }) => {
+  const [play, setPlay] = useState(false)
+
+  
+  const ref = useRef(null)
+
+  const handleClickOutside = () => {
+    // Your custom logic here
+    setPlay(false)
+    
+  }
+
+  const handleClickInside = () => {
+    // Your custom logic here
+    console.log('clicked inside')
+  }
+
+  useOnClickOutside(ref, handleClickOutside)
+
   return (
     <>
       {/* <Box bgColor='#fff' w='100%' h="130px" textAlign='center' position='relative' bgImage={`url(${videodetails?.Url})`}  bgRepeat="no-repeat" bgSize="cover" borderRadius="10px">
@@ -32,9 +51,28 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
           <Text  as="span" position='absolute' top='calc( 50% - 15px )' left =' calc(50% - 15px )' p="3px 4px" bgColor="#fe7701" color="#fff" fontSize="30px" borderRadius="50%" >     <BsFillPlayFill /></Text>
       </Box>
       <Text color="#fff">{videodetails?.Title}</Text> */}
+         {play && <div className='video-overlayer'>
+           
+        <div className='details'>
+       
+        عنوان الفديو
+        </div>
+          <video
+           ref={ref}
+           onClick={handleClickInside}
+          
+             controls
+          
+          >
+      
+          <source  type="video/mp4" />
+          Your bro
+        </video>
+          </div>}
       <div className='video-box'>
+     
         <div className='rel'>
-          <span className='play-icon'><BsPlay /></span>
+          <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
           <video
         className="competetion-video"
         width="320"

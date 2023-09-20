@@ -2,20 +2,35 @@ import React from 'react'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 import Singlenewsinallnews from '../components/Singlenewsinallnews'
-
+import SingleNews from '../components/reusable/singleNews'
+import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
 const News = () => {
   return (
-      <>
-          <Navbar />
-          <div className='news-page'>
-              <Singlenewsinallnews img='/images/news1.jpg'  title='فيلم Mission: Impossible 7 يحقق 273 مليون دولار حول العالم' />
-              <Singlenewsinallnews img='/images/news2.jpg' title='مستر إكس يحقق 467 ألف جنيه فى السينمات ليلة السبت.. اعرف التفاصيل' />
-              <Singlenewsinallnews img='/images/news1.jpg'  title='فيلم Mission: Impossible 7 يحقق 273 مليون دولار حول العالم' />
-              <Singlenewsinallnews img='/images/news2.jpg'  title='مستر إكس يحقق 467 ألف جنيه فى السينمات ليلة السبت.. اعرف التفاصيل' />
+    <>
+        <Navbar />
+      <div className='page'>
+    
+      <div className='page-hierarchy'>
+           <span className='parent'>
+           الرئيسية 
+           <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
+           </span>
+           <span className='child'>أخبار الفنانين</span>
+
+      </div>
+      <div className='page-title'>أخبار الفنانين</div>
+          <div className='landing-news-container'>
+        <SingleNews />
+        <SingleNews />
+        <SingleNews />
+        <SingleNews />
+        <SingleNews />
                 
           </div>
-          <Footer />
-    </>
+        
+      </div>
+      <Footer />
+      </>
   )
 }
 
