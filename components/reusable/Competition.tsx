@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import Link from 'next/link'
-import VideoCompetition from "./VideoCompetition";
+
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { GridItem } from "@chakra-ui/react";
