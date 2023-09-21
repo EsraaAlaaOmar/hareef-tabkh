@@ -97,12 +97,13 @@ const Myvideos = () => {
   
     
      <div className='section-title'>
-     قيد المراجعة
+     قيد  المراجعة
       </div> 
       <div className='videos-grid videos-page'>
         <Pending  />
     
    
+
 
     </div>
     <div className='section-title'>
