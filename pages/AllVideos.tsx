@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import Link from 'next/link'
-import VideoCompetition from "./VideoCompetition";
+
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { GridItem } from "@chakra-ui/react";
@@ -112,9 +112,9 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery("video
 //   console.log('esraa')
 // }, []);
 
-const renderedVideos = data?.map((video:VideoData) => {
-  return<span key={video.VideoId}>   <Video videodetails={video}/>     </span>
-})
+// const renderedVideos = data?.map((video:VideoData) => {
+//   return<span key={video.VideoId}>   <Video videodetails={video}/>     </span>
+// })
   
   
   return (
@@ -139,6 +139,10 @@ const renderedVideos = data?.map((video:VideoData) => {
       
           <div className="videos-grid videos-page">
             {/* {isLoading? <Loader /> : renderedVideos}   */}
+            <Video />
+            <Video />
+            <Video />
+            <Video />
             <Video />
            </div>
           <div></div>
