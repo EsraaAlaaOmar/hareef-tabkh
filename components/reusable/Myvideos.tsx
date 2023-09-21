@@ -73,10 +73,10 @@ const Myvideos = () => {
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery("myvideos", fetchData)
   console.log(data)
   
-  const renderedVideos =
- ( data?.length === 0)?<>ليس لديك اي فديوهات </>
-   :
-  data?.map((video:VideoData)=><Myvideo key={video.VideoId} videodetails={video}  />)
+  // const renderedVideos =
+//  ( data?.length === 0)?<>ليس لديك اي فديوهات </>
+//    :
+//   data?.map((video:VideoData)=><Myvideo key={video.VideoId} videodetails={video}  />)
   return (
       <div className='page'>
         <div className='page-hierarchy'>
@@ -109,7 +109,7 @@ const Myvideos = () => {
     الفيديوهات المقبولة
       </div> 
       <div className='videos-grid videos-page'>
-      {isLoading? <Loader />  : renderedVideos}
+      {/* {isLoading? <Loader />  : renderedVideos} */}
    
 
     </div>
