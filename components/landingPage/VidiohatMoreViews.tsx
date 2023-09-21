@@ -53,10 +53,10 @@ const VidiohatMoreViews = () => {
     <>
       {/* {isLoading ? <Loader /> : */}
         <Box padding=" 20px " >
-<Link href='/' className="section-title">
+<Link href='/AllVideos' className="section-title">
 فيديوهات المواهب ( الأكثر مشاهدة )
     </Link>
-    <Link href='/' className="section-page">
+    <Link href='/AllVideos' className="section-page">
             عرض الكل 
           </Link>
           <br style={{clear: "both"}}/>

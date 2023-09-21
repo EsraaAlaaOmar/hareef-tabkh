@@ -55,10 +55,10 @@ const Ahdth = () => {
     <>
       {isLoading ? <Loader /> : <Box padding=" 20px  " mt="40px">
     
-    <Link href='/' className="section-title">
+    <Link href='/AllVideos' className="section-title">
     فيديوهات المواهب ( الأحدث )
         </Link>
-        <Link href='/' className="section-page">
+        <Link href='/AllVideos' className="section-page">
             عرض الكل 
           </Link>
           <br style={{clear: "both"}}/>

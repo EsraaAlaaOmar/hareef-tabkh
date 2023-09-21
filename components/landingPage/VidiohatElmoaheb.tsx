@@ -61,10 +61,10 @@ const VidiohatElmoaheb = () => {
     {/* {isLoading ? <Loader />: */}
       <Box padding=" 20px " m='40px 0'>
        
-      <Link href='/' className="section-title">
+      <Link href='/AllVideos' className="section-title">
           فديوهات المواهب
           </Link>
-          <Link href='/' className="section-page">
+          <Link href='/AllVideos' className="section-page">
             عرض الكل 
           </Link>
           <br style={{clear: "both"}}/>

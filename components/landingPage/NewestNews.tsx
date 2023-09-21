@@ -5,10 +5,10 @@ import SingleNews from '../reusable/singleNews';
 const NewestNews = () => {
   return (
     <div className="landing-news-container">
-    <Link href='/' className="section-page">
+    <Link href='/News' className="section-page">
             عرض الكل 
    </Link>
-  <Link href='/' className="section-title">
+  <Link href='/News' className="section-title">
        أخر الأخبار
   </Link>
   <SingleNews />
