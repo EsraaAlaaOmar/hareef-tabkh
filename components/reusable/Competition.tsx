@@ -110,9 +110,9 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery("video
 //   console.log('esraa')
 // }, []);
 
-const renderedVideos = data?.map((video:VideoData) => {
-  return<span key={video.VideoId}>   <Video videodetails={video}/>     </span>
-})
+// const renderedVideos = data?.map((video:VideoData) => {
+//   return<span key={video.VideoId}>   <Video videodetails={video}/>     </span>
+// })
   
   
   return (
@@ -134,7 +134,13 @@ const renderedVideos = data?.map((video:VideoData) => {
         
       
           <div className="videos-grid videos-page">
-               {isLoading? <Loader /> : renderedVideos}  
+               {/* {isLoading? <Loader /> : renderedVideos}   */}
+               <Video/>
+               <Video/>
+               <Video/>
+               <Video/>
+               <Video/>
+               <Video/>
            </div>
           <div></div>
         

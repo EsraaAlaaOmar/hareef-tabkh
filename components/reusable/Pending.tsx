@@ -28,7 +28,7 @@ interface VideoData {
 
 
   
-const Myvideo = ({ videodetails }: { videodetails: VideoData }) => {
+const Myvideo = () => {
   const [showList, setShowList] = useState(false)
   
   
@@ -69,7 +69,7 @@ const handleClickInside = () => {
         muted
         >
     
-        <source src={videodetails?.Url} type="video/mp4" />
+        <source src={''} type="video/mp4" />
         Your bro
       </video>
       </div>

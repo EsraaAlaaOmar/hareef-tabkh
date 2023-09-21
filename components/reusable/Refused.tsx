@@ -27,7 +27,7 @@ interface VideoData {
 
 
   
-const Myvideo = ({ videodetails }: { videodetails: VideoData }) => {
+const Myvideo = () => {
   const [showList, setShowList] = useState(false)
   
   

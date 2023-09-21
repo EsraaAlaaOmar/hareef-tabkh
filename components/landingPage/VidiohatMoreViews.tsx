@@ -46,9 +46,9 @@ const VidiohatMoreViews = () => {
 
 
  
-  const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
-    return<span key={video.VideoId}>   <Video videodetails={video} /></span>
-  })
+  // const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
+  //   return<span key={video.VideoId}>   <Video videodetails={video} /></span>
+  // })
   return (
     <>
       {/* {isLoading ? <Loader /> : */}

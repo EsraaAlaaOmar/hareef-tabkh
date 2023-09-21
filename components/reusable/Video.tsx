@@ -25,7 +25,8 @@ interface VideoData {
   Votes:[]
 }
 
-const Video = ({ videodetails }: { videodetails: VideoData }) => {
+// { videodetails }: { videodetails: VideoData } in()
+const Video = () => {
   const [play, setPlay] = useState(false)
 
   

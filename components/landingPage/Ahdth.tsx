@@ -48,9 +48,9 @@ const Ahdth = () => {
   //   console.log(data)
   // }, []);
  
-  const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
-    return<span key={video.VideoId}>   <Video videodetails={video} /></span>
-  })
+  // const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
+  //   return<span key={video.VideoId}>   <Video videodetails={video} /></span>
+  // })
   return (
     <>
       {isLoading ? <Loader /> : <Box padding=" 20px  " mt="40px">
@@ -63,7 +63,10 @@ const Ahdth = () => {
           </Link>
           <br style={{clear: "both"}}/>
         <div className='videos-grid'>
-              {renderedVideos}
+              {/* {renderedVideos} */}
+              <Video />
+              <Video />
+              <Video />
             
         </div >
        
