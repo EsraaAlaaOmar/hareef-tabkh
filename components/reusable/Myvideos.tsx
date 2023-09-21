@@ -110,6 +110,8 @@ const Myvideos = () => {
       </div> 
       <div className='videos-grid videos-page'>
       {/* {isLoading? <Loader />  : renderedVideos} */}
+      <Myvideo />
+      <Myvideo />
    
 
     </div>
