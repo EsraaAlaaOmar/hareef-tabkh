@@ -635,25 +635,30 @@ background-color: #fff;
   }
 
 .white-background{
-  text-align: none;
+  text-align: right;
   background-color: #fff;
-  width: 50%;
+  width: 90%;
 
   position: absolute;
-  top: 20%;
-  left: 25%;
+  top: 5%;
+  left: 5%;
   border-radius: 8px;
-  @media screen and (max-width: 1600px){
-    width: 70%;
-    top: 20%;
-    left: 10%;
+  @media screen and (max-width: 845px){
+     width: 95%;
+    top: 5%;
+    left: 2.5%;
   }
+  @media screen and (max-width: 600px){
+    width: 80%;
+   top: 5%;
+   left: 10%;
+ }
   .left-section{
     display: inline-block;
     padding: 10px;
     float: left;
     direction: ltr;
-    @media screen and (max-width: 1070px){
+    @media screen and (max-width: 800px){
    
     display: block;
  
@@ -704,7 +709,7 @@ background-color: #fff;
   .right-section{
     display: inline-block;
     padding: 20px;
-      @media screen and (max-width: 1070px){
+      @media screen and (max-width: 800px){
    
     display: block;
     width: 100%;
