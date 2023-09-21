@@ -61,9 +61,9 @@ const Video = () => {
           <video
            ref={ref}
            onClick={handleClickInside}
-          
+           src='/videos/vid.mp4'
              controls
-          
+          autoPlay
           >
       
           <source  type="video/mp4" />

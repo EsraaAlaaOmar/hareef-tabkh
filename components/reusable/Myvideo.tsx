@@ -73,21 +73,21 @@ const handleClickInside = () => {
           
            عنوان الفديو
            </div>
-             <video
-              ref={ref2}
-              onClick={handleClickOutside2}
-             
-                controls
-             
-             >
-         
-             <source  type="video/mp4" />
-             Your bro
+           <video
+           ref={ref2}
+           onClick={handleClickOutside2}
+           src='/videos/vid.mp4'
+             controls
+          autoPlay
+          >
+      
+          <source  type="video/mp4" />
+          Your bro
            </video>
              </div>}
       <div className='video-box myvedio-box'>
         <div className='rel'>
-          <span className='play-icon'><BsPlay /></span>
+          <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
           <video
         className="competetion-video"
         width="320"

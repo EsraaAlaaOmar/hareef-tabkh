@@ -1,11 +1,23 @@
 import React from 'react'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
-
+import {MdOutlineKeyboardArrowLeft} from 'react-icons/md'
 const terms = () => {
   return (
+    <>
+      <Navbar />
     <div className='static-pages'>
-    <Navbar />
+         
+         <div className='page-hierarchy'>
+           <span className='parent'>
+           الرئيسية 
+           <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
+           </span>
+           <span className='child'>الشروط والاحكام</span>
+
+         </div>
+         <div className='title'>الشروط والاحكام</div>
+  
     <p>
     شروط واحكام مسابقة/خدمة &quot; لو موهوب&quot;
 الشروط والأحكام
@@ -158,8 +170,10 @@ const terms = () => {
 
    
     </p>
-    <Footer />
+   
 </div>
+<Footer />
+</>
   )
 }
 
