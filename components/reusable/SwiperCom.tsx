@@ -19,24 +19,18 @@ const SwiperCom = () => {
       
     </div>
     <div>
-        <img src="/images/slider1.png" />
+        <img src="/images/slider2.png" />
         <p className="legend" >
-          عندك موهبة ونفسك تشاركها مع الناس؟
-          <br/>
-          فرصتك جت يلا شاركنا مستنى ايه!
-
+        في ايديك دلوقتي تطلع للنور حمِل فيديوهات لموهبتك وشاركها مع الناس!
         <br/> 
         <button className='add-vid'>اضافة فيديو </button>
         <button className='competition'>المسابقة</button>
       </p>
     </div>
     <div>
-        <img src="/images/slider1.png" />
+        <img src="/images/slider3.png" />
         <p className="legend" >
-          عندك موهبة ونفسك تشاركها مع الناس؟
-          <br/>
-          فرصتك جت يلا شاركنا مستنى ايه!
-
+        اطلب #37# دلوقتي أو زور اللينك للاشتراك في خدمة لو موهوب. مع اورنج هتقدر تشارك فيديوهاتك مع صحابك و أقاربك .
         <br/> 
         <button className='add-vid'>اضافة فيديو </button>
         <button className='competition'>المسابقة</button>
