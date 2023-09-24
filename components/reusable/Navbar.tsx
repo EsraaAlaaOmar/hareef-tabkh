@@ -52,9 +52,13 @@ export default function Simple() {
           
               <Link href='/'><span className='link'>الرئيسية</span></Link>
               <Link href='/AllVideos'><span className='link'> فيديوهات المواهب</span></Link>
-              <Link href='/News'><span className='link'> أخبار الفنانين </span></Link>
-              <Link href='/AllVideos'><span className='link' >فيديوهات المواهب العالمية</span></Link>
               <Link href='/myvideos'><span className='link'> فيديوهاتى </span></Link>
+              <Link href='/myvideos'><span className='link'> فن الكاميرا </span></Link>
+              <Link href='/myvideos'><span className='link'> قصة نجاح  </span></Link>
+              <Link href='/myvideos'><span className='link'> تاريخ وتراث </span></Link>
+              <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
+          
+          
             </span> 
           </span>
         {showList && <span className='close-list' onClick={()=>setShowList(false)}><AiOutlineClose /> </span>}

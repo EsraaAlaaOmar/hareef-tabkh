@@ -17,12 +17,13 @@ body{
     background-color: #fff !important;
 }
 .section-title{
-  font-size: 32px;
+  font-size: 28px;
   color: #000;
   text-decoration: none;
    padding :0 2px;
    display: inline-block;
    margin-bottom: 5px;
+   font-weight: bold;
 }
 .upload{
     width: 90%;
@@ -187,6 +188,9 @@ body{
         text-align: center;
         width: 25%; 
         cursor: pointer;
+        &:hover{
+         color: #fff;
+        }
       }
     }
     .lastline{
@@ -208,8 +212,8 @@ body{
   direction: rtl;
    padding:0 30px  50px 30px;
   .title{
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: bold;
     margin-top: 30px;
    }
     p{
@@ -595,7 +599,7 @@ background-color: #fff;
  font-weight: bold;
 }
 .section-title{
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
 
   margin-top: 40px;
