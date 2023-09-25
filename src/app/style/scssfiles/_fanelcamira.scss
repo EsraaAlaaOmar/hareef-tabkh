@@ -80,14 +80,33 @@
 .flex{
     display: flex;
     flex-wrap: wrap;
-    direction: rtl;
+    direction: ltr;
     margin: 50px 0;
+    align-items: center;
+    @media screen and (max-width: 900px){
+        display: block;
+    
+      }
+
     .colom{
         display: inline-block;
         width: calc( 100% - 480px);
         padding: 10px;
+        @media screen and (max-width: 900px){
+          width: 90%;
+        
+          }
+
    
     }
+    img{
+        min-width:480px;
+        max-height:480px;
+        display: inline-block;
+    }
+}
+.rtl{
+    direction: rtl;
 }
 .close-text{
     font-size: 32px;

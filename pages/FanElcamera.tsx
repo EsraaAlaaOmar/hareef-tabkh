@@ -37,13 +37,14 @@ const FanElcamera = () => {
                     
                     <Fanelcameradetails />
                     <div className='flex'>
+                    <Image height={480} width={480} alt='cam1' src='/images/cam1.png' /> 
                         <div className='colom'>
                             <FanelCameraItem title='اختر المكان المناسب' p="قبل أن تبدأ في التسجيل، حدد مكانا يوفر إضاءة جيدة وخلفية ملائمة تعكس أسلوب الموسيقى الذي تعزفه ." />
                             <FanelCameraItem title='ضبط الصوت' p=" استخدم معدات صوتية جيدة لضمان جودة صوتية عالية. احرصعىل توازن الصوت بشكل جيد بين اآللة والموسيقى المصاحبة." />
                         </div>
-                       <Image height={480} width={480} alt='cam1' src='/images/cam1.png' /> 
+                      
                     </div>
-                    <div className='flex'>
+                    <div className='flex rtl'>
                     <Image height={480} width={480} alt='cam1' src='/images/cam2.png' /> 
                         <div className='colom'>
                             <FanelCameraItem title='التحرير الفني' p=" استخدم برامج تحرير الفيديو لتعزيز جودة الفيديو وإضافة تأثيرات بصرية تناسب الموسيقى." />
@@ -54,12 +55,13 @@ const FanElcamera = () => {
                     </div>
 
                     <div className='flex'>
+                       <Image height={480} width={480} alt='cam1' src='/images/cam3.png' /> 
                         <div className='colom'>
                             <FanelCameraItem title='الملابس والمظهر' p="اختر ملابس تناسب الجو العام لألداء وتعكس شخصيتك الفنية." />
                             <FanelCameraItem title='اتقن أداءك' p="قم بممارسة الأداء مراًرا وتكراًرا حتى تصبح مرتاًحا أمام الكاميرا." />
                             <FanelCameraItem title='التصوير الجانبي' p=" اطلب من شخصما التصوير لك بدلا من التسجيل الذاتي للحصول عىل زوايا متعددة وأفضل إطلالة." />
                         </div>
-                       <Image height={480} width={480} alt='cam1' src='/images/cam3.png' /> 
+                    
                     </div>
                     <div className='close-text'>
                     <span className='r-icon'><MdSquare /></span>
