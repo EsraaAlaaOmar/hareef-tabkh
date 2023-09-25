@@ -66,10 +66,13 @@ export default function Simple() {
           {showList ? <span className='links '>
             
                 <Link href='/'><span className='link big-screens'>الرئيسية</span></Link>
-                <Link href='/AllVideos'><span className='link'> فيديوهات المواهب</span></Link>
-                <Link href='/News'><span className='link'> أخبار الفنانين </span></Link>
-                <Link href='/AllVideos'><span className='link' >فيديوهات المواهب العالمية</span></Link>
-                <Link href='/myvideos'><span className='link'> فيديوهاتى </span></Link>
+            <Link href='/AllVideos'><span className='link'> فيديوهات المواهب</span></Link>
+            <Link href='/myvideos'><span className='link'> فيديوهاتى </span></Link>
+            <Link href='/FanElcamera'><span className='link'> فن الكاميرا </span></Link>
+              <Link href='/myvideos'><span className='link'> قصة نجاح  </span></Link>
+              <Link href='/myvideos'><span className='link'> تاريخ وتراث </span></Link>
+              <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
+          
               </span> : <span className='list-icon' onClick={() => setShowList(true)}><BsList /></span>}
         </span>   
       </div>
