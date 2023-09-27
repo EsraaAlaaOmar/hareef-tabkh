@@ -222,8 +222,9 @@ cursor: pointer;
         @media screen and (max-width: 600px){
            display: block;
            width: none;
-           max-width:98vw;
+           max-width:98vw !important;
            margin: 0px;
+           text-wrap: nowrap;
          
          }
         .title{

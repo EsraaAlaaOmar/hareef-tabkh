@@ -91,7 +91,8 @@ const handleClickInside = () => {
           <video
         className="competetion-video"
         width="320"
-        height="240"
+            height="240"
+            poster="https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"
         // controls="false"
         muted
         >

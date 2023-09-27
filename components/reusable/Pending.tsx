@@ -65,7 +65,8 @@ const handleClickInside = () => {
         className="competetion-video"
         width="320"
         height="240"
-        // controls="false"
+            // controls="false"
+            poster="https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"
         muted
         >
     
