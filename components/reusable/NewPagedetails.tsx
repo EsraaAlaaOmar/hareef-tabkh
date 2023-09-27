@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Fanrlcameradetails = () => {
+const NewPagedetails = () => {
   return (
     <div className='npdetails'>
       <h3>
@@ -11,4 +11,4 @@ const Fanrlcameradetails = () => {
   )
 }
 
-export default Fanrlcameradetails
+export default NewPagedetails
