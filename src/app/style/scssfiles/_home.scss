@@ -222,9 +222,8 @@ cursor: pointer;
         @media screen and (max-width: 600px){
            display: block;
            width: none;
-           max-width:98vw !important;
+           max-width:98vw;
            margin: 0px;
-           text-wrap: nowrap;
          
          }
         .title{
@@ -237,8 +236,38 @@ cursor: pointer;
         }
         p{
            width:90%;
+           max-width: 95%;
             padding: 10px;
            text-wrap: balance;
+           .news-info{
+            display: inline-block;
+            color: #000;
+            max-width: calc( 100vw - 217px);
+            margin: 10px;
+            margin-top: -10px;
+            @media screen and (max-width: 600px){
+               display: block;
+               width: none;
+               max-width:98vw !important;
+               margin: 0px;
+                  overflow: hidden;
+             
+             }
+            .title{
+                color: #000;
+                font-size: 28px;
+                font-weight: 700;
+                margin: 5px 0;
+             
+    
+            }
+            p{
+               width:90%;
+                padding: 10px;
+               text-wrap: balance;
+               white-space: wrap;
+            }
+        }
         }
     }
   }
