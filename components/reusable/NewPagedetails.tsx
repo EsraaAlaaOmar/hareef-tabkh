@@ -2,7 +2,7 @@ import React from 'react'
 
 const Fanrlcameradetails = () => {
   return (
-    <div className='fcdetails'>
+    <div className='npdetails'>
       <h3>
     
         خلف الكاميرا -  <span className='orange'> 8</span> أسرار تظهر موهبتك بشكل مميز وتحصد بها أصوات الجمهور.</h3>
