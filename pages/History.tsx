@@ -41,7 +41,7 @@ const History = () => {
     
          
      <div className='flex'>
-           <Image height={480} width={480} alt='cam1' src='/images/qestagah1.png' /> 
+           <Image height={480} width={480} alt='cam1' src='/images/history1.png' /> 
                       <div className='colom'>
                             <div className='npItem'>
                                 <span className='r-icon'><MdSquare /></span> <span className='fctitle'>رحلة الألحان من الشرق إلى الغرب </span><br/>
@@ -51,7 +51,7 @@ const History = () => {
              
            </div>
            <div className='flex rtl'>
-           <Image height={480} width={480} alt='cam1' src='/images/qestagah2.png' /> 
+           <Image height={480} width={480} alt='cam1' src='/images/history2.png' /> 
                <div className='colom'>
                <div className='npItem'>
                                 <span className='r-icon'><MdSquare /></span> <span className='fctitle'>التحديات والتطورات في عالم العود</span><br/>
@@ -61,7 +61,7 @@ const History = () => {
            </div>
 
            <div className='flex'>
-              <Image height={480} width={480} alt='cam1' src='/images/qestagah3.png' /> 
+              <Image height={480} width={480} alt='cam1' src='/images/history3.png' /> 
                <div className='colom'>
                       <div className='npItem'>
                                 <span className='r-icon'><MdSquare /></span> <span className='fctitle'>إلي الغد: العود ومستقبل الموسيقى</span><br/>
