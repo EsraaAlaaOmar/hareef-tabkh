@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
-import NewPagedetails from '../components/reusable/newPagedetails'
+import NewPagedetails from '../components/reusable/NewPagedetails'
 import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
 import Image from 'next/image'
 import {MdSquare} from 'react-icons/md'
