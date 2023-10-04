@@ -52,7 +52,7 @@ const VidiohatMoreViews = () => {
   return (
     <>
       {/* {isLoading ? <Loader /> : */}
-        <Box padding=" 20px " >
+        <Box >
 <Link href='/AllVideos' className="section-title">
 فيديوهات المواهب ( الأكثر مشاهدة )
     </Link>

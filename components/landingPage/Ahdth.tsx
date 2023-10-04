@@ -53,7 +53,7 @@ const Ahdth = () => {
   // })
   return (
     <>
-      {isLoading ? <Loader /> : <Box padding=" 20px  " mt="40px">
+      {isLoading ? <Loader /> : <Box padding=" " mt="24px">
     
     <Link href='/AllVideos' className="section-title">
     فيديوهات المواهب ( الأحدث )

@@ -59,7 +59,7 @@ const VidiohatElmoaheb = () => {
   return (
     <>
     {/* {isLoading ? <Loader />: */}
-      <Box padding=" 20px " m='40px 0'>
+      <Box  m='24px 0'>
        
       <Link href='/AllVideos' className="section-title">
           فديوهات المواهب

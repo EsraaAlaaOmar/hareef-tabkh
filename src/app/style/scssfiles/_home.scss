@@ -21,18 +21,23 @@
   float: 1  21% !important;
     color: #000;
    
-    width: calc(85vw / 3 );
-    max-width: 100%;
+    width: calc(90%/ 3 );
+    
   position: relative;
   border-radius: 8px;
   @media screen and (max-width: 1100px){
    
-  width: calc(85vw / 2 );
+  width: calc(90% / 2 );
 
 }
 
-@media screen and (max-width: 720px){
-  width: 100vw;
+@media screen and (max-width: 775px){
+  width: 90%;
+
+}
+@media screen and (max-width: 550px){
+  width: 80vw;
+  min-width: 352px;
 
 }
 .rel{
@@ -55,6 +60,7 @@
     height: 210px;
     border-radius: 8px;
     background: #EDCFB7;
+    object-fit:fill;
     @media screen and (max-width: 500px){
       width: 100%;
       height: auto;
@@ -80,13 +86,14 @@
   }
   .userName{
     color: #000;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin: 3px 0;
+    margin-top: 5px;
   }
   .videoname{
     color: #656464;
-    font-size: 16px;
+    font-size: 14px;
     display: inline-block;
     font-weight: 600;
     
@@ -184,7 +191,7 @@
     padding :0 2px;
 font-size: 15px;
 width: 108px;
-height: 40px;
+
 padding: 5px;
 text-align: center;
 font-weight: 700;
@@ -228,7 +235,7 @@ cursor: pointer;
          }
         .title{
             color: #000;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             margin: 5px 0;
          
@@ -239,6 +246,7 @@ cursor: pointer;
            max-width: 95%;
             padding: 10px;
            text-wrap: balance;
+           font-size: 20px;
            .news-info{
             display: inline-block;
             color: #000;
@@ -271,9 +279,27 @@ cursor: pointer;
         }
     }
   }
+  .carousel-root{
+    padding: 0 120px ; 
+    margin-bottom: 64px;
+    @media screen and (max-width: 1100px){
+   
+    
+      padding: 0 56px;
+    
+    }
+    @media screen and (max-width: 775px){
+      padding: 0 56px;
+    
+    }
+    @media screen and (max-width: 550px){
+      padding: 0 24px;
+    
+    }
+  }
   .legend{
     direction: rtl;
-    left:50vw!important;
+    left:46% !important;
 
     top: 30%;
     width: 50vw !important;
@@ -282,7 +308,7 @@ cursor: pointer;
     opacity: 1 !important;
     background-color: inherit  !important;
     // float: left;
-    font-size: 3rem !important;
+    font-size: 40px!important;
     text-align: right !important;
     @media screen and (max-width: 1225px){
       font-size: 1.7rem !important;
@@ -290,18 +316,21 @@ cursor: pointer;
     }
     @media screen and (max-width: 770px){
       font-size: 1rem !important;
-      // top: 20px;
+      top: 30% !important;
     }
     @media screen and (max-width: 500px){
       font-size: .7rem !important;
       // top: 20px;
+    }
+    .actions{
+     margin: auto;
     }
      .add-vid{
       width: 250px;
      display: inline-block;
      background-color: #FF7A01;
      color: #fff;
-     margin:50px 20px;
+     margin:50px 10px;
      padding:8px;
      font-size: 24px;
      border-radius: 16px;
@@ -334,7 +363,7 @@ cursor: pointer;
      .competition{
        background-color: inherit;
        color: #fe7701;
-       margin:50px 20px;
+       margin:50px 10px;
        padding: 8px;
        font-size: 24px;
        font-weight: 700;

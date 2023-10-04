@@ -76,8 +76,7 @@ const Video = () => {
           <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
           <video
         className="competetion-video"
-        width="320"
-            height="240"
+           
             src='/videos/vid.mp4'
             poster="https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"
         // controls="false"

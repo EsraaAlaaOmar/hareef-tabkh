@@ -24,16 +24,16 @@ const Index = () => {
       <Navbar />
       <SwiperCom />
       <div className='container'>
-      <VidiohatElmoaheb />
+      {/* <VidiohatElmoaheb /> */}
       {/* <Carousel /> */}
       
     
        <VidiohatMoreViews />
         <Ahdth />
         <NewestNews />
-        <Footer />
+   
       </div>
-  
+      <Footer />
       
       
     
