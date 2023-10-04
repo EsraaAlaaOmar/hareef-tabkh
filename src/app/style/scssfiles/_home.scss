@@ -411,3 +411,39 @@ cursor: pointer;
       background-color: #FF7A01 !important;
      }
   }
+  .first-slide{
+  left: 42% !important;
+  font-size: 3.3rem !important;
+
+  @media screen and (max-width: 1225px){
+    font-size: 1.7rem !important;
+  
+  }
+  @media screen and (max-width: 770px){
+    font-size: 1rem !important;
+    top: 30% !important;
+  }
+  @media screen and (max-width: 500px){
+    font-size: .7rem !important;
+    // top: 20px;
+  }
+  }
+  .second-slide{
+    left: 42% !important;
+    font-size: 3.3rem !important;
+    @media screen and (max-width: 1225px){
+      font-size: 1.7rem !important;
+    
+    }
+    @media screen and (max-width: 770px){
+      font-size: 1rem !important;
+      top: 30% !important;
+    }
+    @media screen and (max-width: 500px){
+      font-size: .7rem !important;
+      // top: 20px;
+    }
+  }
+  .third-slide{
+
+  }

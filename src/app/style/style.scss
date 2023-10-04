@@ -40,6 +40,10 @@ body{
    display: inline-block;
    margin-bottom: 5px;
    font-weight: bold;
+   @media screen and (max-width: 600px){
+    font-size: 24px;
+  
+  }
 }
 .upload{
     width: 90%;
@@ -628,6 +632,10 @@ background-color: #fff;
   font-weight: bold;
 
   margin-top: 40px;
+  @media screen and (max-width: 600px){
+    font-size: 24px;
+  
+  }
 
 }
 }
