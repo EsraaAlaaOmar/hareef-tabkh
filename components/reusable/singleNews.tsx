@@ -4,7 +4,7 @@ import React from 'react'
 const singleNews = () => {
   return (
     <div className='news-row'>
-     <Image width={100} height={100} alt='news' src='/images/salah.png' />
+     <Image width={288} height={379} alt='news' src='/images/salah.png' />
       <div className='news-info'>
         <div className='title'>صلاح مستمر فى ليفربول</div>
         <p>شدد أندي روبرتسون ظهير ليفربول على أن زميله محمد صلاح سيستمر مع الفريق هذا الموسم، وسط شائعات انتقاله للدوري السعودي.
