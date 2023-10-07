@@ -220,6 +220,13 @@ cursor: pointer;
         height: 207px;
         display: inline-block;
         vertical-align: top;
+        margin: auto;
+        @media screen and (max-width: 600px){
+          display: block;
+           width: 100%;
+           height: auto;
+        
+        }
     }
     .news-info{
         display: inline-block;
@@ -238,16 +245,24 @@ cursor: pointer;
             color: #000;
             font-size: 24px;
             font-weight: 700;
-            margin: 5px 0;
+            margin-top: 8px;
          
 
         }
         p{
+          display: inline-block;
            width:90%;
-           max-width: 95%;
-            padding: 10px;
-           text-wrap: balance;
+          //  max-width: 95%;
+            
+            word-break: break-all;
+            white-space: normal;
            font-size: 20px;
+           @media screen and (max-width: 600px){
+             display: block;
+            width: 98vw;
+          
+          
+          }
            .news-info{
             display: inline-block;
             color: #000;
@@ -256,7 +271,7 @@ cursor: pointer;
             margin-top: -10px;
             @media screen and (max-width: 600px){
                display: block;
-               width: none;
+               width: 98vw;
                max-width:98vw !important;
                margin: 0px;
                   overflow: hidden;
@@ -305,7 +320,7 @@ cursor: pointer;
     top: 30%;
     width: 50vw !important;
     height: 202px !important;
-
+ padding-left: 10px !important;
     opacity: 1 !important;
     background-color: inherit  !important;
     // float: left;
@@ -331,7 +346,7 @@ cursor: pointer;
      display: inline-block;
      background-color: #FF7A01;
      color: #fff;
-     margin:50px 10px;
+     margin:24px 4px;
      padding:8px;
      font-size: 24px;
      border-radius: 16px;
@@ -344,8 +359,8 @@ cursor: pointer;
     }
      @media screen and (max-width: 880px){
       
-      font-size: 1rem;
-        margin:10px;
+      font-size: 14px;
+        margin:8px 4px;
         width: auto;
         padding:5px 10px;
       
@@ -364,7 +379,7 @@ cursor: pointer;
      .competition{
        background-color: inherit;
        color: #fe7701;
-       margin:50px 10px;
+       margin:24px 4px;
        padding: 8px;
        font-size: 24px;
        font-weight: 700;
@@ -392,8 +407,8 @@ cursor: pointer;
        @media screen and (max-width: 880px){
       
        
-        font-size: 1rem;
-        margin:10px;
+        font-size: 14px;
+        margin:8px 4px;
         width: auto;
         padding:5px 15px;
        
@@ -416,16 +431,25 @@ cursor: pointer;
   font-size: 3.3rem !important;
 
   @media screen and (max-width: 1225px){
-    font-size: 1.7rem !important;
+    font-size: 2rem !important;
+    top: 25% !important;
   
   }
+  @media screen and (max-width: 862px){
+    font-size: 1.7rem !important;
+    
+  }
   @media screen and (max-width: 770px){
-    font-size: 1rem !important;
+    font-size: 1.5rem !important;
     top: 30% !important;
   }
-  @media screen and (max-width: 500px){
-    font-size: .7rem !important;
+  @media screen and (max-width: 650px){
+    font-size: 1.1rem !important;
     // top: 20px;
+  }
+  @media screen and (max-width: 500px){
+    font-size: .9rem !important;
+    top: 20% !important;
   }
   }
   .second-slide{
@@ -433,6 +457,7 @@ cursor: pointer;
     font-size: 3.3rem !important;
     @media screen and (max-width: 1225px){
       font-size: 1.7rem !important;
+      top: 25% !important;
     
     }
     @media screen and (max-width: 770px){
@@ -445,5 +470,23 @@ cursor: pointer;
     }
   }
   .third-slide{
+    @media screen and (max-width: 1225px){
+      font-size: 1.7rem !important;
+      top: 15% !important;
+    
+    }
+    @media screen and (max-width: 770px){
+      font-size: 1rem !important;
+      // top: 30% !important;
+    }
+    @media screen and (max-width: 500px){
+      font-size: .7rem !important;
+      // top: 20px;
+    }
 
   }
+  // .center-butons{
+  //   text-align: center !important;
+  //   display: block;
+  //   width: 100%;
+  // }

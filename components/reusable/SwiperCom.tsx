@@ -12,9 +12,11 @@ const SwiperCom = () => {
           <br/>
           فرصتك جت يلا شاركنا مستنى ايه!
 
-        <br/> 
+        <br/>
+        <span className='center-butons'>
         <button className='add-vid'>اضافة فيديو </button>
         <button className='competition'>المسابقة</button>
+        </span> 
       </p>
       
     </div>
@@ -23,8 +25,10 @@ const SwiperCom = () => {
         <p className="legend second-slide" >
         في ايديك دلوقتي تطلع للنور حمِل فيديوهات لموهبتك وشاركها مع الناس!
         <br/> 
+        <span className='center-butons'>
         <button className='add-vid'>اضافة فيديو </button>
         <button className='competition'>المسابقة</button>
+        </span> 
       </p>
     </div>
     <div>
@@ -32,8 +36,10 @@ const SwiperCom = () => {
         <p className="legend  third-slide" >
         اطلب #37# دلوقتي أو زور اللينك للاشتراك في خدمة لو موهوب. مع اورنج هتقدر تشارك فيديوهاتك مع صحابك و أقاربك .
         <br/> 
+        <span className='center-butons'>
         <button className='add-vid'>اضافة فيديو </button>
         <button className='competition'>المسابقة</button>
+        </span> 
       </p>
     </div>
 </Carousel>
