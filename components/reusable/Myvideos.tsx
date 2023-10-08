@@ -78,7 +78,7 @@ const Myvideos = () => {
 //    :
 //   data?.map((video:VideoData)=><Myvideo key={video.VideoId} videodetails={video}  />)
   return (
-      <div className='page'>
+      <div className='page container'>
         <div className='page-hierarchy'>
            <span className='parent'>
            الرئيسية 

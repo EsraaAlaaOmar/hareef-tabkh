@@ -2,10 +2,12 @@
     border-color: #fff;
 }
 .select-category{
+    display: block;
     max-width: 180px;
     border-color: #FF7A01;
     direction: rtl;
-      margin: 0 10px 0 10px ;
+
+      margin-top: 24px;
       z-index:100000000000000000000;
       float: left;
 }

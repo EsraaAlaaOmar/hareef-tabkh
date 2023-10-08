@@ -120,7 +120,7 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery("video
   return (
     <>
     <Navbar />
-      <div className="page">
+      <div className="page container">
       
 
         <div className="upload-video">
