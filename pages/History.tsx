@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 import NewPagedetails from '../components/reusable/NewPagedetails'
@@ -13,10 +14,12 @@ const History = () => {
 <div className='new-pages'>
 
  <div className='page-hierarchy'>
-  <span className='parent'>
-  الرئيسية 
-  <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
-  </span>
+ <span className='parent'>
+              <Link href='/'>
+                الرئيسية 
+             </Link>
+           <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
+           </span>
      <span className='child'>تاريخ وتراث</span>
    
      <br />
