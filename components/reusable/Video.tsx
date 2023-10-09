@@ -28,7 +28,7 @@ interface VideoData {
 // { videodetails }: { videodetails: VideoData } in()
 const Video = () => {
   const [play, setPlay] = useState(false)
-
+  const [like, setLike] = useState(false)
   
   const ref = useRef(null)
 
@@ -96,7 +96,7 @@ const Video = () => {
       </div>
       <div className='userName'>عنوان الفديو</div>
       <div className='videoname'>وصف الفديو</div>
-      <div className='like-vid'><AiOutlineHeart /></div>
+      <div className='like-vid' onClick={()=>setLike(!like)} >{like? <AiFillHeart/>: <AiOutlineHeart /> }</div>
       <div className='share-vid'><BiShare /></div>
       <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
       <div className='vote'>تصويت</div>
