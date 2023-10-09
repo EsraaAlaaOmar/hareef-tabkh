@@ -9,8 +9,10 @@ const terms = () => {
     <div className='static-pages'>
          
          <div className='page-hierarchy'>
-           <span className='parent'>
-           الرئيسية 
+             <span className='parent'>
+              <Link href='/'>
+                الرئيسية 
+             </Link>
            <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
            </span>
            <span className='child'>الشروط والاحكام</span>

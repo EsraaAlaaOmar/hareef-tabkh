@@ -125,8 +125,10 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery("video
 
         <div className="upload-video">
         <div className='page-hierarchy'>
-           <span className='parent'>
-           الرئيسية 
+            <span className='parent'>
+              <Link href='/'>
+                الرئيسية 
+             </Link>
            <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
            </span>
            <span className='child'>فيديوهات المواهب </span>

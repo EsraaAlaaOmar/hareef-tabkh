@@ -40,6 +40,7 @@
   // min-width: 352px;
 
 }
+
 .rel{
   position: relative;
   .play-icon{
@@ -96,6 +97,11 @@
     font-size: 14px;
     display: inline-block;
     font-weight: 600;
+    @media screen and (max-width: 263px){
+      font-size: 10px;
+      vertical-align: super;
+    
+    }
     
   }
   .video-time{
@@ -103,6 +109,10 @@
     color: #656464;
     display: inline-block;
     float: left;
+    @media screen and (max-width: 263px){
+      font-size: 10px;
+    
+    }
     span{
       display: inline-block;
       vertical-align: middle;
