@@ -8,7 +8,7 @@ const News = () => {
   return (
     <>
         <Navbar />
-      <div className='page'>
+      <div className='page container'>
     
       <div className='page-hierarchy'>
            <span className='parent'>
@@ -19,7 +19,7 @@ const News = () => {
 
       </div>
       <div className='page-title'>أخبار الفنانين</div>
-          <div className='landing-news-container'>
+          <div className='landing-news-container '>
         <SingleNews />
         <SingleNews />
         <SingleNews />   

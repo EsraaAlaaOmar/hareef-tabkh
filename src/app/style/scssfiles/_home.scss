@@ -318,14 +318,14 @@ cursor: pointer;
 
     top: 30%;
     width: 50vw !important;
-    height: 202px !important;
+    // height: 202px !important;
  padding-left: 10px !important;
     opacity: 1 !important;
     background-color: inherit  !important;
     // float: left;
     font-size: 40px!important;
     text-align: right !important;
-    @media screen and (max-width: 1225px){
+    @media screen and (max-width: 1280px){
       font-size: 1.7rem !important;
     
     }
@@ -390,7 +390,7 @@ cursor: pointer;
         color: #fff;
        }
   
-       @media screen and (max-width: 1225px){
+       @media screen and (max-width: 1280px){
       
        
        width: 170px;
@@ -429,7 +429,7 @@ cursor: pointer;
   left: 42% !important;
   font-size: 3.3rem !important;
 
-  @media screen and (max-width: 1225px){
+  @media screen and (max-width: 1280px){
     font-size: 2rem !important;
     top: 25% !important;
   
@@ -450,11 +450,15 @@ cursor: pointer;
     font-size: .8rem !important;
     top: 15% !important;
   }
+  @media screen and (max-width: 360px){
+    font-size: .7rem !important;
+    top: 5% !important;
+  }
   }
   .second-slide{
     left: 42% !important;
     font-size: 3.3rem !important;
-    @media screen and (max-width: 1225px){
+    @media screen and (max-width: 1280px){
       font-size: 1.7rem !important;
       top: 25% !important;
     
@@ -467,9 +471,13 @@ cursor: pointer;
       font-size: .7rem !important;
       top: 15% !important;
     }
+    @media screen and (max-width: 360px){
+      // font-size: .5rem !important;
+      top: 5% !important;
+    }
   }
   .third-slide{
-    @media screen and (max-width: 1225px){
+    @media screen and (max-width: 1280px){
       font-size: 1.7rem !important;
       top: 15% !important;
     
@@ -481,6 +489,10 @@ cursor: pointer;
     @media screen and (max-width: 500px){
       font-size: .7rem !important;
       top: 13% !important;
+    }
+    @media screen and (max-width: 360px){
+      font-size: .5rem !important;
+      top: 3% !important;
     }
 
   }
