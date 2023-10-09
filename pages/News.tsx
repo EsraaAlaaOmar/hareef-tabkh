@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 import Singlenewsinallnews from '../components/Singlenewsinallnews'
