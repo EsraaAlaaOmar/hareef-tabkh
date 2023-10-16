@@ -54,32 +54,30 @@ const VidiohatElmoaheb = () => {
   // }, []);
  
   const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
-    // return<span key={video.VideoId}>   <Video videodetails={video} /></span>
+    return  <Video videodetails={video} key={video.VideoId} />
   })
   return (
     <>
-    {/* {isLoading ? <Loader />: */}
-      <Box  m='24px 0'>
+      {isLoading ? <Loader /> :
+        <Box m='24px 0'>
        
-      <Link href='/AllVideos' className="section-title">
-          فديوهات المواهب
+          <Link href='/AllVideos' className="section-title">
+            فديوهات المواهب
           </Link>
           <Link href='/AllVideos' className="section-page">
-            عرض الكل 
+            عرض الكل
           </Link>
-          <br style={{clear: "both"}}/>
+          <br style={{ clear: "both" }} />
           <div className='videos-grid'>
-              {/* {renderedVideos} */}
-              <Video />
-              <Video />
-              <Video />
+            {renderedVideos}
+     
             
-        </div >
+          </div >
           
-      </Box>
+        </Box>
     
 
-
+      }
         
     </>
   )

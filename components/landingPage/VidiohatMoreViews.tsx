@@ -46,12 +46,12 @@ const VidiohatMoreViews = () => {
 
 
  
-  // const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
-  //   return<span key={video.VideoId}>   <Video videodetails={video} /></span>
-  // })
+  const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
+    return  <Video videodetails={video} key={video.VideoId} />
+  })
   return (
     <>
-      {/* {isLoading ? <Loader /> : */}
+      {isLoading ? <Loader /> :
         <Box >
 <Link href='/AllVideos' className="section-title">
 فيديوهات المواهب ( الأكثر مشاهدة )
@@ -61,16 +61,14 @@ const VidiohatMoreViews = () => {
           </Link>
           <br style={{clear: "both"}}/>
     <div className='videos-grid'>
-          {/* {renderedVideos} */}
-          <Video  />
-          <Video  />
-          <Video  />
+          {renderedVideos}
+     
             
     </div >
     
 </Box>
 
-        {/* } */}
+    } 
     </>
   )
 }

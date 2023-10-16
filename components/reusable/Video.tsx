@@ -26,7 +26,7 @@ interface VideoData {
 }
 
 // { videodetails }: { videodetails: VideoData } in()
-const Video = () => {
+const Video = ({ videodetails }: { videodetails: VideoData }) => {
   const [play, setPlay] = useState(false)
   const [like, setLike] = useState(false)
   
@@ -56,12 +56,12 @@ const Video = () => {
            
         <div className='details'>
        
-        عنوان الفديو
+      {videodetails?.Title}
         </div>
           <video
            ref={ref}
            onClick={handleClickInside}
-           src='/videos/vid.mp4'
+           src={videodetails?.Url}
              controls
           autoPlay
           >
@@ -77,7 +77,7 @@ const Video = () => {
           <video
         className="competetion-video"
            
-            src='/videos/vid.mp4'
+            src={videodetails?.Url}
             poster="https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"
         // controls="false"
         muted
@@ -94,8 +94,8 @@ const Video = () => {
         <span><IoIosPeople /> </span>10k
       
       </div>
-      <div className='userName'>عنوان الفديو</div>
-      <div className='videoname'>وصف الفديو</div>
+        <div className='userName'>{videodetails?.Title}</div>
+        <div className='videoname'>{ videodetails?.Description}</div>
       <div className='like-vid' onClick={()=>setLike(!like)} >{like? <AiFillHeart/>: <AiOutlineHeart /> }</div>
       <div className='share-vid'><BiShare /></div>
       <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
