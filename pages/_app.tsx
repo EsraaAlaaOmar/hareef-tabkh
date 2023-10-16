@@ -12,7 +12,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <Component {...pageProps} />
       </ChakraProvider>
-  </QueryClientProvider>
+    </QueryClientProvider>
+    
   )
 }
 

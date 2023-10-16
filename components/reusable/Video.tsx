@@ -1,4 +1,4 @@
-import React, { useState, useRef} from 'react'
+import React, { useState,useEffect, useRef} from 'react'
 import { BsFillPlayFill } from 'react-icons/bs';
 import { Box, Text } from "@chakra-ui/react"
 import Image from 'next/image';
@@ -8,6 +8,7 @@ import { BiShare } from 'react-icons/bi'
 import { IoIosTimer } from 'react-icons/io'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { useOnClickOutside } from 'usehooks-ts'
+import Head from 'next/head';
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -44,9 +45,35 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
   }
 
   useOnClickOutside(ref, handleClickOutside)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window as any).FB?.init({
+        appId: 'YOUR_APP_ID',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v10.0',
+      });
+    }
+  }, []);
+
+  const handleShareClick = () => {
+    (window as any).FB?.ui({
+      method: 'share',
+      href: 'https://example.com', // URL you want to share
+    });
+  };
 
   return (
     <>
+       <Head>
+      {/* Add Facebook SDK script here */}
+      <script
+        async
+        defer
+        crossOrigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=YOUR_APP_ID"
+      ></script>
+    </Head>
       {/* <Box bgColor='#fff' w='100%' h="130px" textAlign='center' position='relative' bgImage={`url(${videodetails?.Url})`}  bgRepeat="no-repeat" bgSize="cover" borderRadius="10px">
           
           <Text  as="span" position='absolute' top='calc( 50% - 15px )' left =' calc(50% - 15px )' p="3px 4px" bgColor="#fe7701" color="#fff" fontSize="30px" borderRadius="50%" >     <BsFillPlayFill /></Text>
@@ -97,7 +124,7 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
         <div className='userName'>{videodetails?.Title}</div>
         <div className='videoname'>{ videodetails?.Description}</div>
       <div className='like-vid' onClick={()=>setLike(!like)} >{like? <AiFillHeart/>: <AiOutlineHeart /> }</div>
-      <div className='share-vid'><BiShare /></div>
+      <div className='share-vid' onClick={handleShareClick}><BiShare /></div>
       <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
       <div className='vote'>تصويت</div>
       </div>
