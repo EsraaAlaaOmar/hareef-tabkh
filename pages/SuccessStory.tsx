@@ -11,7 +11,7 @@ const SuccessStory = () => {
   return (
     < >
     <Navbar />
-<div className='new-pages'>
+<div className='new-pages page container'>
 
  <div className='page-hierarchy'>
  <span className='parent'>
