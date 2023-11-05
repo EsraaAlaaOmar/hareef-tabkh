@@ -49,7 +49,7 @@ const Competition = () => {
         }
       });
     
-      if (response.status === 200) {
+      if (response.status ===200) {
         return response
         // Handle successful upload
       } else {
@@ -133,7 +133,7 @@ const renderedVideos = data?.map((video:VideoData) => {
          </div>
          <div className='title'>فيديوهات المواهب </div>
            <SelectComponent />
-        
+         
       
           <div className="videos-grid videos-page">
                {isLoading? <Loader /> : renderedVideos}  
