@@ -40,7 +40,6 @@ const Competition = () => {
   
   const addVote = async (VideoId:number,MSISDN:string ) => {
     setVote(true)
-   
     try {
       const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
         headers: {
