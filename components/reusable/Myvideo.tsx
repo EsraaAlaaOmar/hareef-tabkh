@@ -28,7 +28,7 @@ interface VideoData {
 
 
   
-const Myvideo = () => {
+const Myvideo = ({ videodetails }: { videodetails: VideoData }) => {
   const [showList, setShowList] = useState(false)
   
   const [play, setPlay] = useState(false)
@@ -71,12 +71,12 @@ const handleClickInside = () => {
            
            <div className='details'>
           
-           عنوان الفديو
+          {videodetails.Title}
            </div>
            <video
            ref={ref2}
            onClick={handleClickOutside2}
-           src='/videos/vid.mp4'
+           src={videodetails.Url}
              controls
           autoPlay
           >
@@ -108,8 +108,8 @@ const handleClickInside = () => {
         <span><IoIosPeople /> </span>10k
       
       </div>
-      <div className='userName'>عنوان الفديو</div>
-      <div className='videoname'>وصف الفديو</div>
+      <div className='userName'>{videodetails.Title}</div>
+      <div className='videoname'>{videodetails.Description}</div>
       <div className='like-vid'><AiOutlineHeart /></div>
   
         <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
