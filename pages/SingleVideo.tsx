@@ -2,6 +2,8 @@ import React from 'react'
 import Video from '../components/reusable/Video'
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import Navbar from '../components/reusable/Navbar'
+import Footer from '../components/reusable/Footer';
 
 const SingleVideo = () => {
     var param1Value:any ;
@@ -42,7 +44,9 @@ const SingleVideo = () => {
       const { isLoading, data, isError, error, isFetching, refetch } = useQuery("myvideos", fetchData)
   return (
     <>
+    <Navbar />
      <Video videodetails={data}/>
+     <Footer />
     </>
   )
 }
