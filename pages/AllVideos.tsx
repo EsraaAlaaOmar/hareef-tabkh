@@ -10,6 +10,7 @@ import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
 import SelectComponent from "../components/reusable/SelectComponent";
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
+import { Pagination } from 'react-bootstrap';
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -28,7 +29,8 @@ interface VideoData {
 }
 
 const AllVideos = () => {
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [playvideo, setPlayVideo] = useState<boolean>(false);
   const [vote, setVote] = useState<boolean>(false);
   const [playerData, setPlayerData] = useState({
@@ -61,7 +63,14 @@ const AllVideos = () => {
       // Handle network error or any other error
     }
   }
+  const scrolToTop=()=>{
+    // Assuming you have a reference to the pagination element
+const paginationElement = document.getElementById('pagination');
 
+// Scroll to the pagination element
+paginationElement?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+}
 const removeVote = async (id:number) => {
   setVote(false)
   try {
@@ -93,7 +102,7 @@ const removeVote = async (id:number) => {
   
   const fetchData = async () => {
   
-    const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos',{ headers: {
+    const response = await axios.get(`http://196.219.32.230:8088/LawMawhobApis/Talents/GetAllVideos?Page=${currentPage}&PageSize=${itemsPerPage}`,{ headers: {
       "Api_Key": "elinxfthr62023",
       'content-type': 'text/json'
     }});
@@ -101,8 +110,14 @@ const removeVote = async (id:number) => {
 
   
 };
-const { isLoading, data, isError, error, isFetching, refetch } = useQuery("videos", fetchData)
-
+const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
+  ["videos", currentPage],
+  () => fetchData(),
+  {
+    keepPreviousData: true, // Keep previous data while fetching new data
+    staleTime: 0,
+  }
+);
 
 
 // useEffect(() => {
@@ -140,8 +155,18 @@ const renderedVideos = data?.map((video:VideoData) => {
         
       
           <div className="videos-grid videos-page">
-            {isLoading? <Loader /> : renderedVideos}  
-        
+            {isLoading? <Loader /> : data?.length>0 ?<>  {renderedVideos}
+              
+            <div className="pagination-butons">
+            <Pagination>
+        <li className="page-item" onClick={()=>{currentPage>1&&setCurrentPage(currentPage-1);scrolToTop()}}><a className="page-link"   style={{color: '#000'}} >السابق</a></li>
+        <li className="page-item"><a className="page-link" style={{color: '#000'}} >{currentPage}</a></li>
+        <li className="page-item"  onClick={()=> {  data.length==itemsPerPage &&setCurrentPage(currentPage+1);scrolToTop()}}><a className="page-link" style={{color: '#000'}} >التالي</a></li>
+       </Pagination>
+       </div>
+       </>:<div className="no-videos"> لا يوجد فيديوهات</div>}
+       
+       
            </div>
           <div></div>
         

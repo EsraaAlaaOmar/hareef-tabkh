@@ -1,3 +1,6 @@
+// @import 'scssfiles/bootstrap-rtl.min' ; 
+// @import 'scssfiles/bootstrap.min' ; 
+// @import 'scssfiles/bootstrap4.min' ; 
 @import 'scssfiles/Nav';
 @import 'scssfiles/home';
 @import 'scssfiles/slect.scss';
@@ -588,6 +591,16 @@ padding: 7px;
  margin: auto;
 
 }
+.share-box{
+  width: 60%;
+  background-color: #000;
+  position: absolute;
+  top: 29%;
+  left: 20%;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 999999999999;
+}
 video{
   width:100%;
   max-width:100%;
@@ -789,4 +802,20 @@ background-color: #fff;
 
     // transform: translateY(-15%);
  }
+}
+.pagination-butons{
+  text-align: center;
+  width: 160px;
+    display: block;
+    margin: 20px auto;
+  
+  span{
+    padding: 5px ;
+    color: #fff;
+    background-color:#E00800;
+    border-radius: 50%;
+   
+    margin:0 10px ;
+    cursor: pointer;
+  }
 }

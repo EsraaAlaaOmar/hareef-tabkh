@@ -9,6 +9,8 @@ import { IoIosTimer } from 'react-icons/io'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { useOnClickOutside } from 'usehooks-ts'
 import Head from 'next/head';
+import Share from './Share';
+
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -30,13 +32,17 @@ interface VideoData {
 const Video = ({ videodetails }: { videodetails: VideoData }) => {
   const [play, setPlay] = useState(false)
   const [like, setLike] = useState(false)
-  
+  const [share, setShare] = useState(false)
   const ref = useRef(null)
-
+  const ref2 = useRef(null)
   const handleClickOutside = () => {
     // Your custom logic here
     setPlay(false)
     
+  }
+
+  const handleClickOutsideShare = () => { 
+setShare(false)
   }
 
   const handleClickInside = () => {
@@ -45,6 +51,7 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
   }
 
   useOnClickOutside(ref, handleClickOutside)
+  useOnClickOutside(ref2, handleClickOutsideShare)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       (window as any).FB?.init({
@@ -57,10 +64,11 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
   }, []);
 
   const handleShareClick = () => {
-    (window as any).FB?.ui({
-      method: 'share',
-      href: 'https://example.com', // URL you want to share
-    });
+    setShare(true);
+    // (window as any).FB?.ui({
+    //   method: 'share',
+    //   href: 'https://example.com', // URL you want to share
+    // });
   };
 
   return (
@@ -74,6 +82,7 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=YOUR_APP_ID"
       ></script>
     </Head>
+   
       {/* <Box bgColor='#fff' w='100%' h="130px" textAlign='center' position='relative' bgImage={`url(${videodetails?.Url})`}  bgRepeat="no-repeat" bgSize="cover" borderRadius="10px">
           
           <Text  as="span" position='absolute' top='calc( 50% - 15px )' left =' calc(50% - 15px )' p="3px 4px" bgColor="#fe7701" color="#fff" fontSize="30px" borderRadius="50%" >     <BsFillPlayFill /></Text>
@@ -98,7 +107,7 @@ const Video = ({ videodetails }: { videodetails: VideoData }) => {
         </video>
           </div>}
       <div className='video-box'>
-     
+      {share && <div className='share-box'  ref={ref2}><Share id={Video.VideoId} /></div>}
         <div className='rel'>
           <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
           <video
