@@ -107,7 +107,7 @@ setShare(false)
         </video>
           </div>}
       <div className='video-box'>
-      {share && <div className='share-box'  ref={ref2}><Share id={Video.VideoId} /></div>}
+      {share && <div className='share-box'  ref={ref2}><Share id={videodetails.VideoId} /></div>}
         <div className='rel'>
           <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
           <video

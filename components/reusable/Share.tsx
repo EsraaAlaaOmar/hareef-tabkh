@@ -9,7 +9,11 @@ import {
   LinkedinIcon,
   WhatsappIcon
 } from 'react-share';
-const Share = (id:number) => {
+
+interface ShareProps {
+  id: number;
+}
+const Share: React.FC<ShareProps> =  ({id}) => {
     const shareUrl = `https://lwmohoob-p1me.vercel.app/SingleVideo?ID=${id}`;
     const title = 'Check out this website!';
   
