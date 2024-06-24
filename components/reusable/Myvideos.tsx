@@ -73,10 +73,27 @@ const Myvideos = () => {
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery("myvideos", fetchData)
   console.log(data)
   
-  const renderedVideos =
- ( data?.length === 0)?<>ليس لديك اي فديوهات </>
-   :
-  data?.map((video:VideoData)=><Myvideo key={video.VideoId} videodetails={video}  />)
+ // start pending videos 
+ var pendingVideos =data?.filter((video:any)=>video?.Status === 0) 
+ const renderedPending =
+( pendingVideos?.length === 0)?<>ليس لديك اي فيديوهات </>
+  :
+  pendingVideos?.map((video:VideoData)=><Pending key={video.VideoId} videodetails={video}  refetch={refetch}  />)
+  // end pending videos 
+   // start accepted videos 
+   var acceptedVideos =data?.filter((video:any)=>video.Status === 1) 
+   const renderedaccepted =
+  ( acceptedVideos?.length === 0)?<>ليس لديك اي فيديوهات </>
+    :
+    acceptedVideos?.map((video:VideoData)=><Myvideo key={video.VideoId} videodetails={video} refetch={refetch} />)
+    // end accepted videos 
+      // start refused videos 
+ var refusedVideos =data?.filter((video:any)=>video.Status === 2) 
+ const renderedrefused =
+( refusedVideos?.length === 0)?<>ليس لديك اي فيديوهات </>
+  :
+  refusedVideos?.map((video:VideoData)=> <Refused  key={video.VideoId} videodetails={video} refetch={refetch}   />)
+  // end refused videos
   return (
       <div className='page container'>
         <div className='page-hierarchy'>
@@ -102,7 +119,7 @@ const Myvideos = () => {
      قيد  المراجعة
       </div> 
       <div className='videos-grid videos-page'>
-        <Pending  />
+       {renderedPending?.length === 0?<>ليس لديك اي فيد</> :renderedPending}
     
    
 
@@ -112,7 +129,7 @@ const Myvideos = () => {
     الفيديوهات المقبولة
       </div> 
       <div className='videos-grid videos-page'>
-      {isLoading? <Loader />  : renderedVideos}
+      {isLoading? <Loader />  : renderedaccepted?.length === 0?<>ليس لديك اي فيد</> :renderedaccepted}
     
    
 
@@ -123,7 +140,7 @@ const Myvideos = () => {
       الفيديوهات المرفوضة
       </div> 
       <div className='videos-grid videos-page'>
-       <Refused />
+     {renderedrefused?.length === 0?<>ليس لديك اي فيد</> :renderedrefused}
    
 
     </div>
@@ -131,7 +148,7 @@ const Myvideos = () => {
     
       </div>
       {upload && <div className='overlay'>
-        <Upload hideUpload={ setUpload} />
+        <Upload />
       </div>}
    
     </div>

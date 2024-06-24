@@ -8,10 +8,10 @@ const axios = require("axios");
 
 interface UploadProps {
   // playVideoo: React.Dispatch<React.SetStateAction<boolean>>;
-  hideUpload: (arg0: boolean)=>any;
+ 
 
   }
-  const Upload: React.FC<UploadProps> = ({hideUpload }) => {
+  const Upload: React.FC<UploadProps> = ({ }) => {
 
 
 
@@ -23,6 +23,7 @@ interface UploadProps {
       Description: '',
       Msisdn: 'Msisdn',
       formFile: '',
+      posterFile:''
       
     }
   )
@@ -35,12 +36,16 @@ interface UploadProps {
   const { Title, Description, Msisdn, formFile } = formData;
   const onChange = (e: any) => {
  
-    if (e.target.name === 'formFile') {
+    if (e.target.name === 'formFile'){
       // Set the formFile property to the selected file
       
       setFormData({ ...formData, formFile: e.target.files[0] });
       console.log(e.target.files[0])
-    } else {
+    }
+    else if (e.target.name === 'posterFile'){
+      setFormData({ ...formData, posterFile: e.target.files[0] })
+    }
+    else {
       // For other input fields (e.g., Title, Description, Msisdn), update accordingly
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
@@ -57,7 +62,7 @@ interface UploadProps {
       reqdata.append("Description", formData.Description);
       reqdata.append("Msisdn", formData.Msisdn);
       reqdata.append("formFile", formData.formFile);
-      
+      reqdata.append("posterFile", formData.posterFile);
       // try {
       //   const response = await fetch("https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo", {
       //     method: "POST",
@@ -130,7 +135,7 @@ interface UploadProps {
   const handleClickOutside = () => {
     // Your custom logic here
     console.log('clicked outside')
-    hideUpload(false)
+
   }
 
   const handleClickInside = () => {
@@ -141,34 +146,11 @@ interface UploadProps {
   useOnClickOutside(ref, handleClickOutside)
   return (
      <div  ref={ref}
+     
      onClick={handleClickInside}>
            <div className="white-background">
+           <div className='page-title'>اضافة فيديو </div>
         <form onSubmit={(e) => addVideo(e)}>
-        <div className='right-section'>
-            <div className='page-title'>اضافة فيديو
-               <div className="upload-video-input">
-          <label className="upload-video-label" >عنوان الفديو </label>
-              <input className="upload-video-textarea" style={{ height: "70px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
-      </div>
-      <div className="upload-video-input">
-          <label className="upload-video-label">وصف الفديو </label>
-          <textarea  className="upload-video-textarea" placeholder="أدخل وصف الفديو " name='Description' value={Description} onChange={e=>onChange(e)} ></textarea>
-      </div>
-            </div>
-          {mutation.isLoading ? <Loader /> : <div id="uploaded-data">
-            
-          
-       
- 
-
-           
-<div id="upload-msg">
-  شكرا لك .. سيتم مراجعة الفديو قبل النشر 
- 
-            </div>
-            
-        </div>}
-        </div>
         <div className='left-section'>
        { showvideo && <video width="320" height="240" style={{margin:'auto'}} autoPlay controls>
               <source id='source' src="movie.mp4" type="video/mp4" />
@@ -183,6 +165,36 @@ interface UploadProps {
     
             </div>}
           </div>
+        <div className='right-section'>
+            
+               <div className="upload-video-input">
+          <label className="upload-video-label" >عنوان الفديو </label>
+              <input className="upload-video-textarea" style={{ height: "70px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
+      </div>
+      <div className="upload-video-input">
+          <label className="upload-video-label">اسم المشترك باللغة العربية (ثلاثي) </label>
+          <input  className="upload-video-textarea" style={{ height: "70px" }} placeholder="أدخل اسم المشترك " name='Description' value={Description} onChange={e=>onChange(e)} />
+      </div>
+      <div className="upload-video-input">
+          <label className="upload-video-label" style={{fontSize:"14px"}}>غلاف الفيديو(اختياري) </label>
+          <input type='file'  className="" placeholder="أدخل غلاف الفيديو " name='posterFile'  onChange={e=>onChange(e)} style={{fontSize:"14px"}} />
+      </div>
+           
+          {mutation.isLoading ? <Loader /> : <div id="uploaded-data">
+            
+          
+       
+ 
+
+           
+<div id="upload-msg">
+  شكرا لك .. سيتم مراجعة الفديو قبل النشر 
+ 
+            </div>
+            
+        </div>}
+        </div>
+   
        
         </form>
       </div>

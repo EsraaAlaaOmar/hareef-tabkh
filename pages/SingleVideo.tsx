@@ -16,14 +16,14 @@ const SingleVideo = () => {
   
     
     }
-
+console.log(param1Value)
     const fetchData = async () => {
     
 
   
         try {
             const Msisdn ="Msisdn"
-            const response = await axios.post(`http://196.219.32.230:8088/LawMawhobApis/Talents/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
+            const response = await axios.post(https://vodafone.alerting.services/LawMawhobApis/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
               "Api_Key": "elinxfthr62023",
               'content-type': 'text/json'
             }});
@@ -45,7 +45,7 @@ const SingleVideo = () => {
   return (
     <>
     <Navbar />
-     <Video videodetails={data}/>
+     <Video videodetails={data} />
      <Footer />
     </>
   )

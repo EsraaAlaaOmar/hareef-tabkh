@@ -312,6 +312,7 @@ margin: auto;
   text-align: right;
   border-radius: 8;
   border-radius: 8px;
+  direction: rtl;
 
   
 }
@@ -591,16 +592,7 @@ padding: 7px;
  margin: auto;
 
 }
-.share-box{
-  width: 60%;
-  background-color: #000;
-  position: absolute;
-  top: 29%;
-  left: 20%;
-  border-radius: 10px;
-  padding: 20px;
-  z-index: 999999999999;
-}
+
 video{
   width:100%;
   max-width:100%;
@@ -691,91 +683,6 @@ background-color: #fff;
     
   }
 
-.white-background{
-  text-align: right;
-  background-color: #fff;
-  width: 90%;
-
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  border-radius: 8px;
-  @media screen and (max-width: 845px){
-     width: 95%;
-    top: 5%;
-    left: 2.5%;
-  }
-  @media screen and (max-width: 600px){
-    width: 80%;
-   top: 5%;
-   left: 10%;
- }
-  .left-section{
-    display: inline-block;
-    padding: 10px;
-    float: left;
-    direction: ltr;
-    @media screen and (max-width: 800px){
-   
-    display: block;
- 
-    float: right;
-  
-  }
-  
-    .video-upload-button{
-      height: 288px;
-      margin: 10px;
-      padding: 0px 100px;
-      justify-content: center;
-      align-items: center;
-      background-color: #fff;
-      color: #FF7A01;
-      border: 1px dashed #FF7A01;
-      font-size: 24px;
-      font-weight: 700;
-      max-width: 100%;
-      @media screen and (max-width: 630px){
-   
-        padding: 0px 50px;
-    
-    }
-
-    }
-    // 344.44*288
-    .actions{
-      margin: 10px auto;
-      text-align: center;
-  
-      .video-action-upload-button{
-        background: #17A952;
-        color: #fff;
-        border: none;
-        padding:10px 20px;
-        margin: 2px;
-        margin-bottom: 10px;
-        border-radius: 8px;
-        font-weight: 700;
-      }
-      .video-upload-delete{
-        background-color: #E7270C;
-      
-      }
-    }
-  }
-  .right-section{
-    display: inline-block;
-    padding: 20px;
-      @media screen and (max-width: 800px){
-   
-    display: block;
-    width: 100%;
-  
-   
-  
-  }
-  }
-}
 }
 .video-overlayer{
   background-color: #090909ba;
@@ -817,5 +724,98 @@ background-color: #fff;
    
     margin:0 10px ;
     cursor: pointer;
+  }
+}
+.share-box{
+  width: 60%;
+  background-color: #000;
+  position: absolute;
+  top: 29%;
+  left: 20%;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 999999999999;
+}
+
+.white-background{
+  text-align: right;
+  background-color: #fff;
+  width: 85%;
+
+  margin:  20px auto;
+  border-radius: 8px;
+  @media screen and (max-width: 845px){
+     width: 95%;
+ 
+  }
+  @media screen and (max-width: 600px){
+    width: 80%;
+
+ }
+  .left-section{
+    display: inline-block;
+    padding: 10px;
+    float: left;
+    direction: ltr;
+    
+    @media screen and (max-width: 800px){
+      width: 100%;
+    display: block;
+ 
+    float: right;
+  
+  }
+  
+    .video-upload-button{
+      height: 288px;
+      margin: 10px auto;
+      padding: 0px 100px;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      color: #FF7A01;
+      border: 1px dashed #FF7A01;
+      font-size: 24px;
+      font-weight: 700;
+      max-width: 90%;
+      @media screen and (max-width: 630px){
+      display: block;
+        padding: 0px 50px;
+    
+    }
+
+    }
+    // 344.44*288
+    .actions{
+      margin: 10px auto;
+      text-align: center;
+  
+      .video-action-upload-button{
+        background: #17A952;
+        color: #fff;
+        border: none;
+        padding:10px 20px;
+        margin: 2px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        font-weight: 700;
+      }
+      .video-upload-delete{
+        background-color: #E7270C;
+      
+      }
+    }
+  }
+  .right-section{
+    display: inline-block;
+    padding: 20px;
+      @media screen and (max-width: 800px){
+   
+    display: block;
+    width: 100%;
+  
+   
+  
+  }
   }
 }

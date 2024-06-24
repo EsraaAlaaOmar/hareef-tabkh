@@ -26,9 +26,14 @@ interface VideoData {
   Votes:[]
 }
 
+interface myvideoProps {
+  refetch:Function,
+  videodetails: VideoData,
 
+
+}
   
-const Myvideo = ({ videodetails }: { videodetails: VideoData }) => {
+const Myvideo: React.FC<myvideoProps> =({refetch, videodetails}) => {
   const [showList, setShowList] = useState(false)
   
   const [play, setPlay] = useState(false)

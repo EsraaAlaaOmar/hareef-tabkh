@@ -27,7 +27,15 @@ interface VideoData {
 
 
   
-const Myvideo = () => {
+interface MyRefusedvideoProps {
+  refetch:Function,
+  videodetails: VideoData,
+
+
+}
+  
+const MyRefusedvideo: React.FC<MyRefusedvideoProps> =({refetch, videodetails}) => {
+
   const [showList, setShowList] = useState(false)
   
   
@@ -73,8 +81,8 @@ const handleClickInside = () => {
       </video>
       </div>
    
-      <div className='userName'>عنوان الفديو</div>
-      <div className='videoname'>وصف الفديو</div>
+      <div className='userName'>{videodetails?.Title}</div>
+      <div className='videoname'>{videodetails?.Description}</div>
       <div className='like-vid'><AiOutlineHeart /></div>
   
         <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
@@ -88,4 +96,4 @@ const handleClickInside = () => {
 }
 
 
-export default Myvideo
+export default MyRefusedvideo

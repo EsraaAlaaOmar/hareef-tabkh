@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Link from 'next/link'
 
 import { useQuery } from 'react-query';
@@ -41,7 +41,19 @@ const AllVideos = () => {
     
   })
  
-  
+  const [Msdn,setMsdn]=useState('')
+  useEffect(() => {
+    // Accessing query parameters
+    const queryParams = new URLSearchParams(window.location.search);
+    
+    // Reading specific query parameters
+    const param1Value = queryParams.get('MSISDN');
+    param1Value && setMsdn(param1Value)
+    
+   
+
+  }, []);
+
   const addVote = async (VideoId:number,MSISDN:string ) => {
     setVote(true)
    
@@ -102,7 +114,7 @@ const removeVote = async (id:number) => {
   
   const fetchData = async () => {
   
-    const response = await axios.get(`http://196.219.32.230:8088/LawMawhobApis/Talents/GetAllVideos?Page=${currentPage}&PageSize=${itemsPerPage}`,{ headers: {
+    const response = await axios.get(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos?Page=${currentPage}&PageSize=${itemsPerPage}`,{ headers: {
       "Api_Key": "elinxfthr62023",
       'content-type': 'text/json'
     }});
@@ -128,7 +140,7 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
 // }, []);
 
 const renderedVideos = data?.map((video:VideoData) => {
-  return   <Video  key={video.VideoId} videodetails={video}/>   
+  return   <Video  key={video.VideoId} videodetails={video} refetchVideos={refetch} Msdn={Msdn}/>   
 })
   
   

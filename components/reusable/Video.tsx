@@ -10,7 +10,8 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { useOnClickOutside } from 'usehooks-ts'
 import Head from 'next/head';
 import Share from './Share';
-
+import axios from 'axios';
+import { useRouter } from 'next/router';
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -21,20 +22,27 @@ interface VideoData {
   Deleted: Boolean;
   Description: string;
   NViews: number;
+  NShares: number;
   TalentId: number;
   Title: string;
   Url: string;
   VideoId: number;
   Votes:[]
 }
-
+interface videoProps{
+  refetchVideos:Function,
+  videodetails: VideoData,
+  Msdn:String
+}
 // { videodetails }: { videodetails: VideoData } in()
-const Video = ({ videodetails }: { videodetails: VideoData }) => {
+const Video: React.FC<videoProps> =({ videodetails,refetchVideos,Msdn }) => {
   const [play, setPlay] = useState(false)
   const [like, setLike] = useState(false)
   const [share, setShare] = useState(false)
   const ref = useRef(null)
   const ref2 = useRef(null)
+
+  const router = useRouter();
   const handleClickOutside = () => {
     // Your custom logic here
     setPlay(false)
@@ -70,7 +78,62 @@ setShare(false)
     //   href: 'https://example.com', // URL you want to share
     // });
   };
-
+  const addVote = async (videoId: number) => {
+ 
+    try {
+      const response = await axios.post(
+        `http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${videodetails.VideoId}&MSISDN=${Msdn}`,
+        null, // Since there's no request body, pass null
+        {
+          headers: {
+            'content-type': 'application/json' // Correct content type
+          }
+        }
+      );
+  
+      // Update the state
+     
+  
+      // Trigger a refetch of the videos
+      await refetchVideos();
+  
+      // Return the response data
+      return response.data;
+    } catch (error) {
+      console.error('Error adding vote:', error);
+      // Return a default value or handle the error as needed
+      return null;
+    }
+  };    
+  const deleteVote = async (videoId: number) => {
+ 
+    try {
+      const response = await axios.post(
+        `http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${videodetails.VideoId}&MSISDN=${Msdn}`,
+        null, // Since there's no request body, pass null
+        {
+          headers: {
+            'content-type': 'application/json' // Correct content type
+          }
+        }
+      );
+  
+      // Update the state
+     
+  
+      // Trigger a refetch of the videos
+      await refetchVideos();
+  
+      // Return the response data
+      return response.data;
+    } catch (error) {
+      console.error('Error adding vote:', error);
+      // Return a default value or handle the error as needed
+      return null;
+    }
+  };  
+   const addVoteRedirect =(videoId: number)=>  !Msdn || Msdn=='NA' || Msdn=='undefined' ?  router.push(`https://ka2naktraho.com/SignIn`) :addVote(videoId);
+  
   return (
     <>
        <Head>
@@ -107,7 +170,7 @@ setShare(false)
         </video>
           </div>}
       <div className='video-box'>
-      {share && <div className='share-box'  ref={ref2}><Share id={videodetails.VideoId} /></div>}
+      {share && <div className='share-box'  ref={ref2}><Share id={videodetails.VideoId} refetchVideos={refetchVideos} /></div>}
         <div className='rel'>
           <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
           <video
@@ -124,10 +187,10 @@ setShare(false)
       </video>
       </div>
       <div className='video-info'>
-      <span><AiOutlineHeart /></span>100
+      <span><AiOutlineHeart /></span>{videodetails.Votes.length}
         
-        <span><BiShare /> </span>3k
-        <span><IoIosPeople /> </span>10k
+        <span><BiShare /> </span>{videodetails.NShares}
+        {/* <span><IoIosPeople /> </span>10k */}
       
       </div>
         <div className='userName'>{videodetails?.Title}</div>
