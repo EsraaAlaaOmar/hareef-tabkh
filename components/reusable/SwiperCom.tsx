@@ -1,6 +1,7 @@
 import React from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import Link from 'next/link';
 
 const SwiperCom = () => {
   return (
@@ -14,8 +15,8 @@ const SwiperCom = () => {
 
         <br/>
         <span className='center-butons'>
-        <button className='add-vid'>اضافة فيديو </button>
-        <button className='competition'>المسابقة</button>
+        <Link href='/AddVideo'> <button className='add-vid'>اضافة فيديو </button></Link>
+        <Link href='/AllVideos'><button className='competition'>المسابقة</button></Link>
         </span> 
       </p>
       
@@ -26,8 +27,8 @@ const SwiperCom = () => {
         في ايديك دلوقتي تطلع للنور حمِل فيديوهات لموهبتك وشاركها مع الناس!
         <br/> 
         <span className='center-butons'>
-        <button className='add-vid'>اضافة فيديو </button>
-        <button className='competition'>المسابقة</button>
+        <Link href='/AddVideo'> <button className='add-vid'>اضافة فيديو </button></Link>
+         <Link href='/AllVideos'><button className='competition'>المسابقة</button></Link>
         </span> 
       </p>
     </div>
@@ -37,8 +38,8 @@ const SwiperCom = () => {
         اطلب #37# دلوقتي أو زور اللينك للاشتراك في خدمة لو موهوب. مع اورنج هتقدر تشارك فيديوهاتك مع صحابك و أقاربك .
         <br/> 
         <span className='center-butons'>
-        <button className='add-vid'>اضافة فيديو </button>
-        <button className='competition'>المسابقة</button>
+       <Link href='/AddVideo'> <Link href='/AddVideo'> <button className='add-vid'>اضافة فيديو </button></Link></Link>
+         <Link href='/AllVideos'><button className='competition'>المسابقة</button></Link>
         </span> 
       </p>
     </div>
