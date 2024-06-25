@@ -13,11 +13,7 @@ import Share from './Share';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 interface VideoData {
-  // Define the properties of the video data you are expecting
-  // id: number;
-  // title: string;
-  // url: string;
-  // Add other properties as needed
+
   DateIn: Date;
   Deleted: Boolean;
   Description: string;
