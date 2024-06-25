@@ -5,7 +5,19 @@ import { useQuery } from 'react-query';
 import Navbar from '../components/reusable/Navbar'
 import Footer from '../components/reusable/Footer';
 import SwiperCom from '../components/reusable/SwiperCom';
+interface VideoData {
 
+  DateIn: Date;
+  Deleted: Boolean;
+  Description: string;
+  NViews: number;
+  NShares: number;
+  TalentId: number;
+  Title: string;
+  Url: string;
+  VideoId: number;
+  Votes:[]
+}
 const SingleVideo = () => {
     var param1Value:any ;
     if (typeof window !== 'undefined') {
@@ -17,6 +29,7 @@ const SingleVideo = () => {
   
     
     }
+    
 console.log(param1Value)
     const fetchData = async () => {
     
@@ -43,14 +56,26 @@ console.log(param1Value)
     
       };
       const { isLoading, data, isError, error, isFetching, refetch } = useQuery("myvideos", fetchData)
+
+      // make video in top after navigation
+      const scrolToTop=()=>{
+        // Assuming you have a reference to the pagination element
+  const singleVideo = document.getElementById('single-video-continer');
+  
+  // Scroll to the pagination element
+  singleVideo?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  
+  }
+
+  setTimeout(() => {scrolToTop()}, 1500);
   return (
     <>
     <Navbar />
     <SwiperCom />
-    <div className='single-video-continer'>
+    <div id='single-video-continer' className='single-video-continer'>
 
    
-     <Video videodetails={data} />
+     <Video videodetails={data}  refetchVideos={()=>{}} Msdn="" />
      </div>
      <Footer />
     </>

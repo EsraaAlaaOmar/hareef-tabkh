@@ -15,6 +15,7 @@ const Ahdth = () => {
     // Add other properties as needed
     DateIn: Date;
     Deleted: Boolean;
+    NShares: number;
     Description: string;
     NViews: number;
     TalentId: number;
