@@ -50,7 +50,7 @@ const Ahdth = () => {
   // }, []);
  
   const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
-    return  <Video key={video.VideoId} videodetails={video} />
+    return  <Video key={video.VideoId} videodetails={video} Msdn="" refetchVideos={refetch} />
   })
   return (
     <>

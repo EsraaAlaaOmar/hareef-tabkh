@@ -55,7 +55,7 @@ const VidiohatElmoaheb = () => {
   // }, []);
  
   const renderedVideos = data?.slice(0, 3)?.map((video:VideoData) => {
-    return  <Video videodetails={video} key={video.VideoId} />
+    return  <Video videodetails={video} key={video.VideoId}  Msdn="" refetchVideos={refetch} />
   })
   return (
     <>
