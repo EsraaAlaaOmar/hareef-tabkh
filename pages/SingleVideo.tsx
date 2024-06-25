@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import Navbar from '../components/reusable/Navbar'
 import Footer from '../components/reusable/Footer';
+import SwiperCom from '../components/reusable/SwiperCom';
 
 const SingleVideo = () => {
     var param1Value:any ;
@@ -23,7 +24,7 @@ console.log(param1Value)
   
         try {
             const Msisdn ="Msisdn"
-            const response = await axios.post(https://vodafone.alerting.services/LawMawhobApis/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
+            const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
               "Api_Key": "elinxfthr62023",
               'content-type': 'text/json'
             }});
@@ -45,7 +46,12 @@ console.log(param1Value)
   return (
     <>
     <Navbar />
+    <SwiperCom />
+    <div className='single-video-continer'>
+
+   
      <Video videodetails={data} />
+     </div>
      <Footer />
     </>
   )

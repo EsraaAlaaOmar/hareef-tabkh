@@ -572,7 +572,7 @@ padding: 7px;
   .video-box{
     float: 1  21% !important;
     color: #000;
-    
+    direction: rtl;
     width:calc(50% - 30px) !important;
   margin-bottom: 16px;
  
@@ -833,5 +833,16 @@ background-color: #fff;
    
   
   }
+  }
+}
+.single-video-continer{
+  width: 100%;
+  .video-box{
+    width: 70%;
+    display: block;
+    margin: auto;
+    video{
+      height: 300px;
+    }
   }
 }

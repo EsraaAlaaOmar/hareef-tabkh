@@ -160,7 +160,7 @@ setShare(false)
           <video
            ref={ref}
            onClick={handleClickInside}
-           src={videodetails?.Url}
+           src="/videos/vid.mp4"
              controls
           autoPlay
           >
@@ -176,7 +176,7 @@ setShare(false)
           <video
         className="competetion-video"
            
-            src={videodetails?.Url}
+            src="/videos/vid.mp4"
             poster="https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"
         // controls="false"
         muted
@@ -187,9 +187,9 @@ setShare(false)
       </video>
       </div>
       <div className='video-info'>
-      <span><AiOutlineHeart /></span>{videodetails.Votes.length}
+      <span><AiOutlineHeart /></span>{videodetails?.Votes.length}
         
-        <span><BiShare /> </span>{videodetails.NShares}
+        <span><BiShare /> </span>{videodetails?.NShares}
         {/* <span><IoIosPeople /> </span>10k */}
       
       </div>
