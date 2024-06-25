@@ -715,7 +715,23 @@ background-color: #fff;
   width: 160px;
     display: block;
     margin: 20px auto;
-  
+    .pagination{
+      display: flex;
+      padding-left: 0;
+      list-style: none;
+      border-radius: .25rem;
+    
+    .page-item{
+      display: inline-block;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: solid 1px #FF7A01;
+      cursor: pointer;
+      &:hover{
+        background-color: #FF7A01;
+        color: #fff;
+      }
+    } }
   span{
     padding: 5px ;
     color: #fff;

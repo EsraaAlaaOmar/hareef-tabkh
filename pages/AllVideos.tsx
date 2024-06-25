@@ -168,20 +168,20 @@ const renderedVideos = data?.map((video:VideoData) => {
       
           <div className="videos-grid videos-page">
             {isLoading? <Loader /> : data?.length>0 ?<>  {renderedVideos}
-              
-            <div className="pagination-butons">
+              <br/>
+          
+       </>:<div className="no-videos"> لا يوجد فيديوهات</div>}
+       
+       
+           </div>
+          <div></div>
+          <div className="pagination-butons">
             <Pagination>
         <li className="page-item" onClick={()=>{currentPage>1&&setCurrentPage(currentPage-1);scrolToTop()}}><a className="page-link"   style={{color: '#000'}} >السابق</a></li>
         <li className="page-item"><a className="page-link" style={{color: '#000'}} >{currentPage}</a></li>
         <li className="page-item"  onClick={()=> {  data.length==itemsPerPage &&setCurrentPage(currentPage+1);scrolToTop()}}><a className="page-link" style={{color: '#000'}} >التالي</a></li>
        </Pagination>
        </div>
-       </>:<div className="no-videos"> لا يوجد فيديوهات</div>}
-       
-       
-           </div>
-          <div></div>
-        
         </div>
 
       

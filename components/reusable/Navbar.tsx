@@ -24,6 +24,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import { BsList } from 'react-icons/bs'
 import{AiOutlineClose} from 'react-icons/ai'
+import { CiUser } from "react-icons/ci";
 
 export default function Simple() {
  const[showList, setShowList] = useState(false)
@@ -57,6 +58,11 @@ export default function Simple() {
               <Link href='/SuccessStory'><span className='link'> قصة نجاح  </span></Link>
               <Link href='/History'><span className='link'> تاريخ وتراث </span></Link>
               <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
+              <Link href='/signin'><span className='link'> 
+                  <span className='icon'><CiUser /> </span>تسجيل الدخول
+                  
+                </span>
+                </Link>
           
           
             </span> 
