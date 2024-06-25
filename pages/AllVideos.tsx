@@ -21,6 +21,7 @@ interface VideoData {
   Deleted: Boolean;
   Description: string;
   NViews: number;
+  NShares: number;
   TalentId: number;
   Title: string;
   Url: string;
