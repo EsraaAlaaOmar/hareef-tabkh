@@ -12,12 +12,49 @@ import NewestNews from '../components/landingPage/NewestNews'
 import Footer from '../components/reusable/Footer'
 import Carousel from '../components/reusable/carousel'
 import SwiperCom from '../components/reusable/SwiperCom';
+import axios from 'axios';
 
 
 
 
 const Index = () => {
+  var param1Value:any ;
  
+  if (typeof window !== 'undefined') {
+    const queryParams = new URLSearchParams(window.location.search);
+    
+    // Reading specific query parameters
+     param1Value = window && queryParams.get('Msisdn');
+  
+  
+    
+    }
+  const checkSubscribtion = async () => {
+    
+
+  
+    try {
+        const Msisdn ="Msisdn"
+        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/checkSubscriptions?Msisdn=${param1Value}`,{},{ headers: {
+          "Api_Key": "elinxfthr62023",
+          'content-type': 'text/json'
+        }});
+      
+        if (response.status === 200) {
+          // Handle successful upload
+          localStorage.setItem('Msisdn', JSON.stringify(param1Value));
+          return true
+          // setData(response)
+         
+        } else {
+          // Handle upload error
+        }
+      } catch (error) {
+        // Handle network error or any other error
+      }
+
+  };
+ checkSubscribtion();
 
   return (
       <>

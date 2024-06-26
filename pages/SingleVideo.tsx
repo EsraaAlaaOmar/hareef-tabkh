@@ -55,7 +55,7 @@ console.log(param1Value)
           }
     
       };
-      const { isLoading, data, isError, error, isFetching, refetch } = useQuery("myvideos", fetchData)
+      const { isLoading, data, isError, error, isFetching, refetch } = useQuery("singlevideo", fetchData)
 
       // make video in top after navigation
       const scrolToTop=()=>{

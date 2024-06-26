@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import {
   Box,
   Flex,
@@ -25,15 +25,20 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { BsList } from 'react-icons/bs'
 import{AiOutlineClose} from 'react-icons/ai'
 import { CiUser } from "react-icons/ci";
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
 export default function Simple() {
  const[showList, setShowList] = useState(false)
-
+const[phoneNumber, setPhoneNumber] = useState<any>()
   const router = useRouter();
   const handleClick = (url: string) => {
     router.push(url);
   // Close the mobile menu after navigation
   };
+  useEffect(() => {
+    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
+  })
 
   return (
     <>
@@ -58,11 +63,17 @@ export default function Simple() {
               <Link href='/SuccessStory'><span className='link'> قصة نجاح  </span></Link>
               <Link href='/History'><span className='link'> تاريخ وتراث </span></Link>
               <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
+             
+              {phoneNumber?
+              <span className='link'>    مرحبا {phoneNumber} </span>
+                  :
               <Link href='/signin'><span className='link'> 
-                  <span className='icon'><CiUser /> </span>تسجيل الدخول
+                  <span className='icon'><CiUser /> </span>
+                 
+                  تسجيل الدخول
                   
                 </span>
-                </Link>
+                </Link>}
           
           
             </span> 
