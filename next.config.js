@@ -13,7 +13,9 @@ const nextConfig = {
             ]
           }
         ]
-      }
-}
+      },
+      images: {
+        domains: ['*',"img.youm7.com",'q.com'],
+      },}
 
 module.exports = nextConfig

@@ -47,12 +47,7 @@ const renderedNews =data?.map((news:any) =>{
       </div>
       <div className='page-title'>أخبار الفنانين</div>
           <div className='landing-news-container '>
-        <SingleNews />
-        <SingleNews />
-        <SingleNews />   
-        <SingleNews />
-        <SingleNews />
-                
+       {renderedNews}
           </div>
         
       </div>

@@ -64,7 +64,7 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
               <Link href='/History'><span className='link'> تاريخ وتراث </span></Link>
               <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
              
-              {phoneNumber?
+              {/* {phoneNumber?
               <span className='link'>    مرحبا {phoneNumber} </span>
                   :
               <Link href='/signin'><span className='link'> 
@@ -73,8 +73,24 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
                   تسجيل الدخول
                   
                 </span>
-                </Link>}
+                </Link>} */}
+                  <a href='http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617'>
+              <span className='link'> {phoneNumber?
+              <span className='link' aria-label="تسجيل الخروج" title="تسجيل الخروج">    مرحبا {phoneNumber} </span>
+                  :
+              <span>
+                  <span className='icon'><CiUser /> </span>
+                 
+                  تسجيل الدخول
+                  
+                </span>
+               
+         
           
+           
+              }
+          </span>
+          </a>
           
             </span> 
           </span>
