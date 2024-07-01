@@ -22,6 +22,7 @@ interface VideoData {
   Title: string;
   Url: string;
   VideoId: number;
+  NVotes:number;
   Votes:[]
 }
 
