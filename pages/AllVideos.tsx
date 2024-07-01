@@ -21,6 +21,7 @@ interface VideoData {
   Deleted: Boolean;
   Description: string;
   NViews: number;
+  NVotes: number;
   NShares: number;
   TalentId: number;
   Title: string;
@@ -55,27 +56,7 @@ const AllVideos = () => {
 
   }, []);
 
-  const addVote = async (VideoId:number,MSISDN:string ) => {
-    setVote(true)
-   
-    try {
-      const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
-        headers: {
-          "Api_Key": "elinxfthr62023",
-          'content-type': 'text/json'
-        }
-      });
-    
-      if (response.status === 200) {
-        return response
-        // Handle successful upload
-      } else {
-        // Handle upload error
-      }
-    } catch (error) {
-      // Handle network error or any other error
-    }
-  }
+
   const scrolToTop=()=>{
     // Assuming you have a reference to the pagination element
 const paginationElement = document.getElementById('pagination');
@@ -84,26 +65,7 @@ const paginationElement = document.getElementById('pagination');
 paginationElement?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 }
-const removeVote = async (id:number) => {
-  setVote(false)
-  try {
-    const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
-      headers: {
-        "Api_Key": "elinxfthr62023",
-        'content-type': 'text/json'
-      }
-    });
-  
-    if (response.status === 200) {
-      return response
-      // Handle successful upload
-    } else {
-      // Handle upload error
-    }
-  } catch (error) {
-    // Handle network error or any other error
-  }
-  }
+
 
   function playVideo(videosrc: string, describtion: string, votes: number, videoId:number) {
     setPlayVideo(true)

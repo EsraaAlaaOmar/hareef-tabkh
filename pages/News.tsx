@@ -5,7 +5,31 @@ import Navbar from '../components/reusable/Navbar'
 import Singlenewsinallnews from '../components/Singlenewsinallnews'
 import SingleNews from '../components/reusable/singleNews'
 import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
+import { useQuery } from 'react-query'
+import axios from 'axios'
 const News = () => {
+  const fetchData = async () => {
+  
+    const response = await axios.get(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetLastNews`,{ headers: {
+      "Api_Key": "elinxfthr62023",
+      'content-type': 'text/json'
+    }});
+    return response.data;
+
+  
+};
+const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
+  ["news"],
+  () => fetchData(),
+  {
+    keepPreviousData: true, // Keep previous data while fetching new data
+    staleTime: 0,
+  }
+);
+console.log(data);
+const renderedNews =data?.map((news:any) =>{
+  return <Singlenewsinallnews key={news.NewsId} news={news}  />
+})
   return (
     <>
         <Navbar />

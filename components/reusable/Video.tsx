@@ -12,18 +12,20 @@ import Head from 'next/head';
 import Share from './Share';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { useQuery } from 'react-query';
 interface VideoData {
 
   DateIn: Date;
   Deleted: Boolean;
   Description: string;
   NViews: number;
+  NVotes: number;
   NShares: number;
   TalentId: number;
   Title: string;
   Url: string;
   VideoId: number;
-  Votes:[]
+  Votes:any[]
 }
 interface videoProps{
   refetchVideos:Function,
@@ -35,6 +37,7 @@ const Video: React.FC<videoProps> =({ videodetails,refetchVideos,Msdn }) => {
   const [play, setPlay] = useState(false)
   const [like, setLike] = useState(false)
   const [share, setShare] = useState(false)
+  const[phoneNumber, setPhoneNumber] = useState<any>()
   const ref = useRef(null)
   const ref2 = useRef(null)
 
@@ -65,6 +68,9 @@ setShare(false)
         version: 'v10.0',
       });
     }
+  
+   setPhoneNumber(localStorage.getItem('Msisdn'));
+    
   }, []);
 
   const handleShareClick = () => {
@@ -74,11 +80,32 @@ setShare(false)
     //   href: 'https://example.com', // URL you want to share
     // });
   };
+  const getuserId = async () => {
+    const response = await axios.post(
+      `https://vodafone.alerting.services/LawMawhobApis/Talents/GetUserID?MobileNumber=${phoneNumber}`,
+      {},
+      {
+    
+      }
+    );
+    return response.data.UserID;
+  };
+
+   const queryKey = phoneNumber ? ["userId", phoneNumber] : ["userId"];
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
+    queryKey,
+    getuserId)
+    console.log( videodetails?.Votes)
+    var Liked = videodetails?.Votes.find((vote) => {
+      return vote?.TalentId === data ? true : false;
+    });
+    console.log(Liked)
   const addVote = async (videoId: number) => {
  
     try {
       const response = await axios.post(
-        `http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${videodetails.VideoId}&MSISDN=${Msdn}`,
+        `
+        https://vodafone.alerting.services/LawMawhobApis/Talents/AddVote?VideoId=${videodetails.VideoId}&MobileNumber=${phoneNumber}&Vote=${!Liked}`,
         null, // Since there's no request body, pass null
         {
           headers: {
@@ -101,35 +128,8 @@ setShare(false)
       return null;
     }
   };    
-  const deleteVote = async (videoId: number) => {
- 
-    try {
-      const response = await axios.post(
-        `http://196.219.32.230:8088/LawMawhobApis/Talents/AddVote?VideoId=${videodetails.VideoId}&MSISDN=${Msdn}`,
-        null, // Since there's no request body, pass null
-        {
-          headers: {
-            'content-type': 'application/json' // Correct content type
-          }
-        }
-      );
   
-      // Update the state
-     
-  
-      // Trigger a refetch of the videos
-      await refetchVideos();
-  
-      // Return the response data
-      return response.data;
-    } catch (error) {
-      console.error('Error adding vote:', error);
-      // Return a default value or handle the error as needed
-      return null;
-    }
-  };  
-   const addVoteRedirect =(videoId: number)=>  !Msdn || Msdn=='NA' || Msdn=='undefined' ?  router.push(`https://ka2naktraho.com/SignIn`) :addVote(videoId);
-  
+   const  addVoteRedirect=(videoId: number)=>  !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  router.push(`https://ka2naktraho.com/SignIn`) :addVote(videoId);
   return (
     <>
        <Head>
@@ -183,7 +183,7 @@ setShare(false)
       </video>
       </div>
       <div className='video-info'>
-      <span><AiOutlineHeart /></span>{videodetails?.Votes.length}
+      <span><AiOutlineHeart /></span>{videodetails?.NVotes}
         
         <span><BiShare /> </span>{videodetails?.NShares}
         {/* <span><IoIosPeople /> </span>10k */}
@@ -194,7 +194,8 @@ setShare(false)
       <div className='like-vid' onClick={()=>setLike(!like)} >{like? <AiFillHeart/>: <AiOutlineHeart /> }</div>
       <div className='share-vid' onClick={handleShareClick}><BiShare /></div>
       <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
-      <div className='vote'>تصويت</div>
+      <div className='vote' onClick={()=>addVoteRedirect(videodetails.VideoId)}>{Liked?<>الغاء التصويت</> :<>تصويت</>}</div>
+    {/* <div>{Liked}</div> */}
       </div>
     </>
    
