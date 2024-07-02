@@ -1,15 +1,20 @@
 import Image from 'next/image'
+import { title } from 'process';
 import React from 'react'
 
-const singleNews = () => {
+interface newsProps{
+  Title:string;
+  Description:string;
+  ImgUrl:string;
+}
+
+const singleNews: React.FC<newsProps>  = ({Title,Description, ImgUrl}) => {
   return (
     <div className='news-row'>
-     <Image width={288} height={379} alt='news' src='/images/salah.png' />
+     <Image width={288} height={379} alt='news' src={ImgUrl} />
       <div className='news-info'>
-        <div className='title'>صلاح مستمر فى ليفربول</div>
-        <p>شدد أندي روبرتسون ظهير ليفربول على أن زميله محمد صلاح سيستمر مع الفريق هذا الموسم، وسط شائعات انتقاله للدوري السعودي.
-وكان قد ارتبط اسم صلاح بالانتقال إلى اتحاد جدة وأشار يورجن كلوب المدير الفني إلى استمرار نجم الفريق ولا نية لبيعه.
-وقال روبرتسون في تصريحات لشبكة سكاي سبورتس:  &quot;; شائعات انتقال صلاح للسعودية؟ هذا لا يهمنا، لم نشعر بالقلق كلاعبين &quot;.
+        <div className='title'> {Title}</div>
+        <p>{Description}
 </p>
       </div>
       <br/>
