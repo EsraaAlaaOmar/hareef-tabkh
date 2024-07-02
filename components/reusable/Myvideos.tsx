@@ -112,9 +112,11 @@ const Myvideos = () => {
            <span className='child'>فديوهاتي</span>
 
          </div>
+         <Link href='/AddVideo'>
          <button className="add-vid-button" onClick={()=>setUpload(true)}>
         اضافة فيديو
         </button>
+        </Link>
          <div className='page-title'>فديوهاتي</div>
   
      
