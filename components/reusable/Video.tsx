@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 interface VideoData {
 
-  DateIn: Date;
+  DateIn: string;
   Deleted: Boolean;
   Description: string;
   NViews: number;
@@ -129,7 +129,7 @@ setShare(false)
     }
   };    
   
-   const  addVoteRedirect=(videoId: number)=>  !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  router.push(`https://ka2naktraho.com/SignIn`) :addVote(videoId);
+   const  addVoteRedirect=(videoId: number)=>  !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  router.push(`http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617`) :addVote(videoId);
   return (
     <>
        <Head>
@@ -193,7 +193,7 @@ setShare(false)
         <div className='videoname'>{ videodetails?.Description}</div>
       {/* <div className='like-vid' onClick={()=>setLike(!like)} >{like? <AiFillHeart/>: <AiOutlineHeart /> }</div> */}
       <div className='share-vid' onClick={handleShareClick}><BiShare /></div>
-      <div className='video-time'> <span><IoIosTimer /></span> 2023-09-10 .. 15:53:48.3</div>
+      <div className='video-time'> <span><IoIosTimer /></span> {videodetails?.DateIn}</div>
       <div className='vote' onClick={()=>addVoteRedirect(videodetails.VideoId)}>{Liked?<>الغاء التصويت</> :<>تصويت</>}</div>
     {/* <div>{Liked}</div> */}
       </div>
