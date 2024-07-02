@@ -124,7 +124,7 @@ const renderedVideos = data?.map((video:VideoData) => {
            <span className='child'>فيديوهات المواهب </span>
 
           </div>
-          <SelectComponent />
+          {/* <SelectComponent /> */}
          <div className='title'>فيديوهات المواهب </div>
          
         

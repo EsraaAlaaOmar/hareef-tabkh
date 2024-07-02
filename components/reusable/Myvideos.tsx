@@ -23,13 +23,18 @@ interface VideoData {
 const Myvideos = () => {
   // const [data, setData] = useState<VideoData[] | null>(null);
    const [upload,setUpload] = useState(false)
+   const[phoneNumber, setPhoneNumber] = useState<any>()
+
+   useEffect(() => {
+    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
+  },[phoneNumber])
   const fetchData = async () => {
     
 
   
     try {
-        const Msisdn ="Msisdn"
-        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${Msisdn}`,{},{ headers: {
+       
+        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${phoneNumber}`,{},{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
@@ -70,7 +75,8 @@ const Myvideos = () => {
       return  deleteItem(vidId)
     })
   }
-  const { isLoading, data, isError, error, isFetching, refetch } = useQuery("myvideos", fetchData)
+  const queryKey = phoneNumber ? ["myvideos", phoneNumber] : ["myvideos"];
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(queryKey, fetchData)
   console.log(data)
   
  // start pending videos 

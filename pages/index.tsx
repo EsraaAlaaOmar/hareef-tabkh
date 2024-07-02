@@ -47,7 +47,7 @@ const Index = () => {
           // setData(response)
          
         } else {
-          localStorage.removeItem('Msisdn');
+          localStorage.clear();
         }
       } catch (error) {
         // Handle network error or any other error

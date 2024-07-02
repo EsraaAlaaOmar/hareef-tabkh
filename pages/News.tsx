@@ -28,7 +28,7 @@ const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
 );
 console.log(data);
 const renderedNews =data?.map((news:any) =>{
-  return <Singlenewsinallnews key={news.NewsId} news={news}  />
+  return <SingleNews key={news.NewsId} news={news}  />
 })
   return (
     <>

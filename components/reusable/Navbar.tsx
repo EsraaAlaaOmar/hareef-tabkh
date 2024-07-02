@@ -39,7 +39,9 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
   useEffect(() => {
     (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
   })
-
+ const clearLocalStorage = () =>{
+  localStorage.clear();
+ }
   return (
     <>
       
@@ -74,9 +76,9 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
                   
                 </span>
                 </Link>} */}
-                  <a href='http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617'>
+                  <Link href='http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617'>
               <span className='link'> {phoneNumber?
-              <span className='link' aria-label="تسجيل الخروج" title="تسجيل الخروج">    مرحبا {phoneNumber} </span>
+              <span className='link' aria-label="تسجيل الخروج" title="تسجيل الخروج" onClick={clearLocalStorage}>    مرحبا {phoneNumber} </span>
                   :
               <span>
                   <span className='icon'><CiUser /> </span>
@@ -90,7 +92,7 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
            
               }
           </span>
-          </a>
+          </Link>
           
             </span> 
           </span>

@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react'
+import React,{useState,useRef, useEffect} from 'react'
 import Link from 'next/link'
 import { useMutation  } from 'react-query';
 import Loader from './Loader';
@@ -17,11 +17,16 @@ interface UploadProps {
 
 
   const router = useRouter();
+  const[phoneNumber, setPhoneNumber] = useState<any>()
+  useEffect(() => {
+    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
+    setFormData({ ...formData,Msisdn :phoneNumber})
+  },[phoneNumber])
   const [formData, setFormData] = useState(
     {
       Title: '',
       Description: '',
-      Msisdn: 'Msisdn',
+      Msisdn: phoneNumber,
       formFile: '',
       posterFile:''
       
