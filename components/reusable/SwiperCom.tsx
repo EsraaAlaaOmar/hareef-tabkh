@@ -5,9 +5,10 @@ import Link from 'next/link';
 
 const SwiperCom = () => {
     const [isClient, setIsClient]= useState(false);
-
+    const[phoneNumber, setPhoneNumber] = useState<any>()
   useEffect(() => {
     setIsClient(true);
+    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
   }, []);
 
   if (!isClient) {
@@ -25,7 +26,7 @@ const SwiperCom = () => {
 
         <br/>
         <span className='center-butons'>
-        <Link href='/AddVideo'> <button className='add-vid'>اضافة فيديو </button></Link>
+        <Link href={!phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/AddVideo'}> <button className='add-vid'>اضافة فيديو </button></Link>
         <Link href='/AllVideos'><button className='competition'>المسابقة</button></Link>
         </span> 
       </p>
@@ -37,7 +38,7 @@ const SwiperCom = () => {
         في ايديك دلوقتي تطلع للنور حمِل فيديوهات لموهبتك وشاركها مع الناس!
         <br/> 
         <span className='center-butons'>
-        <Link href='/AddVideo'> <button className='add-vid'>اضافة فيديو </button></Link>
+        <Link href={!phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/AddVideo'}> <button className='add-vid'>اضافة فيديو </button></Link>
          <Link href='/AllVideos'><button className='competition'>المسابقة</button></Link>
         </span> 
       </p>
@@ -48,7 +49,7 @@ const SwiperCom = () => {
         اطلب #37# دلوقتي أو زور اللينك للاشتراك في خدمة لو موهوب. مع اورنج هتقدر تشارك فيديوهاتك مع صحابك و أقاربك .
         <br/> 
         <span className='center-butons'>
-       <Link href='/AddVideo'> <Link href='/AddVideo'> <button className='add-vid'>اضافة فيديو </button></Link></Link>
+       <Link href={!phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/AddVideo'}> <Link href={!phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/AddVideo'}> <button className='add-vid'>اضافة فيديو </button></Link></Link>
          <Link href='/AllVideos'><button className='competition'>المسابقة</button></Link>
         </span> 
       </p>
