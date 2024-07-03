@@ -13,7 +13,7 @@ const Ahdth = () => {
     // title: string;
     // url: string;
     // Add other properties as needed
-    DateIn: Date;
+    DateIn: string;
     Deleted: Boolean;
     NShares: number;
     Description: string;
