@@ -124,7 +124,7 @@ setShare(false)
       return response.data;
     } catch (error) {
       console.error('Error adding vote:', error);
-      // Return a default value or handle the error as needed
+      // Return a default value or handle the error as needed 
       return null;
     }
   };    
