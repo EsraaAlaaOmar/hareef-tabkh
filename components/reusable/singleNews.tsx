@@ -17,7 +17,7 @@ const singleNews: React.FC<newsProps>  = ({Title,Description, ImgUrl}) => {
   };
   return (
     <div className='news-row'>
-     <Image width={288} height={379} alt='news' src={ImgUrl} />
+     <Image width={217} height={207} alt='news' src={ImgUrl} />
       <div className='news-info'>
         <div className='title'> {Title}</div>
         <p>{Description}
