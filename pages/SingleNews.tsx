@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 import Image from 'next/image'
+import { title } from 'process'
 const SingleNews = () => {
+  var Title ;
+  var Description;
+  var ImgUrl;
+  console.log (Title)
+  if (typeof window !== 'undefined') {
+  const queryParams = new URLSearchParams(window.location.search);
+   Title = window && queryParams.get('Title');
+   Description = window && queryParams.get('Description');
+   ImgUrl = window && queryParams.get('ImgUrl');
+}
   return (
     <>
           <Navbar />
           <div className='single-news'>
-          <Image alt='news' className='newsimage' src='images/news1.jpg' />
-          <div className='news-title'>فيلم Mission: Impossible 7 يحقق 273 مليون دولار حول العالم</div>
-          <p>حقق فيلم الأكشن والحركة Mission: Impossible 7 للنجم العالمي توم كروز، إيرادات وصلت إلى 273 مليون و832 ألف دولار منذ طرحه يوم 12 يوليو الجارى.
- 
- هذه هي المرة الأولى التي تنقسم فيها مهمة من سلسلة Mission: Impossible على فيلمين، وهو ما سيحدث بسبب تعقيدات التقلبات الدرامية في القصة، حيث أكد كروز قائلا:&qoute;حجم هذين الفيلمين ملحمي بكل معنى الكلمة&qoute;، ويشرح المخرج كريستوفر ماكوري &qoute;كنا نعلم أنه إذا كنا سنقوم بمغامرة كبرى بإصدار القصة في جزأين، فيجب على هذه المهمة أن تتفوق على الأجزاء السابقة بالكامل، هذا هو المستوى الذي نطمح إليه&qoute;.
-  
- تدور أحداث الجزء الأول MISSION: IMPOSSIBLE - DEAD RECKONING حول إيثان هانت (توم كروز) الذي ينطلق هو وفريقه في مهمة مليئة بالمخاطر لإنقاذ البشرية من سلاح مرعب جديد قبل أن يتم الاستيلاء عليه من قبل الأشخاص الخطأ، في هذه المهمة عليه أن يتخذ القرار الصعب بالاختيار بين أحبائه أو نجاح المهمة.
-  
- بجانب توم كروز، يعود نجوم من الأجزاء السابقة لتمثيل أدوارهم في الفيلم، بما في ذلك فريقMISSION: IMPOSSIBLE سيمون بيج وفينج رامس وهايلي أتويل، مع ريبيكا فيرجسون، هنري تشيرني، فانيسا كيربي وفريدريك شميدت، تحت قيادة المخرج كريستوفر ماكوري الذي قدم سابقاً فيلمين ضمن السلسلة ويعد هذا فيلمه الرابع مع توم كروز كمخرج، بجانب مشاركته في كتابة السيناريو مع بروس جيل وإريك يندرسن.</p>
+          <Image alt='news'width={1000}height={1000} className='newsimage' src={ImgUrl?ImgUrl:''} />
+          <div className='news-title'>{Title}</div>
+          <p>{Description}</p>
               <Footer />
               </div>
     </>

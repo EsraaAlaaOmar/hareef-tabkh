@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import { title } from 'process';
 import React from 'react'
 
@@ -9,12 +10,18 @@ interface newsProps{
 }
 
 const singleNews: React.FC<newsProps>  = ({Title,Description, ImgUrl}) => {
+  const data = {
+    Title: Title,
+    Description: Description,
+    ImgUrl:ImgUrl
+  };
   return (
     <div className='news-row'>
      <Image width={288} height={379} alt='news' src={ImgUrl} />
       <div className='news-info'>
         <div className='title'> {Title}</div>
         <p>{Description}
+        <Link href={{ pathname: '/SingleNews', query:data  }}> المزيد ..</Link>
 </p>
       </div>
       <br/>
