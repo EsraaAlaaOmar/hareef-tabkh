@@ -225,6 +225,10 @@ cursor: pointer;
     max-width: 100vw;
     margin-top: 20px;
     margin-bottom: 50px;
+    a{
+      cursor: pointer;
+      color: #fe7701;
+    }
     img{
         width: 217px;
         height: 207px;
@@ -270,10 +274,7 @@ cursor: pointer;
              display: block;
             width: 90vw;
             font-size: 14px;
-          a{
-            cursor: pointer;
-            color: #fe7701;
-          }
+       
           
           }
            .news-info{
