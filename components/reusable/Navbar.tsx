@@ -4,7 +4,6 @@ import {
   Flex,
   Avatar,
   HStack,
- 
   IconButton,
   Button,
   Menu,
@@ -36,12 +35,36 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
     router.push(url);
   // Close the mobile menu after navigation
   };
+//   useEffect(() => {
+//     (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
+//   },[ (typeof window !== 'undefined') &&localStorage.getItem('Msisdn')])
+//  const clearLocalStorage = () =>{
+//   localStorage.clear();
+//  }
+
+  const updatePhoneNumber = () => {
+    if (typeof window !== 'undefined') {
+      setPhoneNumber(localStorage.getItem('Msisdn'));  
+    }
+  };
+  setTimeout(() => {
+ !phoneNumber&&updatePhoneNumber()
+  },1000);
   useEffect(() => {
-    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
-  })
- const clearLocalStorage = () =>{
-  localStorage.clear();
- }
+    updatePhoneNumber();
+    // Listen for changes in the URL
+    const handleRouteChange = () => {
+      updatePhoneNumber();
+    };
+
+  
+  }, []);
+
+  const clearLocalStorage = () => {
+    localStorage.clear();
+    setPhoneNumber(null); // clear state
+  };
+
   return (
     <>
       

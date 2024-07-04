@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 
@@ -19,16 +19,8 @@ import axios from 'axios';
 
 const Index = () => {
   var param1Value:any ;
- 
-  if (typeof window !== 'undefined') {
-    const queryParams = new URLSearchParams(window.location.search);
-    
-    // Reading specific query parameters
-     param1Value = window && queryParams.get('Msisdn');
+
   
-  
-    
-    }
   const checkSubscribtion = async () => {
     
 
@@ -54,8 +46,19 @@ const Index = () => {
       }
 
   };
- checkSubscribtion();
-
+  useEffect(()=>{
+ 
+    if (typeof window !== 'undefined') {
+      const queryParams = new URLSearchParams(window.location.search);
+      
+      // Reading specific query parameters
+       param1Value = window && queryParams.get('Msisdn');
+    
+       checkSubscribtion()
+      
+      }
+  },[])
+console.log(typeof window !== 'undefined'&&localStorage.getItem('Msisdn'))
   return (
       <>
       <Navbar />
