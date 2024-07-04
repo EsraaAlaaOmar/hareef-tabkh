@@ -8,7 +8,7 @@ const NewestNews = () => {
     {Title: "ملامح مسلسل سفاح التجمع ترتسم.. وصحافي استقصائي يشارك",Description:"بدأت ترتسم ملامح مسلسل سفاح التجمع، حيث أعلن الصحافي الاستقصائي المصري عبد الرحمن الصافي عن مشاركته في كتابة المسلسل مع السيناريست جوزيف فوزي.",ImgUrl:"/images/news3.webp"}
   ]
 
-  const NewsList = News.map((item,index)=>{
+  const NewsList = News?.slice(0, 2)?.map((item,index)=>{
     return <SingleNews key={index} Title={item.Title} Description={item.Description} ImgUrl={item.ImgUrl} />
   })
   return (
