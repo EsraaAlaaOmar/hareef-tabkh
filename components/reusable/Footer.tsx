@@ -15,8 +15,8 @@ const Footer = () => {
       {/* <footer >Copyright &copy; Orange Egypt {curentYear}. All rights reserved </footer> */}
       <div className='links'>
      <Link  href='/about'><span className='link'>عن لو موهوب</span></Link> 
-     <Link  href='/terms'><span className='link'>شروط المسابقة</span></Link> 
-     <Link  href='/terms'><span className='link'>الشروط والأحكام</span></Link> 
+     {/* <Link  href='/terms'><span className='link'>شروط المسابقة</span></Link>  */}
+     {/* <Link  href='/terms'><span className='link'>الشروط والأحكام</span></Link>  */}
      <Link  href='/privacy'><span className='link'>سياسة الخصوصية</span></Link> 
       </div>
       <div className='lastline'>
