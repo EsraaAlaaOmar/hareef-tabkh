@@ -69,6 +69,25 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
     <>
       
       <div className='navbar'>
+        <div className='phone-mob'>
+        <Link href='http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617'>
+              <span className='link'> {phoneNumber?
+              <span className='link' aria-label="تسجيل الخروج" title="تسجيل الخروج" onClick={clearLocalStorage}>    مرحبا {phoneNumber} </span>
+                  :
+              <span>
+                  <span className='icon'><CiUser /> </span>
+                 
+                  تسجيل الدخول
+                  
+                </span>
+               
+         
+          
+           
+              }
+          </span>
+          </Link>
+        </div>
       <Image
                 
                 width={'10'}
