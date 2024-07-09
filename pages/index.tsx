@@ -52,7 +52,7 @@ const Index = () => {
       const queryParams = new URLSearchParams(window.location.search);
       
       // Reading specific query parameters
-       param1Value = window && queryParams.get('Msisdn');
+       param1Value = window && queryParams.get('MSISDN');
     
        checkSubscribtion()
       
