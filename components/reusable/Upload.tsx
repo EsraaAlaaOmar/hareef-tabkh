@@ -69,7 +69,7 @@ interface UploadProps {
       reqdata.append("formFile", formData.formFile);
       reqdata.append("posterFile", formData.posterFile);
       // try {
-      //   const response = await fetch("https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo", {
+      //   const response = await fetch("https://vf.alerting.services/HarefKoraApis/Talents/Addvideo", {
       //     method: "POST",
       //     body: formData,
       //   });

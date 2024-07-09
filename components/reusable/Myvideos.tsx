@@ -34,7 +34,7 @@ const Myvideos = () => {
   
     try {
        
-        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${phoneNumber}`,{},{ headers: {
+        const response = await axios.post(`https://vf.alerting.services/HarefKoraApis/Talents/GetMyVdeos?Msisdn=${phoneNumber}`,{},{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
@@ -58,7 +58,7 @@ const Myvideos = () => {
   
     const deleteItem = async (vidId:string) => {
       // Make your delete API request here
-      const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
+      const response = await axios.post(`https://vf.alerting.services/HarefKoraApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
         "Header" :" Access-Control-Allow-Headers",
         "value":"api_key",
         "Api_Key": "elinxfthr62023",

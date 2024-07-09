@@ -31,7 +31,7 @@ const VidiohatMoreViews = () => {
 
   const fetchData = async () => {
    
-      const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetVideosMostSeen', {
+      const response = await axios.get('https://vf.alerting.services/HarefKoraApis/Talents/GetVideosMostSeen', {
         headers: {
           "Header" :" Access-Control-Allow-Headers",
           "value":"api_key",

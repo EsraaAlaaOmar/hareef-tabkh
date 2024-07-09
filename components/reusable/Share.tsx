@@ -24,7 +24,7 @@ const Share: React.FC<ShareProps> =  ({id,refetchVideos}) => {
  
         try {
           const response = await axios.post(
-            `https://vodafone.alerting.services/LawMawhobApis/Talents/AddVideoShare?VideoId=${id}`,
+            `https://vf.alerting.services/HarefKoraApis/Talents/AddVideoShare?VideoId=${id}`,
             null, // Since there's no request body, pass null
             {
               headers: {

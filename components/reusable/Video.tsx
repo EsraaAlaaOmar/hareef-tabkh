@@ -82,7 +82,7 @@ setShare(false)
   };
   const getuserId = async () => {
     const response = await axios.post(
-      `https://vodafone.alerting.services/LawMawhobApis/Talents/GetUserID?MobileNumber=${phoneNumber}`,
+      `https://vf.alerting.services/HarefKoraApis/Talents/GetUserID?MobileNumber=${phoneNumber}`,
       {},
       {
     
@@ -105,7 +105,7 @@ setShare(false)
     try {
       const response = await axios.post(
         `
-        https://vodafone.alerting.services/LawMawhobApis/Talents/AddVote?VideoId=${videodetails.VideoId}&MobileNumber=${phoneNumber}&Vote=${!Liked}`,
+        https://vf.alerting.services/HarefKoraApis/Talents/AddVote?VideoId=${videodetails.VideoId}&MobileNumber=${phoneNumber}&Vote=${!Liked}`,
         null, // Since there's no request body, pass null
         {
           headers: {

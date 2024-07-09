@@ -77,7 +77,7 @@ paginationElement?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   
   const fetchData = async () => {
   
-    const response = await axios.get(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos?Page=${currentPage}&PageSize=${itemsPerPage}`,{ headers: {
+    const response = await axios.get(`https://vf.alerting.services/HarefKoraApis/Talents/GetAllVideos?Page=${currentPage}&PageSize=${itemsPerPage}`,{ headers: {
       "Api_Key": "elinxfthr62023",
       'content-type': 'text/json'
     }});

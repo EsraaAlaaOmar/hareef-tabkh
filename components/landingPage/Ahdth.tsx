@@ -31,7 +31,7 @@ const Ahdth = () => {
 
   const fetchData = async () => {
  
-    const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetLastVideos', {
+    const response = await axios.get('https://vf.alerting.services/HarefKoraApis/Talents/GetLastVideos', {
       headers: {
         "Header" :" Access-Control-Allow-Headers",
         "value":"api_key",
