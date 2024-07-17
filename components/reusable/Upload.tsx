@@ -69,7 +69,7 @@ interface UploadProps {
       reqdata.append("formFile", formData.formFile);
       reqdata.append("posterFile", formData.posterFile);
       // try {
-      //   const response = await fetch("https://vf.alerting.services/HarefKoraApis/Talents/Addvideo", {
+      //   const response = await fetch("https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo", {
       //     method: "POST",
       //     body: formData,
       //   });
@@ -85,7 +85,7 @@ interface UploadProps {
      
   console.log(formData)
       try {
-        const response = await axios.post("http://196.219.32.230:8088/LawMawhobApis/Talents/Addvideo", reqdata,{ headers: {
+        const response = await axios.post("`https://vodafone.alerting.services/LawMawhobApis/LawMawhobApis/Talents/Addvideo", reqdata,{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
