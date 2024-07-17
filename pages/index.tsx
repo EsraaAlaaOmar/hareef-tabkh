@@ -27,7 +27,7 @@ const Index = () => {
   
     try {
         const Msisdn ="Msisdn"
-        const response = await axios.post(`https://vf.alerting.services/HarefKoraApis/Talents/checkSubscriptions?Msisdn=${param1Value}`,{},{ headers: {
+        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/checkSubscriptions?Msisdn=${param1Value}`,{},{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
@@ -54,10 +54,11 @@ const Index = () => {
       // Reading specific query parameters
        param1Value = window && queryParams.get('MSISDN');
     
-       checkSubscribtion()
+      //  checkSubscribtion()
+      window && queryParams.get('Status')=="0001"&&  localStorage.setItem('Msisdn', JSON.stringify(param1Value));
       
       }
-  },[])
+  },[typeof window ])
 console.log(typeof window !== 'undefined'&&localStorage.getItem('Msisdn'))
   return (
       <>
