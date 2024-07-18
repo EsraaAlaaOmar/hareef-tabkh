@@ -1,4 +1,4 @@
-import React,{useState,useRef, useEffect} from 'react'
+import React,{useState,useRef, useEffect,ReactNode} from 'react'
 import Link from 'next/link'
 import { useMutation  } from 'react-query';
 import Loader from './Loader';
@@ -27,8 +27,8 @@ interface UploadProps {
       Title: '',
       Description: '',
       Msisdn: phoneNumber,
-      formFile: '',
-      posterFile:''
+      formFile: null,
+      posterFile:null
       
     }
   )
@@ -41,91 +41,110 @@ interface UploadProps {
   const { Title, Description, Msisdn, formFile } = formData;
   const onChange = (e: any) => {
  
-    if (e.target.name === 'formFile'){
+    if (e.target.name === 'formFile'&&e.target.files&& e.target.files.length > 0) {
       // Set the formFile property to the selected file
       
+    
+       const file = e.target.files[0];
+  const video = document.createElement('video');
+  video.preload = 'metadata';
+  video.onloadedmetadata = () => {
+    window.URL.revokeObjectURL(video.src);
+    if (video.duration > 60) {
+      // Alert the user that the video duration exceeds the limit
+      alert('عفوا .. لا يجب ان تتجاوز مدة الفيديو 1دقيقة (60 ثانية)');
+      setFormData({ ...formData, formFile:null});
+      setShowVideo(false);
+      e.target.value = '';
+    } else {
+      // Proceed with uploading the video
       setFormData({ ...formData, formFile: e.target.files[0] });
-      console.log(e.target.files[0])
     }
-    else if (e.target.name === 'posterFile'){
-      setFormData({ ...formData, posterFile: e.target.files[0] })
-    }
+  };
+  video.src = URL.createObjectURL(file);
+
+
+    } 
+    else if ( e.target.name === 'posterFile'&&e.target.files&&e.target.files.length > 0) {
+      // Set the formFile property to the selected file
+      
+      setFormData({ ...formData, posterFile: e.target.files[0] });
+      
+    } 
     else {
-      // For other input fields (e.g., Title, Description, Msisdn), update accordingly
+      // For other input fields (e.g., Title, Description, MobileNumber), update accordingly
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
   };
   
+      
+  const reqdata = new FormData();
+  reqdata.append("Title", formData.Title);
+  reqdata.append("Description", formData.Description);
+  reqdata.append("Msisdn", formData.Msisdn);
+ 
+  if (formData.formFile !== null) {
+    reqdata.append("formFile", formData.formFile);
+  }
+  
+  // Check if posterFile is not null before appending
+  if (formData.posterFile !== null) {
+    reqdata.append("posterFile", formData.posterFile);
+  }
+
+    const addVideoMutation =   useMutation(
+     () =>
+       
+
+        axios.post('https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo', reqdata, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }),
+    {
+      onSuccess: () => {
+
+        router.push(`/myvideos?title=${formData?.Title}`);
+      },
+      onError: (error) => {
+        
+        console.error('Error adding video:', error);
+        // Handle error
+      },
+    }
+  );
   const addVideo = async (event:any) => {
-    
-    console.log('submit')
+    event.preventDefault(); 
     event.preventDefault(); 
 
-      
-      const reqdata = new FormData();
-      reqdata.append("Title", formData.Title);
-      reqdata.append("Description", formData.Description);
-      reqdata.append("Msisdn", formData.Msisdn);
-      reqdata.append("formFile", formData.formFile);
-      reqdata.append("posterFile", formData.posterFile);
-      // try {
-      //   const response = await fetch("https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo", {
-      //     method: "POST",
-      //     body: formData,
-      //   });
-  
-      //   if (response.ok) {
-      //     // Handle successful upload
-      //   } else {
-      //     // Handle upload error
-      //   }
-      // } catch (error) {
-      //   // Handle network error
-      // }
-     
-  console.log(formData)
-      try {
-        const response = await axios.post("https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo", reqdata,{ headers: {
-         
-          'content-type': 'text/json'
-        }});
-      
-        if (response.status === 200) {
-       
-            router.push('/myvideos');
-       
-        } else {
-          // Handle upload error
-        }
-      } catch (error) {
-        // Handle network error or any other error
-      }
+    addVideoMutation.mutate()
      
     }
  
-  const mutation = useMutation(addVideo)
-  console.log(mutation)
-  function video(e:any) {
-    setShowVideo(true)
-      var fileInput = document.getElementById('video_input') as any;
-     var fileUrl = URL.createObjectURL(fileInput?.files[0]);
-     const videoselector = document.querySelector("video")
-     if(videoselector){videoselector.src = fileUrl}
-      const uploaded_data = document.getElementById('uploaded-data')
-      if(uploaded_data){uploaded_data.style.display='block'}
-      const choose_to_upload =   document.getElementById('choose-to-upload')
-      if(choose_to_upload){choose_to_upload.style.display='none'}
-
- onChange(e)
-  
  
+
+
+    function video(e:any) {
+      onChange(e)
+      setShowVideo(true)
+   
+    
     }
 
+    var srcComp=(): ReactNode=>{  if (formData.formFile) { 
+      var fileUrl = URL.createObjectURL(formData.formFile);
+     
+      // Render the <source> element with the created object URL
+      return (
+        <source id='source' src={fileUrl} type="video/mp4" />
+      )}
+    else{
+      return<></>
+    }
+    }
 
     function buttonClick(){
    
       const video_input =   document.getElementById('video_input')
-      if(video_input){video_input.click()}
+      video_input&&video_input.click()
     
     }
 
@@ -150,15 +169,14 @@ interface UploadProps {
 
   useOnClickOutside(ref, handleClickOutside)
   return (
-     <div  ref={ref}
-     
-     onClick={handleClickInside}>
+     <div style={{position:"relative"}}>
+      {addVideoMutation.isLoading && <div className='overlayer-loader '><Loader /></div> }
            <div className="white-background">
            <div className='page-title'>اضافة فيديو </div>
         <form onSubmit={(e) => addVideo(e)}>
         <div className='left-section'>
        { showvideo && <video width="320" height="240" style={{margin:'auto'}} autoPlay controls>
-              <source id='source' src="movie.mp4" type="video/mp4" />
+              {srcComp()}
           
               Your browser does not support the video tag.
             </video>}
@@ -166,7 +184,7 @@ interface UploadProps {
           {!showvideo&&  <button id="choose-to-upload" className="video-upload-button" onClick={() => buttonClick()}>اضافة فيديو + </button> }
        { showvideo&&    <div className="actions">
          <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
-         <button className="video-action-upload-button video-upload-delete" onClick={()=>setShowVideo(false)}> حذف الفديو</button>
+         <button  className="video-action-upload-button video-upload-delete"onClick={()=>{setShowVideo(false); setFormData({ ...formData, formFile:null}); }}> حذف الفديو</button>
     
             </div>}
           </div>
@@ -185,25 +203,13 @@ interface UploadProps {
           <input type='file'  className="" placeholder="أدخل غلاف الفيديو " name='posterFile'  onChange={e=>onChange(e)} style={{fontSize:"14px"}} />
       </div>
            
-          {mutation.isLoading ? <Loader /> : <div id="uploaded-data">
-            
-          
-       
- 
 
-           
-<div id="upload-msg">
-  شكرا لك .. سيتم مراجعة الفديو قبل النشر 
- 
-            </div>
-            
-        </div>}
         </div>
    
        
         </form>
       </div>
-     
+      
     </div>
   )
 }

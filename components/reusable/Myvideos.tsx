@@ -22,19 +22,24 @@ interface VideoData {
 }
 const Myvideos = () => {
   // const [data, setData] = useState<VideoData[] | null>(null);
+  const [pendingVideo,setPendingVideo] = useState<any>(null);
+
    const [upload,setUpload] = useState(false)
    const[phoneNumber, setPhoneNumber] = useState<any>()
 
    useEffect(() => {
     (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
-  },[phoneNumber])
+    const queryParams = new URLSearchParams(window.location.search);
+    const param1Value = queryParams.get('title');
+    param1Value && setPendingVideo(param1Value);
+  },[typeof window])
   const fetchData = async () => {
     
 
   
     try {
        
-        const response = await axios.post(`https://vf.alerting.services/HarefKoraApis/Talents/GetMyVdeos?Msisdn=${phoneNumber}`,{},{ headers: {
+        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${phoneNumber}`,{},{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
@@ -58,7 +63,7 @@ const Myvideos = () => {
   
     const deleteItem = async (vidId:string) => {
       // Make your delete API request here
-      const response = await axios.post(`https://vf.alerting.services/HarefKoraApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
+      const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
         "Header" :" Access-Control-Allow-Headers",
         "value":"api_key",
         "Api_Key": "elinxfthr62023",
@@ -113,7 +118,7 @@ const Myvideos = () => {
 
          </div>
          <Link href='/AddVideo'>
-         <button className="add-vid-button" onClick={()=>setUpload(true)}>
+         <button className="add-vid-button" >
         اضافة فيديو
         </button>
         </Link>
@@ -121,7 +126,7 @@ const Myvideos = () => {
   
      
         
-  
+         <div style={{ fontSize:"20px",textAlign:"center", marginBottom:"20px" }}> تم اضافة فيديو بعنوان  {pendingVideo} والفيديو قيد المراجعة </div>
     
      <div className='section-title'>
      قيد  المراجعة
@@ -155,9 +160,7 @@ const Myvideos = () => {
     <div >
     
       </div>
-      {upload && <div className='overlay'>
-        <Upload />
-      </div>}
+
    
     </div>
   )
