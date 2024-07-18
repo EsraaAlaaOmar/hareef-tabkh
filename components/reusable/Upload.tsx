@@ -85,8 +85,8 @@ interface UploadProps {
      
   console.log(formData)
       try {
-        const response = await axios.post("`https://vodafone.alerting.services/LawMawhobApis/LawMawhobApis/Talents/Addvideo", reqdata,{ headers: {
-          "Api_Key": "elinxfthr62023",
+        const response = await axios.post("https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo", reqdata,{ headers: {
+         
           'content-type': 'text/json'
         }});
       
