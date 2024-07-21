@@ -37,7 +37,7 @@ console.log(param1Value)
   
         try {
             const Msisdn ="Msisdn"
-            const response = await axios.post(`https://vf.alerting.services/HarefKoraApis/Talents/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
+            const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
               "Api_Key": "elinxfthr62023",
               'content-type': 'text/json'
             }});

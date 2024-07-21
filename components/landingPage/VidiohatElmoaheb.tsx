@@ -33,7 +33,7 @@ const VidiohatElmoaheb = () => {
 
   const fetchData = async () => {
   
-    const response = await axios.get('https://vf.alerting.services/HarefKoraApis/Talents/GetAllVideos', {
+    const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos', {
       headers: {
         "Header" :" Access-Control-Allow-Headers",
         "value":"api_key",

@@ -2,13 +2,13 @@ import axios from 'axios';
 import React,{useState} from 'react'
 
 const AddNews = () => {
-//   https://vf.alerting.services/HarefKoraApis/Talents/AddNews
+//   https://vodafone.alerting.services/LawMawhobApis/Talents/AddNews
 const [reqdata,setReqData]=useState<any>({})
 const {title,description,imgUrl} = reqdata
 const AddNewsFunc =async (e:any)=>{
    e.preventDefault()
     try {
-        const response = await axios.post(" https://vf.alerting.services/HarefKoraApis/Talents/AddNews", reqdata,{ headers: {
+        const response = await axios.post(" https://vodafone.alerting.services/LawMawhobApis/Talents/AddNews", reqdata,{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});

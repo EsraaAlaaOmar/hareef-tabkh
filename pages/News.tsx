@@ -10,7 +10,7 @@ import axios from 'axios'
 const News = () => {
   const fetchData = async () => {
   
-    const response = await axios.get(`https://vf.alerting.services/HarefKoraApis/Talents/GetLastNews`,{ headers: {
+    const response = await axios.get(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetLastNews`,{ headers: {
       "Api_Key": "elinxfthr62023",
       'content-type': 'text/json'
     }});
