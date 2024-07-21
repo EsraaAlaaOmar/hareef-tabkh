@@ -126,7 +126,7 @@ const Myvideos = () => {
   
      
         
-         <div style={{ fontSize:"20px",textAlign:"center", marginBottom:"20px" }}> تم اضافة فيديو بعنوان  {pendingVideo} والفيديو قيد المراجعة </div>
+       {pendingVideo &&  <div style={{ fontSize:"20px",textAlign:"center", marginBottom:"20px" }}> تم اضافة فيديو بعنوان  {pendingVideo} والفيديو قيد المراجعة </div>}
     
      <div className='section-title'>
      قيد  المراجعة

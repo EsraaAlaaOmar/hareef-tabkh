@@ -175,7 +175,7 @@ interface UploadProps {
            <div className='page-title'>اضافة فيديو </div>
         <form onSubmit={(e) => addVideo(e)}>
         <div className='left-section'>
-       { showvideo && <video width="320" height="240" style={{margin:'auto',height:'100%'}} autoPlay controls>
+       { showvideo && <video width="320" height="240" style={{margin:'auto',maxHeight:'330px'}} autoPlay controls>
               {srcComp()}
           
               Your browser does not support the video tag.
