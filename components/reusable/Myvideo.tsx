@@ -23,6 +23,7 @@ interface VideoData {
   Title: string;
   Url: string;
   VideoId: number;
+  PosterUrl:string;
   Votes:[]
 }
 
@@ -72,24 +73,26 @@ const handleClickInside = () => {
           <Text  as="span" position='absolute' top='calc( 50% - 15px )' left =' calc(50% - 15px )' p="3px 4px" bgColor="#fe7701" color="#fff" fontSize="30px" borderRadius="50%" >     <BsFillPlayFill /></Text>
       </Box>
       <Text color="#fff">{videodetails?.Title}</Text> */}
-        {play && <div className='video-overlayer'>
+      {play && <div className='video-overlayer'>
            
-           <div className='details'>
-          
-          {videodetails.Title}
-           </div>
+           
            <video
-           ref={ref2}
-           onClick={handleClickOutside2}
-           src={videodetails.Url}
-             controls
-          autoPlay
-          >
-      
-          <source  type="video/mp4" />
-          Your bro
-           </video>
-             </div>}
+           
+            src={videodetails?.Url}
+              controls
+           autoPlay
+           >
+       
+           <source  type="video/mp4" />
+           Your bro
+         </video>
+         <span className='close-btn' onClick={()=>setPlay(false)}>×</span>
+         <div className='details'>
+        
+        {videodetails?.Title}
+   
+          </div>
+           </div>}
       <div className='video-box myvedio-box'>
         <div className='rel'>
           <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
@@ -97,7 +100,7 @@ const handleClickInside = () => {
         className="competetion-video"
         width="320"
             height="240"
-            poster="https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"
+            poster={videodetails?.PosterUrl}
         // controls="false"
         muted
         >

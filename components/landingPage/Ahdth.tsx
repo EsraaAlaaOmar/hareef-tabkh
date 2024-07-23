@@ -23,6 +23,7 @@ const Ahdth = () => {
     Url: string;
     VideoId: number;
     NVotes:number;
+    PosterUrl:string;
     Votes:[]
   }
   // const [data, setData] = useState<VideoData[] | null>(null);

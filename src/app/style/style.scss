@@ -680,6 +680,7 @@ background-color: #fff;
     font-size: 20px;
     font-weight: 700;
     color: #fff;
+    cursor: pointer;
     
   }
 
@@ -697,15 +698,39 @@ background-color: #fff;
  bottom: 0;
  z-index: 9999999999999;
  .details{
-  padding: 10vh 2vw;
+  padding: 20px;
+  width: 100vw;
+  position:absolute;
+  top: 75vh;
+  background-color: #000;
+  .vote-btn{
+    float: left;
+    padding:3px 12px;
+    color: #FF7A01;
+    cursor: pointer;
+    font-size:20px;
+  }
+
+ }
+ .close-btn{
+  position: absolute;
+  top: 0;
+  color: #FF7A01;
+  top: 15vh;
+  left: 22px;
+  font-size: 27px;
+  cursor: pointer;
+  
  }
  video{
- position: absolute;
- height: 70vh;
+ position: relative;
+ height: 65vh;
  width: 100%;
  top: 15%;
  
  border-radius: 8px;
+ object-fit: contain;
+ background-color: #000;
 
     // transform: translateY(-15%);
  }
@@ -735,7 +760,7 @@ background-color: #fff;
   span{
     padding: 5px ;
     color: #fff;
-    background-color:#E00800;
+    background-color:#FF7A01;
     border-radius: 50%;
    
     margin:0 10px ;

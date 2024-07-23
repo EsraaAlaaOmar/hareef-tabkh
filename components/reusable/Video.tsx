@@ -26,6 +26,7 @@ interface VideoData {
   Url: string;
   VideoId: number;
   Votes:any[]
+  PosterUrl:string;
 }
 interface videoProps{
   refetchVideos:Function,
@@ -149,22 +150,24 @@ setShare(false)
       <Text color="#fff">{videodetails?.Title}</Text> */}
          {play && <div className='video-overlayer'>
            
-        <div className='details'>
+           
+           <video
+           
+            src={videodetails?.Url}
+              controls
+           autoPlay
+           >
        
-      {videodetails?.Title}
-        </div>
-          <video
-           ref={ref}
-           onClick={handleClickInside}
-           src="/videos/vid.mp4"
-             controls
-          autoPlay
-          >
-      
-          <source  type="video/mp4" />
-          Your bro
-        </video>
-          </div>}
+           <source  type="video/mp4" />
+           Your bro
+         </video>
+         <span className='close-btn' onClick={()=>setPlay(false)}>×</span>
+         <div className='details'>
+        
+        {videodetails?.Title}
+       {Liked ?<div className='vote-btn'onClick={()=>addVoteRedirect(videodetails.VideoId)}><AiFillHeart /></div> :<div className='vote-btn'onClick={()=>addVoteRedirect(videodetails.VideoId)}><AiOutlineHeart/></div>}
+          </div>
+           </div>}
       <div className='video-box'>
       {share && <div className='share-box'  ref={ref2}><Share id={videodetails.VideoId} refetchVideos={refetchVideos} /></div>}
         <div className='rel'>
@@ -173,7 +176,7 @@ setShare(false)
         className="competetion-video"
            
             src="/videos/vid.mp4"
-            poster="https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"
+            poster={videodetails?.PosterUrl?videodetails.PosterUrl:"https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"}
         // controls="false"
         muted
         >
