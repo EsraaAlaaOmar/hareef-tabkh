@@ -1,0 +1,33 @@
+.terms{
+
+    direction: rtl;
+    text-align: right;
+
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    ul{
+        margin: 0 20px;
+        font-size: 18px;
+    }
+
+h1, h2, h3 {
+    color: #333;
+}
+h3{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+}
+p {
+    line-height: 1.6;
+    
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 10px;
+}
+}
