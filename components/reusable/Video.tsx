@@ -131,7 +131,14 @@ setShare(false)
   };    
   
    const  addVoteRedirect=(videoId: number)=>  !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  router.push(`http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617`) :addVote(videoId);
-  return (
+   const date = new Date(videodetails.DateIn);
+
+   // Define options for formatting the date
+   const options:any = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',  hour12: true, timeZone: 'UTC' };
+   
+   // Convert the date to a string in Arabic
+   const formattedDate = date.toLocaleString('ar-EG', options);
+   return (
     <>
        <Head>
       {/* Add Facebook SDK script here */}
@@ -196,7 +203,7 @@ setShare(false)
         <div className='videoname'>{ videodetails?.Description}</div>
       {/* <div className='like-vid' onClick={()=>setLike(!like)} >{like? <AiFillHeart/>: <AiOutlineHeart /> }</div> */}
       <div className='share-vid' onClick={handleShareClick}><BiShare /></div>
-      <div className='video-time'> <span><IoIosTimer /></span> {videodetails?.DateIn}</div>
+      <div className='video-time'> <span><IoIosTimer /></span> { formattedDate}</div>
       <div className='vote' onClick={()=>addVoteRedirect(videodetails.VideoId)}>{Liked?<>الغاء التصويت</> :<>تصويت</>}</div>
     {/* <div>{Liked}</div> */}
       </div>

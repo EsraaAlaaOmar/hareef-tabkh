@@ -58,7 +58,13 @@ const handleClickInside = () => {
 }
 
   useOnClickOutside(ref, handleClickOutside)
+  const date = new Date(videodetails.DateIn);
+
+  // Define options for formatting the date
+  const options:any = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',  hour12: true, timeZone: 'UTC' };
   
+  // Convert the date to a string in Arabic
+  const formattedDate = date.toLocaleString('ar-EG', options);
   return (
     <>
       {/* <Box bgColor='#fff' w='100%' h="130px" textAlign='center' position='relative' bgImage={`url(${videodetails?.Url})`}  bgRepeat="no-repeat" bgSize="cover" borderRadius="10px">
@@ -98,7 +104,7 @@ const handleClickInside = () => {
         width="320"
         height="240"
             // controls="false"
-            poster={videodetails?.PosterUrl}
+            poster={videodetails?.PosterUrl?videodetails.PosterUrl:"https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"}
         muted
         >
     
