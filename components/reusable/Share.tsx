@@ -16,7 +16,7 @@ interface ShareProps {
   refetchVideos:Function
 }
 const Share: React.FC<ShareProps> =  ({id,refetchVideos}) => {
-    const shareUrl = `https://lwmohoob-front-git-toka-bakend-esraaalaaomars-projects.vercel.app/SingleVideo?ID=${id}`;
+    const shareUrl = `https://www.lawmawhoub.com/SingleVideo?ID=${id}`;
     const title = 'ادخل شوف الفديو ولو عجبك صوت عليه';
    
     const addshare= async ()=>{
