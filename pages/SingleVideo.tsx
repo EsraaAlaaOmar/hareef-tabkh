@@ -75,7 +75,7 @@ console.log(param1Value)
     <div id='single-video-continer' className='single-video-continer'>
 
    
-     <Video videodetails={data}  refetchVideos={()=>{}} Msdn="" />
+    {data&& <Video videodetails={data}  refetchVideos={()=>{}} Msdn="" />}
      </div>
      <Footer />
     </>
