@@ -245,14 +245,16 @@ cursor: pointer;
     .news-info{
         display: inline-block;
         color: #000;
-        max-width: calc( 100vw - 217px);
+        max-width: calc( 100% - 217px);
         margin: 10px;
         margin-top: -10px;
+        overflow: hidden;
         @media screen and (max-width: 600px){
            display: block;
-           width: 100vw;
+           width: 100%;
         
            margin: 0px;
+          max-width: 98vw;
          
          }
         .title{
@@ -260,15 +262,15 @@ cursor: pointer;
             font-size: 24px;
             font-weight: 700;
             margin-top: 8px;
-         
-
+            white-space: normal;
         }
         p{
           display: inline-block;
-           width:90%;
+           width:100%;
            padding-left: 5px;
-            word-break: break-all;
+          
             white-space: normal;
+            text-overflow: ellipsis;
            font-size: 20px;
            @media screen and (max-width: 600px){
              display: block;
@@ -277,35 +279,35 @@ cursor: pointer;
        
           
           }
-           .news-info{
-            display: inline-block;
-            color: #000;
-            max-width: calc( 100vw - 217px);
-            margin: 10px;
-            margin-top: -10px;
-            @media screen and (max-width: 600px){
-               display: block;
-               width: 98vw;
-               max-width:98vw !important;
-               margin: 0px;
-                  overflow: hidden;
+        //    .news-info{
+        //     display: inline-block;
+        //     color: #000;
+        //     max-width: calc( 100vw - 217px);
+        //     margin: 10px;
+        //     margin-top: -10px;
+        //     @media screen and (max-width: 600px){
+        //        display: block;
+        //        width: 98vw;
+        //        max-width:98vw !important;
+        //        margin: 0px;
+        //           overflow: hidden;
              
-             }
-            .title{
-                color: #000;
-                font-size: 28px;
-                font-weight: 700;
-                margin: 5px 0;
+        //      }
+        //     .title{
+        //         color: #000;
+        //         font-size: 28px;
+        //         font-weight: 700;
+        //         margin: 5px 0;
              
     
-            }
-            p{
-               width:90%;
-                padding: 10px;
-               text-wrap: balance;
-               white-space: normal ;
-            }
-        }
+        //     }
+        //     p{
+        //        width:90%;
+        //         padding: 10px;
+        //        text-wrap: balance;
+        //        white-space: normal ;
+        //     }
+        // }
         }
     }
   }
