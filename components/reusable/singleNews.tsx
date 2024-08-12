@@ -21,7 +21,7 @@ const singleNews: React.FC<newsProps>  = ({Title,Description, ImgUrl}) => {
       <div className='news-info'>
         <div className='title'> {Title}</div>
         <p>{Description}
-        <Link href={{ pathname: '/SingleNews', query:data  }}> المزيد  ..</Link>
+        <Link href={{ pathname: '/SingleNews', query:data  }}> .. المزيد </Link>
 </p>
       </div>
       <br/>

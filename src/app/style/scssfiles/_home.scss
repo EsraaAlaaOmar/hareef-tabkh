@@ -275,7 +275,7 @@ cursor: pointer;
            max-height: 155px;
            overflow: hidden;
            &:hover{
-            max-height: auto;
+            max-height: none;
            }
            @media screen and (max-width: 600px){
              display: block;
