@@ -113,6 +113,9 @@
     font-size: 28px;
     color: #000;
     margin: 50px 0;
+    .bold-text{
+        font-weight: bold !important;
+    }
     @media screen and (max-width: 900px){
         font-size: 20px;
     }
@@ -167,6 +170,12 @@
     padding: 10px;
     @media screen and (max-width: 900px){
         font-size: 24px;
+    }
+}
+.moreStories{
+    font-weight: bold;
+    a{
+        color: #FF7A01 !important;
     }
 }
 }

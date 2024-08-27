@@ -104,7 +104,7 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
               <Link href='/AllVideos'><span className='link'> فيديوهات المواهب</span></Link>
               <Link href={ !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/myvideos'}><span className='link'> فيديوهاتى </span></Link>
               <Link href='/FanElcamera'><span className='link'> فن الكاميرا </span></Link>
-              <Link href='/SuccessStory'><span className='link'> قصة نجاح  </span></Link>
+              <Link href='/SuccessStory/1'><span className='link'> قصة نجاح  </span></Link>
               <Link href='/History'><span className='link'> تاريخ وتراث </span></Link>
               <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
              
@@ -146,7 +146,7 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
             <Link href='/AllVideos'><span className='link'> فيديوهات المواهب</span></Link>
             <Link href={ !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/myvideos'}><span className='link'> فيديوهاتى </span></Link>
             <Link href='/FanElcamera'><span className='link'> فن الكاميرا </span></Link>
-              <Link href='/SuccessStory'><span className='link'> قصة نجاح  </span></Link>
+              <Link href='/SuccessStory/1'><span className='link'> قصة نجاح  </span></Link>
               <Link href='/History'><span className='link'> تاريخ وتراث </span></Link>
               <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
           

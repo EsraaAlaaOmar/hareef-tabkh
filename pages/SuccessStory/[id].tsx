@@ -31,8 +31,21 @@ const SuccessStory = () => {
   image2:"qestagah2",
   p3:'مما جعله قدوة للشباب الذين يسعون لتحقيق تأثير فني مستدام. باختصار، عبد الحليم نويرة هو أكثر من مجرد عازف عود، بل هو رمز للتجديد المستمر في الموسيقى والفن. إرثه يستمر في العيش من خلال أعماله الموسيقية الخالدة وتأثيره على الجيل الجديد، مما يؤكد أن الفن الحقيقي لن يموت بل يتجدد دائما.',
   image3:"qestagah3",
- }]
+ },
+ {
+  id:"2",
+  title:'محمود مختار.. عملاق النحت المصر',
+  p1:'ان محمود مختار من أوائل الطلاب الذين التحقوا بمدرسة الفنون الجميلة بالقاهرة، ثم سافر إلى باريس حيث أذهل أساتذته بموهبته الفذة. وقد تميز أسلوبه النحتي بدمج العناصر المصرية القديمة بالطراز الحديث، مما أضفى على أعماله طابعًا أصيلًا ومميزًا.',
+  image1:"qestagah4",
+  p2:'<span class="fctitle" >اشتهر محمود مختار بعدة أعمال خالدة، من أبرزها</span><br/><span class="fctitle" >تمثال نهضة مصر:</span> يعتبر هذا التمثال أيقونة للفن المصري الحديث، ويعبر عن روح التحرر والكفاح التي سادت مصر بعد ثورة 1919. <br/><span class="fctitle" >تماثيل سعد زغلول:</span> قام مختار بنحت عدة تماثيل للزعيم المصري سعد زغلول، تعكس قوته وشخصيته القيادية. <br/><span class="fctitle" >ابن البلد:</span> يصور هذا التمثال الفلاح المصري بكل بساطته وقوته، وهو يعتبر تحية للصمود والعزيمة الشعبية. <br/>حاملة الجرار: تجسيد رائع للمرأة المصرية بجمالها وقوتها، وهي تحمل إناء مملوءًا بالماء، رمزًا للحياة والعطاء.<br/><span class="fctitle" >رياح الخماسين:</span> يصور هذا التمثال قوة الطبيعة وعنفوانها، وهو عمل فني يثير الإعجاب والتأمل.<br/>كاتمة الأسرار:تمثال يرمز إلى الحكمة والصمت، ويعبر عن عمق الحضارة المصرية.',
+  image2:"qestagah5",
+  p3:'يعد محمود مختار فنانًا استثنائيًا ترك بصمة واضحة في تاريخ الفن المصري. فقد أسس مدرسة نحتية جديدة، وألهم أجيالًا من الفنانين. ولا يزال أعماله تحظى بإعجاب وتقدير كبيرين حتى يومنا هذا.<br/>  توفي محمود مختار في عام 1934، تاركًا خلفه إرثًا فنيًا غنيًا. ولتخليد ذكراه، تم إنشاء متحف باسمه بالقاهرة، يضم مجموعة كبيرة من أعماله وأرشيفه الشخصي.',
+  image3:"qestagah6",
+ }
+]
 var findeddata = storiesData?.find((story:storyType) =>story?.id == id)
+var otherStories =storiesData.filter((story:storyType) =>story.id!== id)
+var renderedOtherStories=otherStories.map((story:storyType) =><div><Link href={`/SuccessStory/${story.id}`}>{story.title}</Link><br/></div>)
 console.log(findeddata )
   return (
     < >
@@ -74,34 +87,34 @@ console.log(findeddata )
      <div className='flex'>
            <Image height={480} width={480} alt='cam1' src={`/images/${findeddata?.image1}.png`}/> 
                <div className='colom'>
-               <div className='npItem'>
-               {findeddata?.p1}
-               </div>
+               <div className='npItem'  dangerouslySetInnerHTML={{ __html: findeddata?.p1  || '' }}/>
+            
                </div>
              
            </div>
            <div className='flex rtl'>
            <Image height={480} width={480} alt='cam1' src={`/images/${findeddata?.image2}.png`} /> 
                <div className='colom'>
-                 <div className='npItem'>
-                  {findeddata?.p2}
-                  </div>
+               <div className='npItem'  dangerouslySetInnerHTML={{ __html: findeddata?.p2 || '' }}/>
                </div>
             
-           </div>
+       
 
            <div className='flex'>
               <Image height={480} width={480} alt='cam1' src={`/images/${findeddata?.image3}.png`} /> 
                <div className='colom'>
-                  <div className='npItem'>
-                {findeddata?.p3}
+                  <div className='npItem' dangerouslySetInnerHTML={{ __html: findeddata?.p3 || '' }}/>
+            
                  </div>
                </div>
-           
+      
            </div>
         
+           <div className='moreStories'>المزيد من قصص النجاح
 
-
+{renderedOtherStories}
+</div >
+<br/>
  </div>
 
 
