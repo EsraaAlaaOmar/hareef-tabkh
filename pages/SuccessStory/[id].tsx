@@ -44,10 +44,10 @@ const SuccessStory = () => {
  }
 ]
 var findeddata = storiesData?.find((story:storyType) =>story?.id == id)
-var otherStories =storiesData.filter((story:storyType) =>story.id!== id)
+var otherStories:storyType[] =storiesData.filter((story) =>story.id!== id)
 var renderedOtherStories=otherStories.map((story:storyType) =><div><Link href={`/SuccessStory/${story.id}`}>{story.title}</Link><br/></div>)
-console.log(findeddata )
-  return (
+
+return (
     < >
     <Navbar />
 <div className='new-pages page container'>

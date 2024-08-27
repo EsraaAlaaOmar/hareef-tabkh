@@ -176,6 +176,9 @@
     font-weight: bold;
     a{
         color: #FF7A01 !important;
+        &:hover{
+            color: #000;
+        }
     }
 }
 }

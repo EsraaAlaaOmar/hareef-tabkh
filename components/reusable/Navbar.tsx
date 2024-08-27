@@ -105,7 +105,7 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
               <Link href={ !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/myvideos'}><span className='link'> فيديوهاتى </span></Link>
               <Link href='/FanElcamera'><span className='link'> فن الكاميرا </span></Link>
               <Link href='/SuccessStory/1'><span className='link'> قصة نجاح  </span></Link>
-              <Link href='/History'><span className='link'> تاريخ وتراث </span></Link>
+              <Link href='/History/1'><span className='link'> تاريخ وتراث </span></Link>
               <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
              
               {/* {phoneNumber?
@@ -147,7 +147,7 @@ const[phoneNumber, setPhoneNumber] = useState<any>()
             <Link href={ !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  `http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617` :'/myvideos'}><span className='link'> فيديوهاتى </span></Link>
             <Link href='/FanElcamera'><span className='link'> فن الكاميرا </span></Link>
               <Link href='/SuccessStory/1'><span className='link'> قصة نجاح  </span></Link>
-              <Link href='/History'><span className='link'> تاريخ وتراث </span></Link>
+              <Link href='/History/1'><span className='link'> تاريخ وتراث </span></Link>
               <Link href='/News'><span className='link'> احدث الأخبار الفنية </span></Link>
           
               </span> : <span className='list-icon' onClick={() => setShowList(true)}><BsList /></span>}
