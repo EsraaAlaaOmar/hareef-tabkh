@@ -45,7 +45,7 @@ const SuccessStory = () => {
 ]
 var findeddata = storiesData?.find((story:storyType) =>story?.id == id)
 var otherStories:storyType[] =storiesData.filter((story) =>story.id!== id)
-var renderedOtherStories=otherStories.map((story:storyType) =><div><Link href={`/SuccessStory/${story.id}`}>{story.title}</Link><br/></div>)
+var renderedOtherStories=otherStories.map((story:storyType) =><div key={story.id}><Link href={`/SuccessStory/${story.id}`}>{story.title}</Link><br/></div>)
 
 return (
     < >
