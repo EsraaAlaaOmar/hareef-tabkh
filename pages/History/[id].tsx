@@ -47,7 +47,7 @@ const History = () => {
   ]
   var findeddata = historyData?.find((history:historyType) =>history?.id == id)
   var otherHisotoyStories:historyType[] =historyData.filter((history) =>history.id!== id)
-  var renderedOtherHisotoyStories=otherHisotoyStories.map((history) =><div key={history.id}><Link href={`/Hihistory/${history.id}`}>{history.title}</Link><br/></div>)
+  var renderedOtherHisotoyStories=otherHisotoyStories.map((history) =><div key={history.id}><Link href={`/History/${history.id}`}>{history.title}</Link><br/></div>)
   
   return (
     < >
