@@ -72,7 +72,7 @@ console.log(param1Value)
   setTimeout(() => {scrolToTop()}, 1500);
   return (
     <>
-     <Navbar getShowList={setViewList}/>
+     <Navbar />
 
     <SwiperCom />
     <div id='single-video-continer' className='single-video-continer'>

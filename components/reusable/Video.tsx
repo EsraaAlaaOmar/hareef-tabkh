@@ -183,7 +183,7 @@ setShare(false)
         className="competetion-video"
            
             src="/videos/vid.mp4"
-            poster={videodetails?.PosterUrl?videodetails.PosterUrl:"https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"}
+            poster={videodetails?.PosterUrl?videodetails.PosterUrl:"/images/Placeholder.jpg"}
         // controls="false"
         muted
         >

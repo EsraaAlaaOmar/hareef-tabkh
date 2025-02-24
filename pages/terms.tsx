@@ -7,7 +7,7 @@ const terms = () => {
     const[viewList, setViewList] = useState()
   return (
     <>
-  <Navbar getShowList={setViewList}/>
+  <Navbar />
      
     <div className='static-pages terms'>
          

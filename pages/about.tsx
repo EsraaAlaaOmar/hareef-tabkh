@@ -8,7 +8,7 @@ const About = () => {
   return (
      
     <>
-      <Navbar getShowList={setViewList}/>
+      <Navbar />
       <div className='static-pages'>
          
          <div className='page-hierarchy'>

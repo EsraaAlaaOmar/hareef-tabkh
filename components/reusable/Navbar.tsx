@@ -16,7 +16,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import Menu from './Menu';
 
-export default function Simple({getShowList}) {
+export default function Simple() {
  const[showList, setShowList] = useState(false)
  const [Msdn,setMsdn]=useState<any>()
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Simple({getShowList}) {
   };
   const clickSidebutton= ()=>{
     setShowList(!showList);
-     getShowList(!showList)}
+   }
   console.log(Msdn)
   
   return (
@@ -62,7 +62,7 @@ export default function Simple({getShowList}) {
             </div>
         </div>
     </div>
-    {showList&&<Menu setshowList={setShowList} />}
+    {showList&&<Menu setshowList={clickSidebutton} />}
     </>
   );
 }

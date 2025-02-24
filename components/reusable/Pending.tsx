@@ -104,7 +104,7 @@ const handleClickInside = () => {
         width="320"
         height="240"
             // controls="false"
-            poster={videodetails?.PosterUrl?videodetails.PosterUrl:"https://i.ytimg.com/vi/-Yv1w-iVCJk/maxresdefault.jpg"}
+            poster={videodetails?.PosterUrl?videodetails.PosterUrl:"/images/Placeholder.jpg"}
         muted
         >
     

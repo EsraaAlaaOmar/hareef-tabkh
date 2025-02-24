@@ -20,8 +20,9 @@ interface UploadProps {
   const[phoneNumber, setPhoneNumber] = useState<any>()
   useEffect(() => {
     (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem("MSISDN"));
-    setFormData({ ...formData,Msisdn :phoneNumber})
+    setFormData({ ...formData,Msisdn :phoneNumber})      
   },[phoneNumber])
+
   const [formData, setFormData] = useState(
     {
       Title: '',
@@ -81,10 +82,10 @@ interface UploadProps {
   const reqdata = new FormData();
   reqdata.append("Title", formData.Title);
   reqdata.append("Description", formData.Description);
-  reqdata.append("Msisdn", formData.Msisdn);
- 
+  reqdata.append("MobileNumber", formData.Msisdn);
+
   if (formData.formFile !== null) {
-    reqdata.append("formFile", formData.formFile);
+    reqdata.append("videoFile", formData.formFile);
   }
   
   // Check if posterFile is not null before appending
@@ -94,9 +95,9 @@ interface UploadProps {
 
     const addVideoMutation =   useMutation(
      () =>
-       
+      
 
-        axios.post('https://vf.alerting.services/SherbiniApis/Addvideo', reqdata, {
+        axios.post('https://vf.alerting.services/SherbiniApis/Users/Addvideo', reqdata, {
           headers: { 'Content-Type': 'multipart/form-data' },
         }),
     {

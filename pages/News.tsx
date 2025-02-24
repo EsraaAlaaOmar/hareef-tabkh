@@ -586,7 +586,7 @@ const NewsList = News.map((item,index)=>{
 })
   return (
     <>
-     <Navbar getShowList={setViewList}/>
+     <Navbar />
        
       <div className='page container'>
     

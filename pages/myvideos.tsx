@@ -27,7 +27,7 @@ const Myvideoos = () => {
     return (
       <>
       
-        <Navbar getShowList={setViewList}/>
+        <Navbar />
        <Myvideos />
        <Footer />
            

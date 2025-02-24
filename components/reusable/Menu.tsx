@@ -1,14 +1,19 @@
 import Link from 'next/link'
 import React,{useRef} from 'react'
+import { IoIosCloseCircleOutline  } from "react-icons/io";
 
 import { useOnClickOutside } from 'usehooks-ts'
-const Menu = ({setshowList}) => {
+type menuProps={
+  setshowList: () => void ;
+};
+const Menu = ({setshowList}:menuProps) => {
 const phoneNumber =(typeof window !== 'undefined')&&localStorage.getItem("MSISDN")
   const ref = useRef(null)
-  useOnClickOutside(ref, ()=>setshowList(false))
+  useOnClickOutside(ref, ()=>setshowList())
   return (
 <>
     <div id="divMenu" className="menu-list active" ref={ref}>
+      <span className='close'><IoIosCloseCircleOutline  onClick={()=>setshowList()}/></span>
         <ul className="list-unstyled">
             <li><a href="#" className="na">
                 <i className="far fa-user"></i><span>  {phoneNumber ?`مرحبا ${phoneNumber}` :"تسجيل الدخول"}</span></a>

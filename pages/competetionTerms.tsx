@@ -5,7 +5,7 @@ const competetionTerms = () => {
      const[viewList, setViewList] = useState()
   return (
     <div className='static-pages'>
-               <Navbar getShowList={setViewList}/>
+               <Navbar />
           
           <p>
           شروط واحكام مسابقة/خدمة  &quot;لو موهوب&quot;

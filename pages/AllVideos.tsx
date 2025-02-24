@@ -111,7 +111,7 @@ const renderedVideos = data?.map((video:VideoData) => {
   
   return (
     <>
-    <Navbar getShowList={setViewList}/>
+    <Navbar />
       <div className={`page container `}>
       
 

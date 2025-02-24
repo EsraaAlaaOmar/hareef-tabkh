@@ -18,6 +18,7 @@ interface VideoData {
   Title: string;
   Url: string;
   VideoId: number;
+  VotesCount: number;
   PosterUrl:string;
   Votes:[]
 }
@@ -42,7 +43,7 @@ const Myvideos = () => {
   
     try {
        
-        const response = await axios.post(`https://vf.alerting.services/SherbiniApis/Users/GetMyVdeos?MobileNumber=%22${phoneNumber}%22`,{},{ headers: {
+        const response = await axios.post(`https://vf.alerting.services/SherbiniApis/Users/GetMyVdeos?MobileNumber=${phoneNumber}`,{},{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
