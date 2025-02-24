@@ -113,7 +113,7 @@ var dependency =typeof window;
       <div className='page container'>
         <div className='page-hierarchy'>
              <span className='parent'>
-              <a href='/http://www.hareeftabkh.com/'>
+              <a href='http://www.hareeftabkh.com/'>
                 الرئيسية 
              </a>
            <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
