@@ -52,7 +52,7 @@ export default function Simple() {
             </div>
             <div className="pull-left">
                 <a href="index" className="logo">
-                    <Image src="/images/logo.png" className="img-responsive center-block" alt="logo" />
+                    <Image src="/images/logo.png" className="img-responsive center-block" width={100} height={100} alt="logo" />
                 </a>
             </div>
             <div className=" pull-right">

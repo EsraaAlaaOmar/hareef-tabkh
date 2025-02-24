@@ -65,7 +65,7 @@ const VidiohatElmoaheb = () => {
         <Box m='24px 0'>
        
           <Link href='/AllVideos' className="section-title">
-            فديوهات المواهب
+            فديوهات الطبخ
           </Link>
           <Link href='/AllVideos' className="section-page">
             عرض الكل

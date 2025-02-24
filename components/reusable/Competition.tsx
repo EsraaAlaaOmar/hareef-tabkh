@@ -127,10 +127,10 @@
 //              </Link>
 //            <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
 //            </span>
-//            <span className='child'>فيديوهات المواهب </span>
+//            <span className='child'>فيديوهات الطبخ </span>
 
 //          </div>
-//          <div className='title'>فيديوهات المواهب </div>
+//          <div className='title'>فيديوهات الطبخ </div>
 //            <SelectComponent />
          
       

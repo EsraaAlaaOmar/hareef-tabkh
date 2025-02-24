@@ -24,7 +24,7 @@ const phoneNumber =(typeof window !== 'undefined')&&localStorage.getItem("MSISDN
              </li>
              <li><a href="/http://www.hareeftabkh.com/index?state=signin" className="na"><i className="fas fa-heart"></i> <span> المفضلة </span></a></li>
              <li><Link href="/AllVideos"><i className="fas fa-heart"></i> <span> المسابقة </span></Link></li>
-             <li><Link href="/myvideos" className="na"><i className="fas fa-heart"></i> <span> فديوهتي </span></Link></li>
+             <li><Link href="/myvideos" className="na"><i className="fas fa-heart"></i> <span> فديوهاتي </span></Link></li>
              <li><a href="/http://www.hareeftabkh.com/categories" className="na"><i className="fas fa-concierge-bell"></i> <span> التصنيفات </span></a></li>
              <li><a href="/http://www.hareeftabkh.com/mostviewed" className="na"><i className="fas fa-fire"></i> <span> الأكثر مشاهدة </span></a></li>
              <li><a href="/http://www.hareeftabkh.com/latest" className="na"><i className="fas fa-utensils"></i> <span> أحدث الوصفات </span></a></li>

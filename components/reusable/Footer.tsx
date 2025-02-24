@@ -1,6 +1,6 @@
 import React from 'react'
 import {FaLessThan} from 'react-icons/fa'
-import FooterLink from './FooterLink';
+
 import Image from 'next/image';
 
 
@@ -16,9 +16,10 @@ const Footer = () => {
           <div id="divFooter" className="clearfix">
             <div className="logo">
               <Image 
-                src="images/logo.png"
+                src="/images/logo.png"
                 className="img-responsive center-block"
                 alt="logo"
+                width={100} height={100} 
               />
             </div>
             <div className="sitemap">
@@ -52,7 +53,7 @@ const Footer = () => {
             <div className="copyright">
               <p> جميع الحقوق محفوظة © {curentYear} لدى شركة إيجيبت لينكس </p>
               <a href="http://egyptlinx.com/" target="_blank">
-                <Image  src="/images/elinx-logo.png" alt="egyptlinx" />
+                <Image  src="/images/Elinx-logo.png" alt="egyptlinx" width={100} height={100}  />
               </a>
             </div>
           </div>

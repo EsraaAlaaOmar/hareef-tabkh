@@ -59,7 +59,7 @@ const Ahdth = () => {
       {isLoading ? <Loader /> : <Box padding=" " mt="24px">
     
     <Link href='/AllVideos' className="section-title">
-    فيديوهات المواهب ( الأحدث )
+    فيديوهات الطبخ ( الأحدث )
         </Link>
         <Link href='/AllVideos' className="section-page">
             عرض الكل 
