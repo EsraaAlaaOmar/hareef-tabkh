@@ -118,9 +118,9 @@ const renderedVideos = data?.map((video:VideoData) => {
         <div className="upload-video">
         <div className='page-hierarchy'>
             <span className='parent'>
-              <Link href='/'>
+              <a href='/http://www.hareeftabkh.com/'>
                 الرئيسية 
-             </Link>
+             </a>
            <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
            </span>
            <span className='child'>فيديوهات الطبخ </span>

@@ -13,9 +13,9 @@ const About = () => {
          
          <div className='page-hierarchy'>
              <span className='parent'>
-              <Link href='/'>
+              <a href='/http://www.hareeftabkh.com/'>
                 الرئيسية 
-             </Link>
+             </a>
            <span className='arow-icon'><MdOutlineKeyboardArrowLeft /></span>
            </span>
            <span className='child'>عن لو موهوب</span>
