@@ -97,7 +97,7 @@ setShare(false)
     queryKey,
     getuserId)
     console.log( videodetails?.Votes)
-    var Liked = videodetails?.Votes.find((vote) => {
+    var Liked = videodetails?.Votes?.find((vote) => {
       return vote?.TalentId === data ? true : false;
     });
     console.log(Liked)
