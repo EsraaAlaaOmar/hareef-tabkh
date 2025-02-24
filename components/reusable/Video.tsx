@@ -18,15 +18,16 @@ interface VideoData {
   DateIn: string;
   Deleted: Boolean;
   Description: string;
-  NViews: number;
-  NVotes: number;
-  NShares: number;
-  TalentId: number;
+
+  UserId: number
   Title: string;
-  Url: string;
+  VideoUrl: string;
   VideoId: number;
-  Votes:any[]
   PosterUrl:string;
+   VotesCount: number;
+  UsersVotes:[
+    userId:any
+  ];
 }
 interface videoProps{
   refetchVideos:Function,
@@ -83,30 +84,31 @@ setShare(false)
   };
   const getuserId = async () => {
     const response = await axios.post(
-      `https://vf.alerting.services/SherbiniApis/GetUserID?MobileNumber=${phoneNumber}`,
+      
+      `https://vf.alerting.services/SherbiniApis/Users/GetUserID?MobileNumber=${phoneNumber}`,
       {},
       {
     
       }
     );
     return response.data.UserID;
-  };
+  };   
 
    const queryKey = phoneNumber ? ["userId", phoneNumber] : ["userId"];
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     queryKey,
     getuserId)
-    console.log( videodetails?.Votes)
-    var Liked = videodetails?.Votes?.find((vote) => {
-      return vote?.TalentId === data ? true : false;
+    
+    var Liked = videodetails?.UsersVotes?.find((vote) => {
+      return vote?.UserId === data && vote.Liked===true ? true : false;
     });
-    console.log(Liked)
+    
   const addVote = async (videoId: number) => {
  
     try {
       const response = await axios.post(
         `
-        https://vf.alerting.services/SherbiniApis/AddVote?VideoId=${videodetails.VideoId}&MobileNumber=${phoneNumber}&Vote=${!Liked}`,
+       https://vf.alerting.services/SherbiniApis/Users/AddVote?VideoId=${videodetails.VideoId}&MobileNumber=${phoneNumber}&Vote=${!Liked}`,
         null, // Since there's no request body, pass null
         {
           headers: {
@@ -160,7 +162,7 @@ setShare(false)
            
            <video
            
-            src={videodetails?.Url}
+            src={videodetails?.VideoUrl}
               controls
            autoPlay
            >
@@ -193,9 +195,9 @@ setShare(false)
       </video>
       </div>
       <div className='video-info'>
-      <span><AiOutlineHeart /></span>{videodetails?.NVotes}
+      {Liked? <span><AiFillHeart /></span>:<span><AiOutlineHeart /></span>}{videodetails?.VotesCount}
         
-        <span><BiShare /> </span>{videodetails?.NShares}
+      
         {/* <span><IoIosPeople /> </span>10k */}
       
       </div>

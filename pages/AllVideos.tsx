@@ -20,15 +20,17 @@ interface VideoData {
   DateIn: string;
   Deleted: Boolean;
   Description: string;
-  NViews: number;
-  NVotes: number;
-  NShares: number;
-  TalentId: number;
+
+  UserId: number
   Title: string;
-  Url: string;
+  VideoUrl: string;
   VideoId: number;
   PosterUrl:string;
-  Votes:[]
+   VotesCount: number;
+  UsersVotes:[
+    userId:any
+  ];
+ 
 }
 
 const AllVideos = () => {
