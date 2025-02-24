@@ -18,7 +18,7 @@ interface VideoData {
   PosterUrl:string
   UserId:string
 }
-const VideosManagment = () => {
+const VideosManagmentPage = () => {
   const[currentPage,setCurrentPage]=useState(1)
   const [playerVideo, setPlayerVideo] = useState<VideoData >();
   const[showVideo,setShowVideo] = useState(false)
@@ -59,7 +59,7 @@ var pageSize=10;
       return <VideoManagment details={video} refetchVideos={refetch} setPlayerVideo={setPlayerVideo}  setShowVideo={setShowVideo}  key={video.VideoId}/>
     }):<></>;
   return (
-    <><h2 className="admin-title"> إدارة الفيديوهات</h2>
+    <div className='page'><h2 className="admin-title"> إدارة الفيديوهات</h2>
     
  {isLoading? <Loader /> :   
   arr?.length>0 ? <table className="admin-table">
@@ -116,8 +116,8 @@ var pageSize=10;
         <li className="page-item"  onClick={()=>arr?.length==pageSize&&setCurrentPage(currentPage+1)}><a className="page-link" style={{color: '#000'}} >التالي</a></li>
        </Pagination>
        </div>
-        </>
+        </div>
   )
 }
 
-export default VideosManagment
+export default VideosManagmentPage
