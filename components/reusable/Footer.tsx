@@ -5,33 +5,59 @@ import Image from 'next/image';
 
 
 import {FaFacebookF, FaYoutube, FaTwitter, FaInstagram} from 'react-icons/fa'
+import { MdKeyboardArrowLeft } from "react-icons/md";
+
 import Link from 'next/link';
 const Footer = () => {
     let curentYear = new Date().getFullYear();
-  return (
-      <div className='footer'>
-        <Image width={48} height={48} alt="logo" src='/images/logo.png' />
-      <span className='site-name'>لو موهوب</span>
-      {/* <footer >Copyright &copy; Orange Egypt {curentYear}. All rights reserved </footer> */}
-      <div className='links'>
-     <Link  href='/about'><span className='link'>عن لو موهوب</span></Link> 
-     {/* <Link  href='/terms'><span className='link'>شروط المسابقة</span></Link>  */}
-     <Link  href='/terms'><span className='link'>الشروط والأحكام</span></Link> 
-     <Link  href='/privacy'><span className='link'>سياسة الخصوصية</span></Link> 
-      </div>
-      <div className='lastline'>
-        <span>
-        تابعنا على :
-        <span className='social'><FaFacebookF /></span>
-        <span className='social'><FaInstagram /></span>
-        <span className='social'><FaTwitter /></span>
-        <span className='social'><FaYoutube /></span>
-        </span>
-        <div className='left'>Copyright &copy; Orange Egypt {curentYear}. All rights reserved</div>
-      </div>
-         
-    </div>
-  )
-}
+    return (
+  
+        <footer>
+          <div id="divFooter" className="clearfix">
+            <div className="logo">
+              <img
+                src="images/logo.png"
+                className="img-responsive center-block"
+                alt="logo"
+              />
+            </div>
+            <div className="sitemap">
+              <a title="الرئيسية" href="index">
+                <span> الرئيسية </span>
+                <span className='icon'><MdKeyboardArrowLeft/></span>
+              </a>
+              <a title="المفضلة" href="favorites">
+                <span> المفضلة </span>
+                <span className='icon'><MdKeyboardArrowLeft/></span>
+              </a>
+              <a title="التصنيفات" href="categories">
+                <span> التصنيفات </span>
+                <span className='icon'><MdKeyboardArrowLeft/></span>
+              </a>
+              <a title="الأكثر مشاهدة" href="mostviewed">
+                <span> الأكثر مشاهدة </span>
+                <span className='icon'><MdKeyboardArrowLeft/></span>
+              </a>
+              <a title="أحدث الوصفات" href="latest">
+                <span> أحدث الوصفات </span>
+                <span className='icon'><MdKeyboardArrowLeft/></span>
+              </a>
+              <a title="الشروط و الأحكام" href="terms">
+                <span> الشروط و الأحكام </span>
+                <span className='icon'><MdKeyboardArrowLeft/></span>
+              </a>
+            </div>
+          </div>
+          <div id="divCopyright" className="media">
+            <div className="copyright">
+              <p> جميع الحقوق محفوظة © {curentYear} لدى شركة إيجيبت لينكس </p>
+              <a href="http://egyptlinx.com/" target="_blank">
+                <img src="/images/elinx-logo.png" alt="egyptlinx" />
+              </a>
+            </div>
+          </div>
+        </footer>
 
+    );
+  }
 export default Footer

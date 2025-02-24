@@ -19,7 +19,7 @@ interface UploadProps {
   const router = useRouter();
   const[phoneNumber, setPhoneNumber] = useState<any>()
   useEffect(() => {
-    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
+    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem("MSISDN"));
     setFormData({ ...formData,Msisdn :phoneNumber})
   },[phoneNumber])
   const [formData, setFormData] = useState(
@@ -96,7 +96,7 @@ interface UploadProps {
      () =>
        
 
-        axios.post('https://vodafone.alerting.services/LawMawhobApis/Talents/Addvideo', reqdata, {
+        axios.post('https://vf.alerting.services/SherbiniApis/Addvideo', reqdata, {
           headers: { 'Content-Type': 'multipart/form-data' },
         }),
     {

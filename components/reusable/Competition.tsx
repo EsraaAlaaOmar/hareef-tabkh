@@ -41,7 +41,7 @@
 //   const addVote = async (VideoId:number,MSISDN:string ) => {
 //     setVote(true)
 //     try {
-//       const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
+//       const response = await axios.post(`https://vf.alerting.services/SherbiniApis/AddVote?VideoId=${VideoId}&MSISDN=${MSISDN}`, {}, {
 //         headers: {
 //           "Api_Key": "elinxfthr62023",
 //           'content-type': 'text/json'
@@ -62,7 +62,7 @@
 // const removeVote = async (id:number) => {
 //   setVote(false)
 //   try {
-//     const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVote?VoteId=${id}`, {}, {
+//     const response = await axios.post(`https://vf.alerting.services/SherbiniApis/DeleteVote?VoteId=${id}`, {}, {
 //       headers: {
 //         "Api_Key": "elinxfthr62023",
 //         'content-type': 'text/json'
@@ -90,7 +90,7 @@
   
 //   const fetchData = async () => {
   
-//     const response = await axios.get('https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos',{ headers: {
+//     const response = await axios.get('https://vf.alerting.services/SherbiniApis/GetAllVideos',{ headers: {
 //       "Api_Key": "elinxfthr62023",
 //       'content-type': 'text/json'
 //     }});

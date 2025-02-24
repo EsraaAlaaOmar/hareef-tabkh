@@ -8,7 +8,7 @@ const SwiperCom = () => {
     const[phoneNumber, setPhoneNumber] = useState<any>()
   useEffect(() => {
     setIsClient(true);
-    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
+    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem("MSISDN"));
   }, []);
 
   if (!isClient) {

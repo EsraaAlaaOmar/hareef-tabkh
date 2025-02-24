@@ -1,10 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 const competetionTerms = () => {
+     const[viewList, setViewList] = useState()
   return (
     <div className='static-pages'>
-          <Navbar />
+               <Navbar getShowList={setViewList}/>
+          
           <p>
           شروط واحكام مسابقة/خدمة  &quot;لو موهوب&quot;
 الشروط والأحكام

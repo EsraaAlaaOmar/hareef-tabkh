@@ -32,6 +32,7 @@ interface VideoData {
 }
 
 const AllVideos = () => {
+   const[viewList, setViewList] = useState()
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [playvideo, setPlayVideo] = useState<boolean>(false);
@@ -78,7 +79,7 @@ paginationElement?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   
   const fetchData = async () => {
   
-    const response = await axios.get(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetAllVideos?Page=${currentPage}&PageSize=${itemsPerPage}`,{ headers: {
+    const response = await axios.get(`https://vf.alerting.services/SherbiniApis/GetAllVideos?Page=${currentPage}&PageSize=${itemsPerPage}`,{ headers: {
       "Api_Key": "elinxfthr62023",
       'content-type': 'text/json'
     }});
@@ -110,8 +111,8 @@ const renderedVideos = data?.map((video:VideoData) => {
   
   return (
     <>
-    <Navbar />
-      <div className="page container">
+    <Navbar getShowList={setViewList}/>
+      <div className={`page container `}>
       
 
         <div className="upload-video">
@@ -151,7 +152,7 @@ const renderedVideos = data?.map((video:VideoData) => {
       
         
       </div>
-      <Footer />
+      <Footer  />
     </>
   );
 };

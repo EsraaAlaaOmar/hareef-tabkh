@@ -29,18 +29,20 @@ const Myvideos = () => {
    const[phoneNumber, setPhoneNumber] = useState<any>()
 
    useEffect(() => {
-    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem('Msisdn'));
+    (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem("MSISDN"));
+
     const queryParams = new URLSearchParams(window.location.search);
     const param1Value = queryParams.get('title');
     param1Value && setPendingVideo(param1Value);
   },[typeof window])
+  console.log(phoneNumber)
   const fetchData = async () => {
     
 
   
     try {
        
-        const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetMyVdeos?Msisdn=${phoneNumber}`,{},{ headers: {
+        const response = await axios.post(`https://vf.alerting.services/SherbiniApis/Users/GetMyVdeos?MobileNumber=%22${phoneNumber}%22`,{},{ headers: {
           "Api_Key": "elinxfthr62023",
           'content-type': 'text/json'
         }});
@@ -64,7 +66,7 @@ const Myvideos = () => {
   
     const deleteItem = async (vidId:string) => {
       // Make your delete API request here
-      const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
+      const response = await axios.post(`https://vf.alerting.services/SherbiniApis/DeleteVideo?VideoId=${vidId}`,{},{ headers: {
         "Header" :" Access-Control-Allow-Headers",
         "value":"api_key",
         "Api_Key": "elinxfthr62023",

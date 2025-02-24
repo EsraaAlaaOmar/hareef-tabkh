@@ -1,12 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Link from 'next/link'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 import {MdOutlineKeyboardArrowLeft} from 'react-icons/md'
 const About = () => {
+     const[viewList, setViewList] = useState()
   return (
+     
     <>
-      <Navbar />
+      <Navbar getShowList={setViewList}/>
       <div className='static-pages'>
          
          <div className='page-hierarchy'>

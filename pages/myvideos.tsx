@@ -22,11 +22,12 @@ interface VideoData {
 }
 
 const Myvideoos = () => {
-
+   const[viewList, setViewList] = useState()
 
     return (
       <>
-        <Navbar />
+      
+        <Navbar getShowList={setViewList}/>
        <Myvideos />
        <Footer />
            

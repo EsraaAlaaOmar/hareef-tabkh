@@ -6,6 +6,7 @@
 @import 'scssfiles/slect.scss';
 @import 'scssfiles/newPages';
 @import 'scssfiles/terms';
+@import 'scssfiles/HareefTabkh';
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
 @font-face {
   font-family: 'HelveticaNeue-Bold';
@@ -243,7 +244,7 @@ body{
   .static-pages{
   color: #000;
   direction: rtl;
-   padding:0 30px  50px 30px;
+  //  padding:0 30px  50px 30px;
   .title{
     font-size: 28px;
     font-weight: bold;
@@ -634,6 +635,8 @@ video{
 // padding:0 30px  50px 30px;;
 direction: rtl;
 background-color: #fff;
+padding-top: 70px;
+height: calc(100vh - 58.8px);
 .page-title {
  margin-top: 10px;
  font-size: 24px;
@@ -650,6 +653,10 @@ background-color: #fff;
   }
 
 }
+}
+.shiftpage{
+  position: absolute;
+  right: 50%;
 }
 .add-vid-button{
   padding: 8px 20px;
@@ -784,7 +791,7 @@ background-color: #fff;
   background-color: #fff;
   width: 85%;
 
-  margin:  20px auto;
+  margin:  60px auto;
   border-radius: 8px;
   @media screen and (max-width: 845px){
      width: 95%;

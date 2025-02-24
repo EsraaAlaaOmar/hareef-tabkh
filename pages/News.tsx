@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
@@ -8,9 +8,11 @@ import {MdOutlineKeyboardArrowLeft} from'react-icons/md'
 import { useQuery } from 'react-query'
 import axios from 'axios'
 const News = () => {
+  const[viewList, setViewList] = useState()
   const fetchData = async () => {
+       
   
-    const response = await axios.get(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetLastNews`,{ headers: {
+    const response = await axios.get(`https://vf.alerting.services/SherbiniApis/GetLastNews`,{ headers: {
       "Api_Key": "elinxfthr62023",
       'content-type': 'text/json'
     }});
@@ -584,7 +586,8 @@ const NewsList = News.map((item,index)=>{
 })
   return (
     <>
-        <Navbar />
+     <Navbar getShowList={setViewList}/>
+       
       <div className='page container'>
     
       <div className='page-hierarchy'>

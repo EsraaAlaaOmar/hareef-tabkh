@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Video from '../components/reusable/Video'
 import axios from 'axios';
 import { useQuery } from 'react-query';
@@ -19,7 +19,9 @@ interface VideoData {
   Votes:[]
 }
 const SingleVideo = () => {
-    var param1Value:any ;
+   const[viewList, setViewList] = useState()  
+  var param1Value:any ;
+
     if (typeof window !== 'undefined') {
     const queryParams = new URLSearchParams(window.location.search);
     
@@ -37,7 +39,7 @@ console.log(param1Value)
   
         try {
             const Msisdn ="Msisdn"
-            const response = await axios.post(`https://vodafone.alerting.services/LawMawhobApis/Talents/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
+            const response = await axios.post(`https://vf.alerting.services/SherbiniApis/GetSingleVideoByID?VideoId=${param1Value}`,{},{ headers: {
               "Api_Key": "elinxfthr62023",
               'content-type': 'text/json'
             }});
@@ -70,7 +72,8 @@ console.log(param1Value)
   setTimeout(() => {scrolToTop()}, 1500);
   return (
     <>
-    <Navbar />
+     <Navbar getShowList={setViewList}/>
+
     <SwiperCom />
     <div id='single-video-continer' className='single-video-continer'>
 
