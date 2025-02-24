@@ -7,7 +7,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           {/* Add your favicon link here */}
-          <link rel="icon" href="/images/favicon.ico" />
+          <link rel="icon" href="/images/favicon.png" />
           <title>حريف طبخ</title>
           {/* Other meta tags, title, etc. can also be added here */}
         </Head>
