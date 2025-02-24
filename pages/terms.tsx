@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 import {MdOutlineKeyboardArrowLeft} from 'react-icons/md'
 const terms = () => {
-    const[viewList, setViewList] = useState()
+
   return (
     <>
   <Navbar />

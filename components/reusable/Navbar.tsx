@@ -15,6 +15,7 @@ import { CiUser } from "react-icons/ci";
 import axios from 'axios';
 import { useQuery } from 'react-query';
 import Menu from './Menu';
+import Image from 'next/image';
 
 export default function Simple() {
  const[showList, setShowList] = useState(false)
@@ -51,7 +52,7 @@ export default function Simple() {
             </div>
             <div className="pull-left">
                 <a href="index" className="logo">
-                    <img src="/images/logo.png" className="img-responsive center-block" alt="logo" />
+                    <Image src="/images/logo.png" className="img-responsive center-block" alt="logo" />
                 </a>
             </div>
             <div className=" pull-right">

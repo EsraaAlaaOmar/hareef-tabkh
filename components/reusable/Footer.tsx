@@ -15,7 +15,7 @@ const Footer = () => {
         <footer>
           <div id="divFooter" className="clearfix">
             <div className="logo">
-              <img
+              <Image 
                 src="images/logo.png"
                 className="img-responsive center-block"
                 alt="logo"
@@ -52,7 +52,7 @@ const Footer = () => {
             <div className="copyright">
               <p> جميع الحقوق محفوظة © {curentYear} لدى شركة إيجيبت لينكس </p>
               <a href="http://egyptlinx.com/" target="_blank">
-                <img src="/images/elinx-logo.png" alt="egyptlinx" />
+                <Image  src="/images/elinx-logo.png" alt="egyptlinx" />
               </a>
             </div>
           </div>

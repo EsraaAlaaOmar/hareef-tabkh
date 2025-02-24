@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Footer from '../components/reusable/Footer'
 import Navbar from '../components/reusable/Navbar'
 const competetionTerms = () => {
-     const[viewList, setViewList] = useState()
+
   return (
     <div className='static-pages'>
                <Navbar />
