@@ -6,7 +6,7 @@ const AddVideo = () => {
      const[viewList, setViewList] = useState()
   return (
     <div>
-        <Navbar  getShowList={setViewList}/>
+        <Navbar  />
         <Upload />
         <Footer />
         </div>
