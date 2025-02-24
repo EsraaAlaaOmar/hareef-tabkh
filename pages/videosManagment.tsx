@@ -56,7 +56,7 @@ var pageSize=10;
     
     };
     const renderedvideo = data? arr.map((video: any) => {
-      return <VideoManagment details={video} refetchVideos={refetch} setPlayerVideo={setPlayerVideo}  setShowVideo={setShowVideo} />
+      return <VideoManagment details={video} refetchVideos={refetch} setPlayerVideo={setPlayerVideo}  setShowVideo={setShowVideo}  key={video.VideoId}/>
     }):<></>;
   return (
     <><h2 className="admin-title"> إدارة الفيديوهات</h2>

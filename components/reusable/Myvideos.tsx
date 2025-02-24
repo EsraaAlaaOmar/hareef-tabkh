@@ -28,14 +28,14 @@ const Myvideos = () => {
 
    const [upload,setUpload] = useState(false)
    const[phoneNumber, setPhoneNumber] = useState<any>()
-
+var dependency =typeof window;
    useEffect(() => {
     (typeof window !== 'undefined') && setPhoneNumber(localStorage.getItem("MSISDN"));
 
     const queryParams = new URLSearchParams(window.location.search);
     const param1Value = queryParams.get('title');
     param1Value && setPendingVideo(param1Value);
-  },[typeof window])
+  },[dependency])
   console.log(phoneNumber)
   const fetchData = async () => {
     
