@@ -131,12 +131,12 @@ const renderedVideos = data?.map((video:VideoData) => {
           <div className='video-links-div container'>
         
         <div className=" videos-page   video-links-div">
-        <Link className='videos-link-div ' href={`/Competition?MSISDN=${Msdn}`}  style={{color:"#000"}} >
+        <Link className='videos-link-div ' href={`/AllVideos?MSISDN=${Msdn}`}  style={{color:"#000"}} >
           <button className="my-videos-link active" >
       فيديوهات المسابقة
         </button>
         </Link>
-        <Link className='videos-link-div' href={!Msdn || Msdn=='NA' || Msdn=='undefined' ?'http://fikrwzikr.com/SignIn' :`/Myvideos?MSISDN=${Msdn}`} style={{color:"#000"}}>
+        <Link className='videos-link-div' href={!Msdn || Msdn=='NA' || Msdn=='undefined' ?'http://fikrwzikr.com/SignIn' :`/myvideos?MSISDN=${Msdn}`} style={{color:"#000"}}>
           <button className="my-videos-link" >
        فيديوهاتي
         </button>
