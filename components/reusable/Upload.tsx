@@ -175,29 +175,16 @@ interface UploadProps {
            <div className="white-background">
            <div className='page-title'>اضافة فيديو </div>
         <form onSubmit={(e) => addVideo(e)}>
-        <div className='left-section'>
-       { showvideo && <video width="320" height="240" style={{margin:'auto',maxHeight:'330px'}} autoPlay controls>
-              {srcComp()}
-          
-              Your browser does not support the video tag.
-            </video>}
-          <input id='video_input' type="file" accept="video/*" onChange={(e)=>video(e)} name='formFile'  />
-          {!showvideo&&  <button id="choose-to-upload" className="video-upload-button" onClick={() => buttonClick()}>اضافة فيديو + </button> }
-       { showvideo&&    <div className="actions">
-         <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
-         <button  className="video-action-upload-button video-upload-delete"onClick={()=>{setShowVideo(false); setFormData({ ...formData, formFile:null}); }}> حذف الفديو</button>
     
-            </div>}
-          </div>
         <div className='right-section'>
             
                <div className="upload-video-input">
           <label className="upload-video-label" >عنوان الفديو </label>
-              <input className="upload-video-textarea" style={{ height: "70px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
+              <input className="upload-video-textarea" required={true} style={{ height: "70px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
       </div>
       <div className="upload-video-input">
           <label className="upload-video-label">اسم المشترك باللغة العربية (ثلاثي) </label>
-          <input  className="upload-video-textarea" style={{ height: "70px" }} placeholder="أدخل اسم المشترك " name='Description' value={Description} onChange={e=>onChange(e)} />
+          <input  className="upload-video-textarea" required={true} style={{ height: "70px" }} placeholder="أدخل اسم المشترك " name='Description' value={Description} onChange={e=>onChange(e)} />
       </div>
       <div className="upload-video-input">
           <label className="upload-video-label" style={{fontSize:"14px"}}>غلاف الفيديو(اختياري) </label>
@@ -206,7 +193,20 @@ interface UploadProps {
            
 
         </div>
-   
+        <div className='left-section'>
+       { showvideo && <video width="320" height="240" style={{margin:'auto',maxHeight:'330px'}} autoPlay controls>
+              {srcComp()}
+          
+              Your browser does not support the video tag.
+            </video>}
+          <input id='video_input' type="file" accept="video/*"  onChange={(e)=>video(e)} name='formFile'  />
+          {!showvideo&&  <button id="choose-to-upload" className="video-upload-button" onClick={() => buttonClick()}>اضافة فيديو + </button> }
+       { showvideo&&    <div className="actions">
+         <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
+         <button  className="video-action-upload-button video-upload-delete"onClick={()=>{setShowVideo(false); setFormData({ ...formData, formFile:null}); }}> حذف الفديو</button>
+    
+            </div>}
+          </div>
        
         </form>
       </div>

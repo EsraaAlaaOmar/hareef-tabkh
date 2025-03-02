@@ -195,7 +195,7 @@ setShare(false)
       </video>
       </div>
       <div className='video-info'>
-      {Liked? <span><AiFillHeart /></span>:<span><AiOutlineHeart /></span>}{videodetails?.VotesCount}
+      {Liked ?<span onClick={()=>addVoteRedirect(videodetails.VideoId)}><AiFillHeart /></span> :<span onClick={()=>addVoteRedirect(videodetails.VideoId)}><AiOutlineHeart/></span>}{videodetails?.VotesCount}
         
       
         {/* <span><IoIosPeople /> </span>10k */}

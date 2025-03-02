@@ -223,5 +223,15 @@ footer .copyright img {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+
 }
+  }
+  .overlayer-loader{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: #0000004a;
+    left: 0;
+  
   }

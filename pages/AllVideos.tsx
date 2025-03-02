@@ -34,6 +34,7 @@ interface VideoData {
 }
 
 const AllVideos = () => {
+  const phoneNumber =(typeof window !== 'undefined')&&localStorage.getItem("MSISDN")
    const[viewList, setViewList] = useState()
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -131,17 +132,17 @@ const renderedVideos = data?.map((video:VideoData) => {
           <div className='video-links-div container'>
         
         <div className=" videos-page   video-links-div">
-        <Link className='videos-link-div ' href={`/AllVideos?MSISDN=${Msdn}`}  style={{color:"#000"}} >
+        <Link className='videos-link-div ' href={`/AllVideos?MSISDN=${phoneNumber}`}  style={{color:"#000"}} >
           <button className="my-videos-link active" >
       فيديوهات المسابقة
         </button>
         </Link>
-        <Link className='videos-link-div' href={!Msdn || Msdn=='NA' || Msdn=='undefined' ?'http://fikrwzikr.com/SignIn' :`/myvideos?MSISDN=${Msdn}`} style={{color:"#000"}}>
+        <Link className='videos-link-div' href={!phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?'http://elchef.info/signin' :`/myvideos?MSISDN=${phoneNumber}`} style={{color:"#000"}}>
           <button className="my-videos-link" >
        فيديوهاتي
         </button>
         </Link>
-        <Link className='videos-link-div' href={!Msdn || Msdn=='NA' || Msdn=='undefined' ?'http://fikrwzikr.com/SignIn' :`/AddVideo?MSISDN=${Msdn}`} style={{color:"#000"}}>
+        <Link className='videos-link-div' href={!phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?'http://elchef.info/signin' :`/AddVideo?MSISDN=${phoneNumber}`} style={{color:"#000"}}>
           <button className="my-videos-link" >
 اضافة فيديو        </button>
         </Link>
