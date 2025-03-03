@@ -132,7 +132,7 @@ setShare(false)
     }
   };    
   
-   const  addVoteRedirect=(videoId: number)=>  !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  router.push(`http://ohel.alerting.services/OrangeHE/Index.aspx?serviceID=617`) :addVote(videoId);
+   const  addVoteRedirect=(videoId: number)=>  !phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?  router.push(`http://elchef.info/signin`) :addVote(videoId);
    const date = new Date(videodetails.DateIn);
 
    // Define options for formatting the date

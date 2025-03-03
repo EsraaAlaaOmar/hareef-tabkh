@@ -7,16 +7,21 @@ type menuProps={
   setshowList: () => void ;
 };
 const Menu = ({setshowList}:menuProps) => {
-const phoneNumber =(typeof window !== 'undefined')&&localStorage.getItem("MSISDN")
+var  phoneNumber =(typeof window !== 'undefined')&&localStorage.getItem("MSISDN")
   const ref = useRef(null)
   useOnClickOutside(ref, ()=>setshowList())
+
+  const clearLocalStorage = () => {
+    localStorage.clear();
+    phoneNumber=null; // clear state
+  };
   return (
 <>
     <div id="divMenu" className="menu-list active" ref={ref}>
       <span className='close'><IoIosCloseCircleOutline  onClick={()=>setshowList()}/></span>
         <ul className="list-unstyled">
             <li><a href="http://elchef.info/signin" className="na">
-                <i className="far fa-user"></i><span>  {phoneNumber ?`مرحبا ${phoneNumber}` :"تسجيل الدخول"}</span></a>
+                <i className="far fa-user"></i><span onClick={()=>clearLocalStorage()}> {!phoneNumber || phoneNumber=='NA' || phoneNumber=='undefined' ?"تسجيل الدخول":`مرحبا ${phoneNumber}` }</span></a>
                 </li>
             <li><a href="http://elchef.info/" className="active">
                 <i className="fas fa-home"></i>
