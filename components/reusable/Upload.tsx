@@ -179,8 +179,8 @@ interface UploadProps {
         <div className='right-section'>
             
                <div className="upload-video-input">
-          <label className="upload-video-label" >عنوان الفديو </label>
-              <input className="upload-video-textarea" required={true} style={{ height: "70px" }} placeholder="أدخل عنوان الفديو " name='Title' value={Title} onChange={e=>onChange(e)} />
+          <label className="upload-video-label" >عنوان الفيديو </label>
+              <input className="upload-video-textarea" required={true} style={{ height: "70px" }} placeholder="أدخل عنوان الفيديو " name='Title' value={Title} onChange={e=>onChange(e)} />
       </div>
       <div className="upload-video-input">
           <label className="upload-video-label">اسم المشترك باللغة العربية (ثلاثي) </label>
@@ -202,8 +202,8 @@ interface UploadProps {
           <input id='video_input' type="file" accept="video/*"  onChange={(e)=>video(e)} name='formFile'  />
           {!showvideo&&  <button id="choose-to-upload" className="video-upload-button" onClick={() => buttonClick()}>اضافة فيديو + </button> }
        { showvideo&&    <div className="actions">
-         <button type='submit' className="video-action-upload-button" > نشر الفديو  </button> 
-         <button  className="video-action-upload-button video-upload-delete"onClick={()=>{setShowVideo(false); setFormData({ ...formData, formFile:null}); }}> حذف الفديو</button>
+         <button type='submit' className="video-action-upload-button" > نشر الفيديو  </button> 
+         <button  className="video-action-upload-button video-upload-delete"onClick={()=>{setShowVideo(false); setFormData({ ...formData, formFile:null}); }}> حذف الفيديو</button>
     
             </div>}
           </div>
