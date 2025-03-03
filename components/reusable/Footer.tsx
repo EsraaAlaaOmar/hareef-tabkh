@@ -23,27 +23,27 @@ const Footer = () => {
               />
             </div>
             <div className="sitemap">
-              <a title="الرئيسية" href="index">
+              <a title="الرئيسية" href="http://elchef.info/ ">
                 <span> الرئيسية </span>
                 <span className='icon'><MdKeyboardArrowLeft/></span>
               </a>
-              <a title="المفضلة" href="favorites">
+              <a title="المفضلة" href="http://elchef.info/favorites">
                 <span> المفضلة </span>
                 <span className='icon'><MdKeyboardArrowLeft/></span>
               </a>
-              <a title="التصنيفات" href="categories">
+              <a title="التصنيفات" href="http://elchef.info/categories">
                 <span> التصنيفات </span>
                 <span className='icon'><MdKeyboardArrowLeft/></span>
               </a>
-              <a title="الأكثر مشاهدة" href="mostviewed">
+              <a title="الأكثر مشاهدة" href="http://elchef.info/mostviewed">
                 <span> الأكثر مشاهدة </span>
                 <span className='icon'><MdKeyboardArrowLeft/></span>
               </a>
-              <a title="أحدث الوصفات" href="latest">
+              <a title="أحدث الوصفات" href="http://elchef.info/latest">
                 <span> أحدث الوصفات </span>
                 <span className='icon'><MdKeyboardArrowLeft/></span>
               </a>
-              <a title="الشروط و الأحكام" href="terms">
+              <a title="الشروط و الأحكام" href="http://elchef.info/terms">
                 <span> الشروط و الأحكام </span>
                 <span className='icon'><MdKeyboardArrowLeft/></span>
               </a>

@@ -26,6 +26,7 @@ export default function Simple() {
     
     // Reading specific query parameters
     const param1Value = queryParams.get('MSISDN');
+    
     param1Value ? setMsdn(param1Value) : setMsdn((typeof window !== 'undefined')&&localStorage.getItem("MSISDN"))
     
    
