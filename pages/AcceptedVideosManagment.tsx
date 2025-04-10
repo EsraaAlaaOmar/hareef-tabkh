@@ -45,7 +45,7 @@ const fetchData = async (page: number) => {
     console.log(data)
     
     const renderedvideo = data?.map((video: any) => {
-      return <Acceptedmanagment details={video} refetchVideos={refetch} setPlayerVideo={setPlayerVideo}  setShowVideo={setShowVideo} />
+      return <Acceptedmanagment details={video} refetchVideos={refetch} setPlayerVideo={setPlayerVideo}  setShowVideo={setShowVideo} key ={video.id}/>
     });
   return (
     <>
