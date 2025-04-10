@@ -48,7 +48,7 @@ const fetchData = async (page: number) => {
       return <Acceptedmanagment details={video} refetchVideos={refetch} setPlayerVideo={setPlayerVideo}  setShowVideo={setShowVideo} key ={video.id}/>
     });
   return (
-    <>
+    <div style={{direction:"rtl"}}>
     <Navbar />
     <h2 className="admin-title"> إدارة الفيديوهات المنشورة</h2>
     
@@ -104,7 +104,7 @@ const fetchData = async (page: number) => {
        </Pagination>
        </div>
        <Footer />
-        </>
+        </div>
   )
 }
 
