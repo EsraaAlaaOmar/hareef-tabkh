@@ -20,7 +20,7 @@ interface VideoData {
   PosterUrl:string
   UserId:string
 }
-const lvideosManagment = () => {
+const LvideosManagment = () => {
   const[currentPage,setCurrentPage]=useState(1)
   const [playerVideo, setPlayerVideo] = useState<VideoData >();
   const[showVideo,setShowVideo] = useState(false)
@@ -108,4 +108,4 @@ const fetchData = async (page: number) => {
   )
 }
 
-export default lvideosManagment
+export default LvideosManagment
