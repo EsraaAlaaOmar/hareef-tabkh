@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="copyright">
               <p> جميع الحقوق محفوظة © {curentYear} لدى شركة إيجيبت لينكس </p>
               <a href="http://egyptlinx.com/" target="_blank">
-                <Image  src="/images/Elinx-logo.png" alt="egyptlinx" width={100} height={100}  />
+                <Image  src="/images/Elinx-logo.png" alt="egyptlinx" width={200} height={200}  />
               </a>
             </div>
           </div>

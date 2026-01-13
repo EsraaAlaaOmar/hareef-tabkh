@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React , {useState,useRef} from 'react'
 import { BsFillPlayFill } from 'react-icons/bs';
 import { Box, Text } from "@chakra-ui/react"
@@ -29,11 +30,12 @@ interface VideoData {
 
 interface MyPendingvideoProps {
   refetch:Function,
+   refetchVideos:any
   videodetails: VideoData,
  
 }
   
-const MyPendingvideo: React.FC<MyPendingvideoProps> =({refetch, videodetails}) => {
+const MyPendingvideo: React.FC<MyPendingvideoProps> =({refetch, videodetails,refetchVideos}) => {
   const [showList, setShowList] = useState(false)
   const [play, setPlay] = useState(false)
   
@@ -65,6 +67,19 @@ const handleClickInside = () => {
   
   // Convert the date to a string in Arabic
   const formattedDate = date.toLocaleString('ar-EG', options);
+
+      const DeleteVideo = async (VideoId:number) => {
+
+        await axios.post(
+          `https://vf.alerting.services/SherbiniApis/Users/DeleteVideo?VideoId=${VideoId}
+          `,
+          {},
+          {
+        
+          }
+        );
+        refetchVideos()
+      };
   return (
     <>
       {/* <Box bgColor='#fff' w='100%' h="130px" textAlign='center' position='relative' bgImage={`url(${videodetails?.Url})`}  bgRepeat="no-repeat" bgSize="cover" borderRadius="10px">
@@ -122,7 +137,7 @@ const handleClickInside = () => {
        {showList && <div className='list'  ref={ref}  onClick={handleClickInside}>
           <div><span><BiShare /></span>مشاركة </div>
           <div><span><FiEdit /> </span>تعديل </div>
-          <div><span><BiBasket /></span>مسح</div>
+          <div><span><BiBasket onClick={()=>DeleteVideo(videodetails?.VideoId)} /></span>مسح</div>
         </div>}
      
       </div>

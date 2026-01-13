@@ -8,6 +8,7 @@ import { FiEdit } from 'react-icons/fi'
 import { AiOutlineHeart, AiOutlineCloseCircle } from 'react-icons/ai'
 import { FiMoreVertical } from 'react-icons/fi'
 import { useOnClickOutside } from 'usehooks-ts'
+import axios from 'axios';
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -31,11 +32,12 @@ interface VideoData {
 interface MyRefusedvideoProps {
   refetch:Function,
   videodetails: VideoData,
+   refetchVideos:any 
 
 
 }
   
-const MyRefusedvideo: React.FC<MyRefusedvideoProps> =({refetch, videodetails}) => {
+const MyRefusedvideo: React.FC<MyRefusedvideoProps> =({refetch, videodetails,refetchVideos}) => {
 
   const [showList, setShowList] = useState(false)
   
@@ -68,6 +70,18 @@ const handleClickOutside2 = () => {
   
   // Convert the date to a string in Arabic
   const formattedDate = date.toLocaleString('ar-EG', options);
+      const DeleteVideo = async (VideoId:number) => {
+
+        await axios.post(
+          `https://vf.alerting.services/SherbiniApis/Users/DeleteVideo?VideoId=${VideoId}
+          `,
+          {},
+          {
+        
+          }
+        );
+        refetchVideos()
+      };
   return (
     <>
       {/* <Box bgColor='#fff' w='100%' h="130px" textAlign='center' position='relative' bgImage={`url(${videodetails?.Url})`}  bgRepeat="no-repeat" bgSize="cover" borderRadius="10px">
@@ -119,11 +133,16 @@ const handleClickOutside2 = () => {
       <div className='videoname'>{videodetails?.Description}</div>
       <div className='like-vid'><AiOutlineHeart /></div>
   
-        <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
-    
       
-     
-      </div>
+              <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
+       
+             {showList && <div className='list'  ref={ref}  onClick={handleClickInside}>
+                <div><span><BiShare /></span>مشاركة </div>
+                <div><span><FiEdit /> </span>تعديل </div>
+                <div><span><BiBasket onClick={()=>DeleteVideo(videodetails.VideoId)} /></span>مسح</div>
+              </div>}
+           
+            </div>
     </>
    
   )
