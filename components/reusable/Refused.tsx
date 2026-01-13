@@ -37,7 +37,7 @@ interface MyRefusedvideoProps {
 
 }
   
-const MyRefusedvideo: React.FC<MyRefusedvideoProps> =({refetch, videodetails,refetchVideos}) => {
+const MyRefusedvideo: React.FC<MyRefusedvideoProps> =({ videodetails,refetchVideos}) => {
 
   const [showList, setShowList] = useState(false)
   

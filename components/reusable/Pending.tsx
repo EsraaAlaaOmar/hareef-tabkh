@@ -35,7 +35,7 @@ interface MyPendingvideoProps {
  
 }
   
-const MyPendingvideo: React.FC<MyPendingvideoProps> =({refetch, videodetails,refetchVideos}) => {
+const MyPendingvideo: React.FC<MyPendingvideoProps> =({ videodetails,refetchVideos}) => {
   const [showList, setShowList] = useState(false)
   const [play, setPlay] = useState(false)
   
