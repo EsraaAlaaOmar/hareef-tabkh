@@ -29,13 +29,13 @@ interface VideoData {
 }
 
 interface MyPendingvideoProps {
-  refetch:Function,
-   refetchVideos:any
+  
+   refetch:any
   videodetails: VideoData,
  
 }
   
-const MyPendingvideo: React.FC<MyPendingvideoProps> =({ videodetails,refetchVideos}) => {
+const MyPendingvideo: React.FC<MyPendingvideoProps> =({ videodetails,refetch}) => {
   const [showList, setShowList] = useState(false)
   const [play, setPlay] = useState(false)
   
@@ -78,7 +78,7 @@ const handleClickInside = () => {
         
           }
         );
-        refetchVideos()
+        refetch()
       };
   return (
     <>

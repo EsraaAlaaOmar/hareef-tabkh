@@ -30,14 +30,14 @@ interface VideoData {
 
   
 interface MyRefusedvideoProps {
-  refetch:Function,
+  
   videodetails: VideoData,
-   refetchVideos:any 
+   refetch:any 
 
 
 }
   
-const MyRefusedvideo: React.FC<MyRefusedvideoProps> =({ videodetails,refetchVideos}) => {
+const MyRefusedvideo: React.FC<MyRefusedvideoProps> =({ videodetails,refetch}) => {
 
   const [showList, setShowList] = useState(false)
   
@@ -80,7 +80,7 @@ const handleClickOutside2 = () => {
         
           }
         );
-        refetchVideos()
+        refetch()
       };
   return (
     <>
