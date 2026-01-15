@@ -5,10 +5,12 @@ import Image from 'next/image';
 import { IoIosPeople, IoIosTimer } from 'react-icons/io'
 import {BsPlay } from 'react-icons/bs'
 import { BiShare , BiBasket} from 'react-icons/bi'
+import Share from './Share';
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { FiMoreVertical } from 'react-icons/fi'
 import { useOnClickOutside } from 'usehooks-ts'
+import axios from 'axios';
 interface VideoData {
   // Define the properties of the video data you are expecting
   // id: number;
@@ -33,11 +35,12 @@ interface myvideoProps {
   videodetails: VideoData,
 
 
+
 }
   
 const Myvideo: React.FC<myvideoProps> =({refetch, videodetails}) => {
   const [showList, setShowList] = useState(false)
-  
+    const [share, setShare] = useState(false)
   const [play, setPlay] = useState(false)
 
   
@@ -65,6 +68,7 @@ const handleClickInside = () => {
   console.log('clicked inside')
 }
 
+
   useOnClickOutside(ref, handleClickOutside)
   const date = new Date(videodetails.DateIn);
 
@@ -73,6 +77,32 @@ const handleClickInside = () => {
   
   // Convert the date to a string in Arabic
   const formattedDate = date.toLocaleString('ar-EG', options);
+
+
+  const handleShareClick = () => {
+    setShare(true);
+    // (window as any).FB?.ui({
+    //   method: 'share',
+    //   href: 'https://example.com', // URL you want to share
+    // });
+  };
+    const handleClickOutsideShare = () => { 
+setShare(false)
+  }
+   useOnClickOutside(ref2, handleClickOutsideShare)
+    const DeleteVideo = async (VideoId:number) => {
+
+        await axios.post(
+          `https://vf.alerting.services/SherbiniApis/Users/DeleteVideo?VideoId=${VideoId}
+          `,
+          {},
+          {
+        
+          }
+        );
+        refetch()
+      };
+
   return (
     <>
       {/* <Box bgColor='#fff' w='100%' h="130px" textAlign='center' position='relative' bgImage={`url(${videodetails?.Url})`}  bgRepeat="no-repeat" bgSize="cover" borderRadius="10px">
@@ -102,6 +132,7 @@ const handleClickInside = () => {
            </div>}
       <div className='video-box myvedio-box'>
         <div className='rel'>
+           {share && <div className='share-box'  ref={ref2}><Share id={videodetails.VideoId} refetchVideos={refetch} /></div>}
           <span className='play-icon' onClick={()=>setPlay(true)}><BsPlay /></span>
           <video
         className="competetion-video"
@@ -130,9 +161,9 @@ const handleClickInside = () => {
         <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
         <div className='video-time'> <span><IoIosTimer /></span> {formattedDate}</div>
        {showList && <div className='list'  ref={ref}  onClick={handleClickInside}>
-          <div><span><BiShare /></span>مشاركة </div>
-          <div><span><FiEdit /> </span>تعديل </div>
-          <div><span><BiBasket /></span>مسح</div>
+          <div onClick={handleShareClick}><span><BiShare /></span>مشاركة </div>
+          {/* <div><span><FiEdit /> </span>تعديل </div> */}
+        <div><span><BiBasket onClick={()=>DeleteVideo(videodetails.VideoId)} /></span>مسح</div>
         </div>}
      
       </div>

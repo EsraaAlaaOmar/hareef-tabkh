@@ -204,7 +204,7 @@ setShare(false)
         <div className='userName'>{videodetails?.Title}</div>
         <div className='videoname'>{ videodetails?.Description}</div>
       {/* <div className='like-vid' onClick={()=>setLike(!like)} >{like? <AiFillHeart/>: <AiOutlineHeart /> }</div> */}
-      <div className='share-vid black_button' onClick={handleShareClick}><BiShare /></div>
+      <div className='share-vid' onClick={handleShareClick}><BiShare /></div>
       <div className='video-time'> <span><IoIosTimer /></span> { formattedDate}</div>
       <div className='vote' onClick={()=>addVoteRedirect(videodetails.VideoId)}>{Liked?<>الغاء التصويت</> :<>تصويت</>}</div>
     {/* <div>{Liked}</div> */}

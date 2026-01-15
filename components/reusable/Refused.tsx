@@ -137,8 +137,8 @@ const handleClickOutside2 = () => {
               <div className='share-vid  black_button' onClick={() => setShowList(true)}><FiMoreVertical /></div>
        
              {showList && <div className='list'   ref={ref}  onClick={handleClickInside}>
-                <div><span><BiShare /></span>مشاركة </div>
-                <div><span><FiEdit /> </span>تعديل </div>
+                {/* <div><span><BiShare /></span>مشاركة </div> */}
+                {/* <div><span><FiEdit /> </span>تعديل </div> */}
                 <div><span><BiBasket onClick={()=>DeleteVideo(videodetails.VideoId)} /></span>مسح</div>
               </div>}
            

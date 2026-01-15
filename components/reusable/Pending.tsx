@@ -135,8 +135,8 @@ const handleClickInside = () => {
         <div className='share-vid' onClick={() => setShowList(true)}><FiMoreVertical /></div>
  
        {showList && <div className='list'  ref={ref}  onClick={handleClickInside}>
-          <div><span><BiShare /></span>مشاركة </div>
-          <div><span><FiEdit /> </span>تعديل </div>
+          {/* <div><span><BiShare /></span>مشاركة </div> */}
+          {/* <div><span><FiEdit /> </span>تعديل </div> */}
           <div><span><BiBasket onClick={()=>DeleteVideo(videodetails?.VideoId)} /></span>مسح</div>
         </div>}
      
